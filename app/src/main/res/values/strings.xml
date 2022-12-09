@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Dawinii</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_up">
+
+Sign Up
+</string>
+    <string name="login">
+
+Login
+</string>
+    <string name="welcome_to_">
+
+Welcome to Dawinii, let"&apos;"s get started!
+</string>
+    <string name="sign_in_usi">
+
+Sign in using your social media account
+</string>
+    <string name="create_an_a">
+
+Create an account so you can access our app
+</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="loginUserName">Enter your email adress</string>
+    <string name="loginPassword">Enter your password</string>
+    <string name="userName">@username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="Scedule">Scedule</string>
+    <string name="Routine">Routine</string>
+    <string name="History">History</string>
+    <string-array name="months">
+        <item>Months</item>
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>Septemper</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+</resources>

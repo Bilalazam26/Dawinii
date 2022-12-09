@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_screen"
+    app:startDestination="@id/navigation_scedule">
+
+    <fragment
+        android:id="@+id/navigation_scedule"
+        android:name="com.grad.dawinii.view.main.SceduleFragment"
+        android:label="fragment_scedule"
+        tools:layout="@layout/fragment_scedule" />
+    <fragment
+        android:id="@+id/navigation_routine"
+        android:name="com.grad.dawinii.view.main.RoutineFragment"
+        android:label="fragment_routine"
+        tools:layout="@layout/fragment_routine" />
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.grad.dawinii.view.main.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+</navigation>

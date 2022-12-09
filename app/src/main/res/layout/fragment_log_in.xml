@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="25dp"
+    android:orientation="vertical"
+    android:background="@drawable/fragment_background"
+    tools:context=".view.authentication.logInFragment">
+
+
+    <TextView
+        android:id="@+id/tvLogIn"
+        style="@style/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mada_bold"
+        android:text="@string/login"
+        android:textSize="50sp"
+        />
+
+    <TextView
+        android:id="@+id/tvWelcome_to_"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+
+        android:fontFamily="@font/manjari_regular"
+        android:gravity="center"
+        android:text="@string/welcome_to_"
+        android:textAppearance="@style/welcome_to_" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etUserName"
+        android:layout_width="match_parent"
+        android:ems="10"
+        android:hint="@string/loginUserName"
+        android:inputType="textPersonName"
+        style="@style/et"
+        android:textColorHint="#4702013E"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        style="@style/et"
+        android:autofillHints="password"
+        android:ems="10"
+        android:hint="@string/loginPassword"
+        android:inputType="textPassword"
+        android:textColorHint="#4702013E"
+         />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logInBtn"
+        style="@style/button"
+        android:text="@string/login"
+        />
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/manjari_bold"
+        android:text="Forget your password ?"
+        android:textColor="@color/primaryColor"
+         />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:textAlignment="center"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/manjari_regular"
+        android:text="@string/sign_in_usi"
+        android:textColor="#818181"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/googleBtn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="75dp"
+            android:scaleType="centerInside"
+            android:scrollbarThumbHorizontal="@drawable/google_logo"
+            android:scrollbarThumbVertical="@drawable/google_logo"
+            android:src="@drawable/google_logo"
+            app:backgroundTint="#00FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/facebookBtn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="75dp"
+            android:scaleType="centerInside"
+            android:scrollbarThumbHorizontal="@drawable/google_logo"
+            android:scrollbarThumbVertical="@drawable/google_logo"
+            android:src="@drawable/facebk_logo"
+            app:backgroundTint="#00FFFFFF" />
+    </RelativeLayout>
+</LinearLayout>

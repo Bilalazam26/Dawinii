@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bachground"
+    tools:context=".view.main.MainScreenActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mainScreenToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/main_screen_theme"
+        android:padding="15dp"
+        app:title="Welcome !"
+        app:titleTextAppearance="@style/toolbar_title"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/mainScreenNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/main_screen_bnv"
+        app:labelVisibilityMode="selected"
+        app:itemTextColor="@color/white"
+        android:background="@drawable/bachground"
+        app:itemIconTint="@color/white"
+        app:itemTextAppearanceActive="@style/Widget.BottomNavigationView"
+        app:itemTextAppearanceInactive="@style/Widget.BottomNavigationView"
+        />
+
+    <fragment
+        android:id="@+id/nav_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/mainScreenNav"
+        app:navGraph="@navigation/main_screen" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
