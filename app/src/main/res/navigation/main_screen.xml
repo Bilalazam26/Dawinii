@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/navigation_scedule"
-        android:name="com.grad.dawinii.view.main.SceduleFragment"
+        android:name="com.grad.dawinii.main.SceduleFragment"
         android:label="fragment_scedule"
         tools:layout="@layout/fragment_scedule" />
     <fragment
         android:id="@+id/navigation_routine"
-        android:name="com.grad.dawinii.view.main.RoutineFragment"
+        android:name="com.grad.dawinii.main.RoutineFragment"
         android:label="fragment_routine"
         tools:layout="@layout/fragment_routine" />
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.grad.dawinii.view.main.HistoryFragment"
+        android:name="com.grad.dawinii.main.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
 </navigation>

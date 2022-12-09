@@ -1,4 +1,4 @@
-package com.grad.dawinii.view.main
+package com.grad.dawinii.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

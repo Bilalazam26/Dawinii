@@ -7,7 +7,7 @@
     android:padding="25dp"
     android:orientation="vertical"
     android:background="@drawable/fragment_background"
-    tools:context=".view.authentication.logInFragment">
+    tools:context=".authentication.logInFragment">
 
 
     <TextView

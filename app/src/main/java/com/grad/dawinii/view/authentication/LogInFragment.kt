@@ -1,4 +1,4 @@
-package com.grad.dawinii.view.authentication
+package com.grad.dawinii.authentication
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

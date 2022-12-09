@@ -1,4 +1,4 @@
-package com.grad.dawinii.view.authentication
+package com.grad.dawinii.authentication
 
 import android.annotation.SuppressLint
 import android.content.Context
