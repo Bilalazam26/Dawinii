@@ -2,6 +2,7 @@ package com.grad.dawinii.authentication
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,11 +12,19 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.grad.dawinii.R
 import com.grad.dawinii.databinding.FragmentSignUpBinding
+import com.grad.dawinii.main.MainScreenActivity
+import com.grad.dawinii.model.User
+import com.grad.dawinii.util.Constants
+import com.grad.dawinii.util.makeToast
+import com.grad.dawinii.viewModel.AuthViewModel
 
 class signUpFragment : Fragment() {
     lateinit var binding: FragmentSignUpBinding
+    lateinit var authViewModel: AuthViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -28,60 +37,71 @@ class signUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSignUpBinding.inflate(inflater,container,false)
-        initView()
         return binding.root
     }
 
-    @SuppressLint("ResourceType")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
+        authViewModel.userMutableLiveData.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                startActivity(Intent(context, MainScreenActivity::class.java))
+            }
+        })
+        initView()
+    }
+
     private fun initView() {
-        val months = resources.getStringArray(R.array.months)
-        val adapterMonth = ArrayAdapter<String>(context as Context,android.R.layout.simple_spinner_dropdown_item,months)
-        val spinnerAdapter= object : ArrayAdapter<String>(context as Context,android.R.layout.simple_spinner_item, months){
-            override fun isEnabled(position: Int): Boolean {
-                return position !=0
-            }
-
-            override fun getDropDownView(
-                position: Int,
-                convertView: View?,
-                parent: ViewGroup
-            ): View {
-                val view :TextView = super.getDropDownView(position, convertView, parent) as TextView
-                if (position==0)
-                {
-                    view.setTextColor(Color.GRAY)
-                }
-                else{
-                    view.setTextColor(Color.BLACK)
-                }
-                return view
-            }
+        binding.btnSignUp.setOnClickListener {
+            inputUserData()
         }
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.spinnerMonth.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
+    }
 
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val value = parent!!.getItemAtPosition(position).toString()
-                if(value == months[0]){
-                    (view as TextView).setTextColor(Color.GRAY)
+    private fun inputUserData() {
+        val name = "${binding.etFirstName.text.toString()} ${binding.etLastName.text.toString()}"
+        val email = binding.etSignUpEmail.text.toString()
+        val password = binding.etSignUpPassword.text.toString()
+        val rePassword = binding.etSignUpRePassword.text.toString()
+        val inputAge = binding.etSignUpAge.text.toString()
+        var age:Int
+        val gender = getGender()
+
+        if (!(email.isNullOrEmpty() || name.isNullOrEmpty() || password.isNullOrEmpty() || rePassword.isNullOrEmpty() || inputAge.isNullOrEmpty())) {
+            age = inputAge.toInt()
+            if (age < 12) {
+                makeToast(context, "Only +12")
+            } else {
+                if (password.equals(rePassword)){
+                    val user = User(name = name, email = email, password = password, age = age, gender = gender)
+                    signUp(user)
+                } else {
+                    makeToast(context, "Check Password Confirmation")
                 }
             }
-
+        } else {
+            makeToast(context, "Empty Field!")
         }
-        binding.spinnerMonth.adapter = spinnerAdapter
+
 
     }
 
+    private fun getGender(): String {
+        var gender:String = ""
+        when(binding.rbgGender.checkedRadioButtonId) {
+            binding.rbMale.id -> gender = Constants.GENDER_MALE
+            binding.rbFemale.id -> gender = Constants.GENDER_FEMALE
+        }
+        return gender
+    }
+
+    private fun signUp(user: User) {
+        authViewModel.signUp(user)
+    }
+
+
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             signUpFragment().apply {
                 arguments = Bundle().apply {
 

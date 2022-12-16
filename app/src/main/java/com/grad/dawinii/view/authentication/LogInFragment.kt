@@ -1,14 +1,22 @@
 package com.grad.dawinii.authentication
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.grad.dawinii.R
+import com.grad.dawinii.databinding.FragmentLogInBinding
+import com.grad.dawinii.main.MainScreenActivity
+import com.grad.dawinii.viewModel.AuthViewModel
 
 
 class logInFragment : Fragment() {
+    private lateinit var binding: FragmentLogInBinding
+    private lateinit var authViewModel: AuthViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -20,14 +28,42 @@ class logInFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentLogInBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        return inflater.inflate(R.layout.fragment_log_in, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
+        authViewModel.userMutableLiveData.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                startActivity(Intent(context, MainScreenActivity::class.java))
+                activity?.onBackPressed()
+                activity?.finish()
+            }
+        })
+        initView()
+    }
+
+    private fun initView() {
+        binding.logInBtn.setOnClickListener {
+            logIn()
+        }
+    }
+
+    private fun logIn() {
+        val email = binding.etLogInEmail.text.toString()
+        val password = binding.etLogInPassword.text.toString()
+
+        if (!(email.isNullOrEmpty() || password.isNullOrEmpty())) {
+            authViewModel.logIn(email, password)
+        }
     }
 
     companion object {
 
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             logInFragment().apply {
                 arguments = Bundle().apply {
 

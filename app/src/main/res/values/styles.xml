@@ -8,10 +8,7 @@
         <item name="android:textSize">116.29sp</item>
         <item name="android:textColor">#257044</item>
     </style>
-    <style name="welcome_to_">
-        <item name="android:textSize">37.79px</item>
-        <item name="android:textColor">#ABABBF</item>
-    </style>
+
     <style name="et">
         <item name="android:layout_marginTop" >5dp</item>
         <item name="android:textAlignment">center</item>

@@ -3,10 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/drawable/btn_background.xml" value="0.241" />
+        <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/drawable/edit_text_background.xml" value="0.241" />
+        <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/activity_auth.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/activity_main_screen.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/fragment_history.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/fragment_log_in.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/fragment_routine.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/fragment_scedule.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/fragment_sign_up.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/blala/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/blala/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.27447916666666666" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/drawable/bachground.xml" value="0.208" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/drawable/btn_background.xml" value="0.2415" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/drawable/edit_text_background.xml" value="0.2595" />

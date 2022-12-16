@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="25dp"
     android:background="@drawable/fragment_background"
@@ -13,7 +13,7 @@
         android:id="@+id/tvSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/login"
+        android:textColor="#257044"
         android:textSize="50sp"
         android:fontFamily="@font/mada_bold"
         android:text="@string/sign_up" />
@@ -25,8 +25,8 @@
         android:fontFamily="@font/manjari_regular"
         android:gravity="center"
         android:text="@string/create_an_a"
-        android:textAppearance="@style/welcome_to_"
-/>
+        android:textColor="#ABABBF"
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
             android:inputType="textPersonName"
             android:hint="@string/firstName"
             style="@style/et"
-             />
+            />
 
         <EditText
             android:layout_margin="2dp"
@@ -56,70 +56,48 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/signUp_username"
+        android:id="@+id/etSignUpEmail"
         style="@style/et"
         android:layout_width="match_parent"
         android:ems="10"
-        android:hint="@string/userName"
+        android:hint="@string/eMailHint"
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/signUp_password"
+        android:id="@+id/etSignUpPassword"
         style="@style/et"
         android:layout_width="match_parent"
         android:contextClickable="false"
+        app:endIconMode="password_toggle"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/signUp_password2"
+        android:id="@+id/etSignUpRePassword"
         android:layout_width="match_parent"
         style="@style/et"
+        app:endIconMode="password_toggle"
         android:hint="@string/confirm_password"
         android:ems="10"
         android:inputType="textPassword" />
-    <LinearLayout
+    <EditText
+        android:id="@+id/etSignUpAge"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp">
+        style="@style/et"
+        android:hint="@string/age"
+        android:ems="10"
+        android:inputType="number" />
 
-        <EditText
-            android:id="@+id/etYear"
-            style="@style/et"
-            android:hint="Year"
-            android:layout_width="0dp"
-            android:layout_marginHorizontal="2dp"
-            android:layout_weight="1" />
-
-        <Spinner
-            android:id="@+id/spinnerMonth"
-            style="@style/et"
-            android:layout_width="0dp"
-            android:layout_marginHorizontal="2dp"
-            android:layout_weight="1"
-            tools:ignore="SpeakableTextPresentCheck" />
-        <EditText
-            android:id="@+id/etDay"
-            android:layout_width="0dp"
-            style="@style/et"
-            android:hint="Day"
-            android:layout_marginHorizontal="2dp"
-            android:layout_weight="1"
-
-            />
-
-    </LinearLayout>
 
     <RadioGroup
+        android:id="@+id/rbgGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/rbMale"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
@@ -132,7 +110,7 @@
             android:textSize="15sp" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rbFemale"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
@@ -148,6 +126,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSignUp"
         style="@style/button"
+        android:layout_marginBottom="12dp"
         android:text="@string/sign_up" />
 
 </LinearLayout>

@@ -27,24 +27,12 @@ Create an account so you can access our app
     <string name="loginUserName">Enter your email adress</string>
     <string name="loginPassword">Enter your password</string>
     <string name="userName">@username</string>
+    <string name="eMailHint">E-mail : xxxxxx@example.com</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="age">Age</string>
     <string name="Scedule">Scedule</string>
     <string name="Routine">Routine</string>
     <string name="History">History</string>
-    <string-array name="months">
-        <item>Months</item>
-        <item>January</item>
-        <item>February</item>
-        <item>March</item>
-        <item>April</item>
-        <item>May</item>
-        <item>June</item>
-        <item>July</item>
-        <item>August</item>
-        <item>Septemper</item>
-        <item>October</item>
-        <item>November</item>
-        <item>December</item>
-    </string-array>
+
 </resources>
