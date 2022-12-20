@@ -35,4 +35,8 @@ class AuthViewModel(application: Application): AndroidViewModel(application){
         authRepository.logOut()
     }
 
+    fun resetPassword(email: String) {
+        authRepository.resetPassword(email)
+    }
+
 }

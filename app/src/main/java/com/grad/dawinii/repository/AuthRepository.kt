@@ -9,6 +9,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.grad.dawinii.model.User
 import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.makeToast
+import io.paperdb.Paper
 
 class AuthRepository(application: Application) {
 
@@ -24,17 +25,27 @@ class AuthRepository(application: Application) {
         this.authReference = FirebaseAuth.getInstance()
         this.userMutableLiveData = MutableLiveData()
         this.isLoggedOutMutableLiveData = MutableLiveData()
+
+        Paper.init(application)
     }
 
     fun signUp(user: User) {
         //1. create user
-        authReference.createUserWithEmailAndPassword(user.email, user.password)
+        val email = user.email
+        val password = user.password
+        authReference.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     val updatedUser = user
                     updatedUser.id = authReference.currentUser?.uid as String
-                    userMutableLiveData.postValue(authReference.currentUser)
+                    if(authReference.currentUser?.isEmailVerified as Boolean) {
+                        userMutableLiveData.postValue(authReference.currentUser)
+                    } else {
+                        makeToast(application, "Please Check Your Email for Verification")
+                        authReference.currentUser?.sendEmailVerification()
+                    }
                     saveUser(updatedUser)
+                    rememberUser(email, password)
                 } else {
                     makeToast(application, "Failed! : ${it.exception?.message.toString()}")
                 }
@@ -44,9 +55,7 @@ class AuthRepository(application: Application) {
 
     fun saveUser(user: User){
         databaseReference.child(Constants.USER_DATABASE_REFERENCE).child(user.id).setValue(user)
-            .addOnSuccessListener {
-                makeToast(application, "Signed Up SuccessFully")
-            }.addOnFailureListener {
+            .addOnFailureListener {
                 makeToast(application, "Failed! : ${it.message.toString()}")
             }
 
@@ -57,8 +66,16 @@ class AuthRepository(application: Application) {
             authReference.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener {
                     it?.let {
-                        userMutableLiveData.postValue(authReference.currentUser)
-                        makeToast(application, "Logged In Successfully")
+                        val currentUser = authReference.currentUser as FirebaseUser
+                        if(currentUser.isEmailVerified) {
+                            userMutableLiveData.postValue(authReference.currentUser)
+                            rememberUser(email, password)
+                            makeToast(application, "Logged In Successfully")
+                        } else {
+                            currentUser.sendEmailVerification()
+                            makeToast(application, "Please Check Your Email for Verification")
+                        }
+
                     }
                 }.addOnFailureListener {
                     makeToast(application, "Failed to Log In : ${it.message.toString()}")
@@ -70,5 +87,15 @@ class AuthRepository(application: Application) {
     fun logOut() {
         authReference.signOut()
         isLoggedOutMutableLiveData.postValue(true)
+    }
+
+    private fun rememberUser(email: String, password: String) {
+        Paper.book().write<String>(Constants.EMAIL_PAPER_KEY, email)
+        Paper.book().write<String>(Constants.PASSWORD_PAPER_KEY, password)
+    }
+
+    fun resetPassword(email: String) {
+        authReference.sendPasswordResetEmail(email)
+        makeToast(application, "Check your email to reset your password")
     }
 }

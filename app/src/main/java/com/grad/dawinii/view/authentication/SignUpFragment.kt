@@ -21,6 +21,7 @@ import com.grad.dawinii.model.User
 import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.makeToast
 import com.grad.dawinii.viewModel.AuthViewModel
+import io.paperdb.Paper
 
 class signUpFragment : Fragment() {
     lateinit var binding: FragmentSignUpBinding
@@ -42,13 +43,31 @@ class signUpFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Paper.init(context as Context)
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
         authViewModel.userMutableLiveData.observe(viewLifecycleOwner, Observer {
             if (it != null) {
                 startActivity(Intent(context, MainScreenActivity::class.java))
+                activity?.onBackPressed()
+                activity?.finish()
             }
         })
         initView()
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val email = Paper.book().read<String>(Constants.EMAIL_PAPER_KEY)
+        val password = Paper.book().read<String>(Constants.PASSWORD_PAPER_KEY)
+        if (email != null && password != null) {
+            authViewModel.logIn(email, password)
+        }
     }
 
     private fun initView() {
