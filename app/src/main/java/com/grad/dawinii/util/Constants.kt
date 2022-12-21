@@ -8,4 +8,8 @@ object Constants {
     //database
     const val USER_DATABASE_REFERENCE = "User"
 
+    //PaperDB
+    const val EMAIL_PAPER_KEY = "Username"
+    const val PASSWORD_PAPER_KEY = "Password"
+
 }

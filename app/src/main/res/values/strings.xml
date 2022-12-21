@@ -34,5 +34,8 @@ Create an account so you can access our app
     <string name="Scedule">Scedule</string>
     <string name="Routine">Routine</string>
     <string name="History">History</string>
+    <string name="resetPassword">Reset Password</string>
+    <string name="resetPasswordHint">No worries! just enter your email below and the reset password email will be sent</string>
+    <string name="resetPasswordEmailSend">Send</string>
 
 </resources>
