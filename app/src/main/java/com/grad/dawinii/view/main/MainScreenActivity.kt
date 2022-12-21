@@ -15,7 +15,12 @@ class MainScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setupNavBar()
+    }
+
+    private fun setupNavBar() {
         val navController = findNavController(R.id.nav_fragment)
         binding.mainScreenNav.setupWithNavController(navController)
     }
+
 }

@@ -18,17 +18,19 @@
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/drawable/btn_background.xml" value="0.2415" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/drawable/edit_text_background.xml" value="0.2595" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/drawable/fragment_background.xml" value="0.159" />
+        <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/drawable/ic_milk.xml" value="0.235" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/drawable/ic_pill.xml" value="0.1535" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/drawable/main_fragment_background.xml" value="0.235" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/drawable/no_eye.xml" value="0.2585" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/layout/activity_auth.xml" value="0.25416666666666665" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/layout/activity_main_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/layout/activity_main_screen.xml" value="0.264" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/layout/fragment_history.xml" value="0.24010416666666667" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/layout/fragment_log_in.xml" value="0.264" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/layout/fragment_routine.xml" value="0.25416666666666665" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/layout/fragment_scedule.xml" value="0.24010416666666667" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/layout/fragment_sign_up.xml" value="0.264" />
+        <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/layout/medicine_layout.xml" value="0.264" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/menu/main_screen_bnv.xml" value="0.25416666666666665" />
         <entry key="..\:/project/android_studio/Dawinii/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.235" />
       </map>
