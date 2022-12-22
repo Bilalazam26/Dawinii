@@ -4,9 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_scedule"
+        android:id="@+id/navigation_schedule"
         android:icon="@drawable/ic_routines"
-        android:title="@string/Scedule" />
+        android:title="@string/Schedule" />
     <item
         android:id="@+id/navigation_routine"
         android:icon="@drawable/ic_notefavorite"

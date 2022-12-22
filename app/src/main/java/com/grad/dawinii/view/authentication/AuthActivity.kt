@@ -49,8 +49,8 @@ class AuthActivity : AppCompatActivity() {
 
     private fun setupPager() {
         val adapter = PagerAdapter(this)
-        adapter.addFragment(logInFragment(),"LOGIN")
-        adapter.addFragment(signUpFragment(),"SIGNUP")
+        adapter.addFragment(LogInFragment(),"LOGIN")
+        adapter.addFragment(SignUpFragment(),"SIGNUP")
         binding.pager.adapter = adapter
         TabLayoutMediator(binding.tabLayout,binding.pager){tab , position ->
             tab.text = adapter.titles[position]

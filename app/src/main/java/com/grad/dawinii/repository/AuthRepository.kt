@@ -53,7 +53,7 @@ class AuthRepository(application: Application) {
 
     }
 
-    fun saveUser(user: User){
+    private fun saveUser(user: User){
         databaseReference.child(Constants.USER_DATABASE_REFERENCE).child(user.id).setValue(user)
             .addOnFailureListener {
                 makeToast(application, "Failed! : ${it.message.toString()}")
