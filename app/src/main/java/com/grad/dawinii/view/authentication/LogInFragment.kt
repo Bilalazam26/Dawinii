@@ -13,7 +13,7 @@ import com.grad.dawinii.view.main.MainScreenActivity
 import com.grad.dawinii.viewModel.AuthViewModel
 
 
-class logInFragment : Fragment() {
+class LogInFragment : Fragment() {
     private lateinit var binding: FragmentLogInBinding
     private lateinit var authViewModel: AuthViewModel
 
@@ -82,7 +82,7 @@ class logInFragment : Fragment() {
 
         @JvmStatic
         fun newInstance() =
-            logInFragment().apply {
+            LogInFragment().apply {
                 arguments = Bundle().apply {
 
                 }

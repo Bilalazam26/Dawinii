@@ -17,9 +17,11 @@ import com.grad.dawinii.util.makeToast
 import com.grad.dawinii.viewModel.AuthViewModel
 import io.paperdb.Paper
 
-class signUpFragment : Fragment() {
-    lateinit var binding: FragmentSignUpBinding
-    lateinit var authViewModel: AuthViewModel
+class SignUpFragment : Fragment() {
+
+    private lateinit var binding: FragmentSignUpBinding
+    private lateinit var authViewModel: AuthViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -115,7 +117,7 @@ class signUpFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() =
-            signUpFragment().apply {
+            SignUpFragment().apply {
                 arguments = Bundle().apply {
 
                 }
