@@ -9,7 +9,7 @@
         android:id="@+id/navigation_scedule"
         android:name="com.grad.dawinii.main.SceduleFragment"
         android:label="fragment_scedule"
-        tools:layout="@layout/fragment_scedule" />
+        tools:layout="@layout/fragment_schedule" />
     <fragment
         android:id="@+id/navigation_routine"
         android:name="com.grad.dawinii.view.main.RoutineFragment"
