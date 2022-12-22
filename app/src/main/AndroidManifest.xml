@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Dawinii"
         tools:targetApi="31">
         <activity
-            android:name="com.grad.dawinii.main.MainScreenActivity"
+            android:name="com.grad.dawinii.view.main.MainScreenActivity"
             android:exported="true">
 
         </activity>

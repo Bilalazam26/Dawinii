@@ -1,22 +1,16 @@
 package com.grad.dawinii.authentication
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.grad.dawinii.R
 import com.grad.dawinii.databinding.FragmentSignUpBinding
-import com.grad.dawinii.main.MainScreenActivity
+import com.grad.dawinii.view.main.MainScreenActivity
 import com.grad.dawinii.model.User
 import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.makeToast

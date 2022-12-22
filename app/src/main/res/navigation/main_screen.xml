@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_scedule" />
     <fragment
         android:id="@+id/navigation_routine"
-        android:name="com.grad.dawinii.main.RoutineFragment"
+        android:name="com.grad.dawinii.view.main.RoutineFragment"
         android:label="fragment_routine"
         tools:layout="@layout/fragment_routine" />
     <fragment

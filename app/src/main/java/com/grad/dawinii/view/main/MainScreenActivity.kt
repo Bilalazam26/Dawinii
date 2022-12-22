@@ -1,5 +1,5 @@
 //Bilal is here
-package com.grad.dawinii.main
+package com.grad.dawinii.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

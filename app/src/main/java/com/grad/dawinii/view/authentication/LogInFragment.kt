@@ -9,11 +9,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.grad.dawinii.databinding.FragmentLogInBinding
-import com.grad.dawinii.main.MainScreenActivity
+import com.grad.dawinii.view.main.MainScreenActivity
 import com.grad.dawinii.viewModel.AuthViewModel
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
-import com.grad.dawinii.R
 
 
 class logInFragment : Fragment() {
