@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_routine" />
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.grad.dawinii.main.HistoryFragment"
+        android:name="com.grad.dawinii.view.main.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
 </navigation>

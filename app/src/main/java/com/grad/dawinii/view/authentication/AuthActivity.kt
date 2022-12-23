@@ -1,4 +1,4 @@
-package com.grad.dawinii.authentication
+package com.grad.dawinii.view.authentication
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +12,6 @@ import com.grad.dawinii.databinding.ActivityAuthBinding
 import com.grad.dawinii.view.main.MainScreenActivity
 import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.PagerAdapter
-import com.grad.dawinii.view.authentication.GoogleLogInFragment
 import com.grad.dawinii.viewModel.AuthViewModel
 import io.paperdb.Paper
 
