@@ -1,4 +1,4 @@
-package com.grad.dawinii.view.authentication
+package com.grad.dawinii.authentication
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +12,8 @@ import com.grad.dawinii.databinding.ActivityAuthBinding
 import com.grad.dawinii.view.main.MainScreenActivity
 import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.PagerAdapter
+import com.grad.dawinii.view.authentication.LogInFragment
+import com.grad.dawinii.view.authentication.SignUpFragment
 import com.grad.dawinii.viewModel.AuthViewModel
 import io.paperdb.Paper
 
@@ -65,10 +67,6 @@ class AuthActivity : AppCompatActivity() {
         if (email != null && password != null) {
             authViewModel.logIn(email as String, password as String)
         }
-    }
-
-    fun googleLogIn() {
-        supportFragmentManager.beginTransaction().replace(R.id.pager, GoogleLogInFragment()).commit()
     }
 
     fun resetPassword() {
