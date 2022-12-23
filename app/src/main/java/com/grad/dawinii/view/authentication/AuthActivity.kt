@@ -1,4 +1,4 @@
-package com.grad.dawinii.authentication
+package com.grad.dawinii.view.authentication
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,13 +7,10 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayoutMediator
-import com.grad.dawinii.R
 import com.grad.dawinii.databinding.ActivityAuthBinding
 import com.grad.dawinii.view.main.MainScreenActivity
 import com.grad.dawinii.util.Constants
-import com.grad.dawinii.util.PagerAdapter
-import com.grad.dawinii.view.authentication.LogInFragment
-import com.grad.dawinii.view.authentication.SignUpFragment
+import com.grad.dawinii.adapter.PagerAdapter
 import com.grad.dawinii.viewModel.AuthViewModel
 import io.paperdb.Paper
 

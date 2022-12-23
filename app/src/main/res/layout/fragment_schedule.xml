@@ -17,22 +17,29 @@
         android:textColor="@color/primaryColor"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
     <TextView
         android:id="@+id/tv_today_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/manjari_bold"
         android:textSize="14sp"
-        tools:text="@tools:sample/date/ddmmyy"
+        tools:text="22-12-2022"
         android:textColor="@color/primaryColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="5dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/medicine_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#00000000"
+        android:background="@drawable/transparent_rounded_bg"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_today_time"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_today_time" />
    
 </androidx.constraintlayout.widget.ConstraintLayout>

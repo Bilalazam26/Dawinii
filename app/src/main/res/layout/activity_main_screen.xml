@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bachground"
+    android:background="@drawable/background"
     tools:context=".view.main.MainScreenActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +42,7 @@
         app:menu="@menu/main_screen_bnv"
         app:labelVisibilityMode="selected"
         app:itemTextColor="@color/white"
-        android:background="@drawable/bachground"
+        android:background="@drawable/background"
         app:itemIconTint="@color/white"
         app:itemTextAppearanceActive="@style/Widget.BottomNavigationView"
         app:itemTextAppearanceInactive="@style/Widget.BottomNavigationView"

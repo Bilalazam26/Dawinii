@@ -60,8 +60,7 @@ class LogInFragment : Fragment() {
     }
 
     private fun googleLogIn() {
-        val authActivity = activity as AuthActivity
-        authActivity.googleLogIn()
+        //todo
     }
 
     private fun resetPassword() {

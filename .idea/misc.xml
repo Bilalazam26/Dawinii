@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/drawable/bachground.xml" value="0.265" />
+        <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/drawable/background.xml" value="0.264" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/drawable/btn_background.xml" value="0.241" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/drawable/edit_text_background.xml" value="0.241" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/drawable/fragment_background.xml" value="0.139" />
+        <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/drawable/transparent_rounded_bg.xml" value="0.264" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/activity_auth.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/activity_main_screen.xml" value="0.1858108108108108" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/fragment_google_log_in.xml" value="0.26132246376811596" />
@@ -14,6 +17,7 @@
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/fragment_reset_password.xml" value="0.26132246376811596" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/fragment_routine.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/fragment_scedule.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/fragment_schedule.xml" value="0.1334853090172239" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/fragment_sign_up.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/blala/AndroidStudioProjects/GraduationProject/Dawinii/app/src/main/res/layout/medicine_layout.xml" value="0.26132246376811596" />
         <entry key="..\:/Users/blala/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.27447916666666666" />
