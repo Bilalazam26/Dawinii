@@ -1,5 +1,4 @@
-package com.grad.dawinii.authentication
-
+package com.grad.dawinii.view.authentication
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -16,7 +15,6 @@ import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.makeToast
 import com.grad.dawinii.viewModel.AuthViewModel
 import io.paperdb.Paper
-
 class SignUpFragment : Fragment() {
 
     private lateinit var binding: FragmentSignUpBinding
