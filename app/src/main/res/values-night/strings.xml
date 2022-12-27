@@ -40,5 +40,7 @@ Create an account so you can access our app
     <string name="today_scedule">Today\'s Scedule</string>
     <string name="notification">Notification</string>
     <string name="welcome">Welcome !</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
 
 </resources>
