@@ -12,8 +12,8 @@ class RoutineRecyclerAdapter(var context: Context) : RecyclerView.Adapter<Routin
     val routines = mutableListOf<Routine>()
     inner class RoutineViewHolder(itemView: RoutineLayoutBinding) :RecyclerView.ViewHolder(itemView.root){
         val routineName = itemView.routineName
-        val startDate = itemView.startDate
-        val endDate = itemView.endDate
+        val startDate = itemView.tvStartDate
+        val endDate = itemView.tvEndDate
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoutineViewHolder {
