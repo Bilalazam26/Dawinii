@@ -14,6 +14,7 @@ class RoutineRecyclerAdapter(var context: Context) : RecyclerView.Adapter<Routin
         val routineName = itemView.routineName
         val startDate = itemView.tvStartDate
         val endDate = itemView.tvEndDate
+        val routineIcon = itemView.ivRoutineIcon
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoutineViewHolder {
@@ -26,6 +27,7 @@ class RoutineRecyclerAdapter(var context: Context) : RecyclerView.Adapter<Routin
         holder.routineName.text = item.name
         holder.startDate.text = item.startDate
         holder.endDate.text= item.endDate
+        holder.routineIcon.setImageResource(item.icon)
     }
 
     override fun getItemCount(): Int {
