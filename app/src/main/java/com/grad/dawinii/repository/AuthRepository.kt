@@ -70,7 +70,7 @@ class AuthRepository(application: Application) {
                         if(currentUser.isEmailVerified) {
                             userMutableLiveData.postValue(authReference.currentUser)
                             rememberUser(email, password)
-                            makeToast(application, "Logged In Successfully")
+
                         } else {
                             currentUser.sendEmailVerification()
                             makeToast(application, "Please Check Your Email for Verification")

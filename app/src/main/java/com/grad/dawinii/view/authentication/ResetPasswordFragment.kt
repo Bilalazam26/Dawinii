@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.grad.dawinii.R
 import com.grad.dawinii.databinding.FragmentResetPasswordBinding
 import com.grad.dawinii.viewModel.AuthViewModel
 

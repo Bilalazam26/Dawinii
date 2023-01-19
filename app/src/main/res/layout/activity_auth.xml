@@ -5,7 +5,7 @@
     android:id="@+id/auth_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryColor"
+    android:background="@drawable/background"
     tools:context=".view.authentication.AuthActivity">
 
     <ImageView
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="92dp"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
@@ -28,9 +28,9 @@
         app:layout_constraintTop_toBottomOf="@+id/auth_logo"
         app:tabGravity="center"
         app:tabIndicatorColor="#00073018"
-        app:tabSelectedTextColor="#09371C"
+        app:tabSelectedTextColor="@color/white"
         app:tabTextAppearance="@style/tabs"
-        app:tabTextColor="@color/white"
+        app:tabTextColor="#09371C"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.viewpager2.widget.ViewPager2

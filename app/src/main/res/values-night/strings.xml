@@ -42,5 +42,6 @@ Create an account so you can access our app
     <string name="welcome">Welcome !</string>
     <string name="from">From</string>
     <string name="to">To</string>
+    <string name="welcome_to">Welcome To</string>
 
 </resources>

@@ -7,7 +7,7 @@
     android:padding="25dp"
     android:orientation="vertical"
     android:background="@drawable/fragment_background"
-    tools:context=".authentication.logInFragment">
+    tools:context=".view.authentication.logInFragment">
 
 
     <TextView
@@ -37,7 +37,6 @@
         android:hint="@string/loginUserName"
         android:inputType="textEmailAddress"
         style="@style/et"
-        android:textColorHint="#4702013E"
         />
 
 
