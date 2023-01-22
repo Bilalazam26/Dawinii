@@ -43,7 +43,6 @@ class SplashActivity : AppCompatActivity() {
         readUserCredentials()
         login()
 
-
     }
 
     private fun readUserCredentials() {

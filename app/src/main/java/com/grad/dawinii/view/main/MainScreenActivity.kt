@@ -1,14 +1,15 @@
 //Bilal is here
 package com.grad.dawinii.view.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.firebase.auth.FirebaseAuth
 import com.grad.dawinii.R
 import com.grad.dawinii.databinding.ActivityMainScreenBinding
+import com.grad.dawinii.view.AddRoutineActivity
 
 class MainScreenActivity : AppCompatActivity() {
 
@@ -21,6 +22,8 @@ class MainScreenActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_fragment)
         binding.mainScreenNav.setupWithNavController(navController)
+
+        binding.addRoutineBtn.setOnClickListener { startActivity(Intent(this, AddRoutineActivity::class.java)) }
 
     }
 

@@ -44,5 +44,6 @@ Create an account so you can access our app
     <string name="to">To</string>
     <string name="remove">remove</string>
     <string name="welcome_to">Welcome To</string>
+    <string name="add_routine">Add Routine</string>
 
 </resources>

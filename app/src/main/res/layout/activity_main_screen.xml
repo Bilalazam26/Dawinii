@@ -60,5 +60,22 @@
         app:layout_constraintTop_toBottomOf="@+id/mainScreenToolbar"
         app:navGraph="@navigation/main_screen" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/add_routine_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:paddingHorizontal="8dp"
+        android:background="@drawable/fab_bg"
+        android:textColor="@color/white"
+        android:text="@string/add_routine"
+        app:cornerRadius="10dp"
+        android:gravity="center"
+        android:drawableStart="@drawable/add_routine_drawable"
+        android:drawablePadding="8dp"
+        app:layout_constraintBottom_toTopOf="@id/mainScreenNav"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

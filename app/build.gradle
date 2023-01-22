@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -36,6 +37,9 @@ android {
 }
 
 dependencies {
+
+    def room_version = "2.5.0"
+
     implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
     implementation "androidx.cardview:cardview:1.0.0"
@@ -54,5 +58,9 @@ dependencies {
     implementation 'io.github.pilgr:paperdb:2.7.2'
 
     implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+
+    //room
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
 
 }
