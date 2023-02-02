@@ -23,7 +23,7 @@ class MainScreenActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_fragment)
         binding.mainScreenNav.setupWithNavController(navController)
 
-        binding.addRoutineBtn.setOnClickListener { startActivity(Intent(this, AddRoutineActivity::class.java)) }
+
 
     }
 

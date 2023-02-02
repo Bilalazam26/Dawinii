@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.grad.dawinii.databinding.MedicineLayoutBinding
-import com.grad.dawinii.model.Medicine
+import com.grad.dawinii.model.entities.Medicine
 
 class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<MedicineRecyclerAdapter.MedicineViewHolder>() {
     private val listOfMedicine = mutableListOf<Medicine>()

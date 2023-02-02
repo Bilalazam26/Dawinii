@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.grad.dawinii.databinding.FragmentSignUpBinding
 import com.grad.dawinii.view.main.MainScreenActivity
-import com.grad.dawinii.model.User
+import com.grad.dawinii.model.entities.User
 import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.makeToast
 import com.grad.dawinii.viewModel.AuthViewModel

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.grad.dawinii.R
 import com.grad.dawinii.adapter.MedicineRecyclerAdapter
 import com.grad.dawinii.databinding.FragmentScheduleBinding
-import com.grad.dawinii.model.Medicine
+import com.grad.dawinii.model.entities.Medicine
 
 class ScheduleFragment : Fragment() {
     lateinit var binding: FragmentScheduleBinding
@@ -49,7 +49,7 @@ class ScheduleFragment : Fragment() {
         val medicineTimes = arrayOf("2:00","3:00","3:30","4:00","6:00")
         val medicines = mutableListOf<Medicine>()
         for (i in routineNames.indices){
-            medicines.add(Medicine(routineNames[i],medicineNames[i],medicineIcons[i],medicineTimes[i]))
+            medicines.add(Medicine(routineName = routineNames[i], medicineName = medicineNames[i], medicineIcon = medicineIcons[i],medicineTime =medicineTimes[i]))
         }
         adapter.setData(medicines)
     }

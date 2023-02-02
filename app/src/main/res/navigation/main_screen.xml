@@ -14,10 +14,18 @@
         android:id="@+id/navigation_routine"
         android:name="com.grad.dawinii.view.main.RoutineFragment"
         android:label="fragment_routine"
-        tools:layout="@layout/fragment_routine" />
+        tools:layout="@layout/fragment_routine" >
+        <action
+            android:id="@+id/action_to_add_routine"
+            app:destination="@id/addRoutineFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_history"
         android:name="com.grad.dawinii.view.main.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/addRoutineFragment"
+        android:name="com.grad.dawinii.view.main.AddRoutineFragment"
+        android:label="AddRoutineFragment" />
 </navigation>

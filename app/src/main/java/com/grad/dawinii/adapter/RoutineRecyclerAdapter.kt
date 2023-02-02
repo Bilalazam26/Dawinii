@@ -2,11 +2,10 @@ package com.grad.dawinii.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.grad.dawinii.databinding.RoutineLayoutBinding
-import com.grad.dawinii.model.Routine
+import com.grad.dawinii.model.entities.Routine
 
 class RoutineRecyclerAdapter(var context: Context) : RecyclerView.Adapter<RoutineRecyclerAdapter.RoutineViewHolder>() {
     val routines = mutableListOf<Routine>()

@@ -6,12 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grad.dawinii.R
 import com.grad.dawinii.adapter.RoutineRecyclerAdapter
 import com.grad.dawinii.databinding.FragmentRoutineBinding
-import com.grad.dawinii.model.Routine
+import com.grad.dawinii.model.entities.Routine
 
 class RoutineFragment : Fragment() {
     lateinit var binding: FragmentRoutineBinding
@@ -34,6 +34,9 @@ class RoutineFragment : Fragment() {
     }
 
     private fun initView() {
+        binding.addRoutineBtn.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_to_add_routine)
+        }
         setupRecyclerView()
         setupDataSourceForRecycler()
     }
@@ -45,7 +48,7 @@ class RoutineFragment : Fragment() {
         val endDates = arrayOf("12-6-2022","13-8-2022","7-7-2022","15-5-2022")
         val routines = mutableListOf<Routine>()
         for (i in routineNames.indices){
-            routines.add(Routine(routineNames[i],startDates[i],endDates[i],routineIcons[i]))
+            routines.add(Routine(name =routineNames[i],startDate= startDates[i],endDate = endDates[i], icon = routineIcons[i]))
         }
         adapter.setData(routines)
     }
