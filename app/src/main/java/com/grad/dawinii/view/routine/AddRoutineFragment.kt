@@ -1,11 +1,10 @@
-package com.grad.dawinii.view.main
+package com.grad.dawinii.view.routine
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.grad.dawinii.R
 import com.grad.dawinii.databinding.FragmentAddRoutineBinding
 
 class AddRoutineFragment : Fragment() {
@@ -32,26 +31,25 @@ class AddRoutineFragment : Fragment() {
     }
 
     private fun initView() {
-        setDoctorView()
+        binding.saveBtn.setOnClickListener {
+            addRoutine()
+        }
     }
 
-    private fun setDoctorView() {
-        binding.noDoctorRb.setOnClickListener {
-            if (binding.noDoctorRb.isChecked) {
-                binding.doctorInfoLayout.visibility = View.GONE
-            }
+    private fun addRoutine() {
+        val routineName = binding.etAddRoutineName.text.toString()
+        binding.addMedicineBtn.setOnClickListener {
+            addMedicine()
         }
+    }
 
-        binding.doctorRb.setOnClickListener {
-            if (binding.doctorRb.isChecked) {
-                binding.doctorInfoLayout.visibility = View.VISIBLE
-            }
-        }
+    private fun addMedicine() {
+        TODO("Not yet implemented")
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             AddRoutineFragment().apply {
                 arguments = Bundle().apply {
 

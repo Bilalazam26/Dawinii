@@ -26,6 +26,6 @@
         tools:layout="@layout/fragment_history" />
     <fragment
         android:id="@+id/addRoutineFragment"
-        android:name="com.grad.dawinii.view.main.AddRoutineFragment"
+        android:name="com.grad.dawinii.view.routine.AddRoutineFragment"
         android:label="AddRoutineFragment" />
 </navigation>
