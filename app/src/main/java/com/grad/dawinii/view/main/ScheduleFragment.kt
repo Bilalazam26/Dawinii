@@ -49,7 +49,7 @@ class ScheduleFragment : Fragment() {
         val medicineTimes = arrayOf("2:00","3:00","3:30","4:00","6:00")
         val medicines = mutableListOf<Medicine>()
         for (i in routineNames.indices){
-            medicines.add(Medicine(routineName = routineNames[i], medicineName = medicineNames[i], medicineIcon = medicineIcons[i],medicineTime =medicineTimes[i]))
+            medicines.add(Medicine(routineName = routineNames[i], medicineName = medicineNames[i], medicineIcon = medicineIcons[i],medicineTime =medicineTimes[i], dose = 0f, drugQuantity = 0f))
         }
         adapter.setData(medicines)
     }

@@ -18,22 +18,8 @@ class AddRoutineActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        setDoctorView()
+
         binding.backBtn.setOnClickListener { finish() }
 
-    }
-
-    private fun setDoctorView() {
-        binding.noDoctorRb.setOnClickListener {
-            if (binding.noDoctorRb.isChecked) {
-                binding.doctorInfoLayout.visibility = View.GONE
-            }
-        }
-
-        binding.doctorRb.setOnClickListener {
-            if (binding.doctorRb.isChecked) {
-                binding.doctorInfoLayout.visibility = View.VISIBLE
-            }
-        }
     }
 }

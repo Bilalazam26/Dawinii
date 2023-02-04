@@ -48,7 +48,7 @@ class RoutineFragment : Fragment() {
         val endDates = arrayOf("12-6-2022","13-8-2022","7-7-2022","15-5-2022")
         val routines = mutableListOf<Routine>()
         for (i in routineNames.indices){
-            routines.add(Routine(name =routineNames[i],startDate= startDates[i],endDate = endDates[i], icon = routineIcons[i]))
+            routines.add(Routine(0, routineName = routineNames[i], routineStartDate = startDates[i], routineEndDate = endDates[i], "", routineIcon = routineIcons[i], ""))
         }
         adapter.setData(routines)
     }

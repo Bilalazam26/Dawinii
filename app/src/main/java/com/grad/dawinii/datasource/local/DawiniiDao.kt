@@ -30,7 +30,7 @@ interface DawiniiDao {
     suspend fun getUserWithAppointments(userId: String): List<UserAndAppointment>
 
     @Transaction //To prevent multithreading issues
-    @Query("SELECT * FROM routine WHERE id = :routineId")
+    @Query("SELECT * FROM routine WHERE routineId = :routineId")
     suspend fun getRoutineWithMedicines(routineId: String): List<RoutineAndMedicine>
 
     //To get the User and its Routines with its Medicines

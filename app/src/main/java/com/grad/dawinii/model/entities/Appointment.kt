@@ -3,10 +3,10 @@ package com.grad.dawinii.model.entities
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity("appointments")
+@Entity
 data class Appointment(
     @PrimaryKey(autoGenerate = true)
-    val appointmentId: String,
+    val appointmentId: Long,
     var appointmentName: String,
     var appointmentDate: String,
     var appointmentTime: String,

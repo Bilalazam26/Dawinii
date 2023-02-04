@@ -25,6 +25,30 @@ class AddRoutineFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initView()
+    }
+
+    private fun initView() {
+        setDoctorView()
+    }
+
+    private fun setDoctorView() {
+        binding.noDoctorRb.setOnClickListener {
+            if (binding.noDoctorRb.isChecked) {
+                binding.doctorInfoLayout.visibility = View.GONE
+            }
+        }
+
+        binding.doctorRb.setOnClickListener {
+            if (binding.doctorRb.isChecked) {
+                binding.doctorInfoLayout.visibility = View.VISIBLE
+            }
+        }
+    }
+
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =

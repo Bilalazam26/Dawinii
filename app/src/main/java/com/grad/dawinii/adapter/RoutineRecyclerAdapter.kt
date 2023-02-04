@@ -23,10 +23,10 @@ class RoutineRecyclerAdapter(var context: Context) : RecyclerView.Adapter<Routin
 
     override fun onBindViewHolder(holder: RoutineViewHolder, position: Int) {
         val item = routines[position]
-        holder.routineName.text = item.name
-        holder.startDate.text = item.startDate
-        holder.endDate.text= item.endDate
-        holder.routineIcon.setImageResource(item.icon)
+        holder.routineName.text = item.routineName
+        holder.startDate.text = item.routineStartDate
+        holder.endDate.text= item.routineEndDate
+        holder.routineIcon.setImageResource(item.routineIcon)
     }
 
     override fun getItemCount(): Int {
