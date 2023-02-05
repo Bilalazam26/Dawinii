@@ -32,7 +32,8 @@ Create an account so you can access our app
     <string name="confirm_password">Confirm Password</string>
     <string name="age">Age</string>
     <string name="Schedule">Schedule</string>
-    <string name="Routine">Routines</string>
+    <string name="Routines">Routines</string>
+    <string name="Routine">Routine</string>
     <string name="History">History</string>
     <string name="resetPassword">Reset Password</string>
     <string name="resetPasswordHint">No worries! just enter your email below and the reset password email will be sent</string>
@@ -42,7 +43,16 @@ Create an account so you can access our app
     <string name="welcome">Welcome !</string>
     <string name="from">From</string>
     <string name="to">To</string>
+    <string name="remove">remove</string>
     <string name="welcome_to">Welcome To</string>
+    <string name="add_routine">Add Routine</string>
     <string name="new_routine">New Routine</string>
+    <string name="add">add</string>
+    <string name="add_appointment">Add Appointment</string>
+    <string name="appointment">Appointment</string>
+    <string name="routine_name">Routine Name</string>
+    <string name="add_medicine">Add Medicine</string>
+    <string name="end_date">End Date</string>
+    <string name="choose_routine_type">Choose Routine Type</string>
 
 </resources>

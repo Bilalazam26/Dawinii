@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Routine(
     @PrimaryKey(autoGenerate = true)
-    val routineId: Long,
+    val routineId: Int,
     var routineName :String,
     var routineStartDate:String,
     var routineEndDate: String,

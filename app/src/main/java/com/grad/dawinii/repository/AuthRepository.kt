@@ -37,7 +37,7 @@ class AuthRepository(application: Application) {
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     val updatedUser = user
-                    updatedUser.id = authReference.currentUser?.uid as String
+                    updatedUser.id = authReference.currentUser?.uid as Int
                     if(authReference.currentUser?.isEmailVerified as Boolean) {
                         userMutableLiveData.postValue(authReference.currentUser)
                     } else {
@@ -54,7 +54,7 @@ class AuthRepository(application: Application) {
     }
 
     private fun saveUser(user: User){
-        databaseReference.child(Constants.USER_DATABASE_REFERENCE).child(user.id).setValue(user)
+        databaseReference.child(Constants.USER_DATABASE_REFERENCE).child(user.id.toString()).setValue(user)
             .addOnFailureListener {
                 makeToast(application, "Failed! : ${it.message.toString()}")
             }
