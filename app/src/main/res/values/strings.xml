@@ -1,27 +1,12 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Dawinii</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="sign_up">
-
-Sign Up
-</string>
-    <string name="login">
-
-Login
-</string>
-    <string name="welcome_to_">
-
-Welcome to Dawinii, let"&apos;"s get started!
-</string>
-    <string name="sign_in_usi">
-
-Sign in using your social media account
-</string>
-    <string name="create_an_a">
-
-Create an account so you can access our app
-</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="welcome_to_">Welcome to Dawinii, let"&apos;"s get started!</string>
+    <string name="sign_in_usi">Sign in using your social media account</string>
+    <string name="create_an_a">Create an account so you can access our app</string>
     <string name="firstName">First Name</string>
     <string name="lastName">Last Name</string>
     <string name="loginUserName">Enter your email adress</string>
@@ -38,7 +23,7 @@ Create an account so you can access our app
     <string name="resetPassword">Reset Password</string>
     <string name="resetPasswordHint">No worries! just enter your email below and the reset password email will be sent</string>
     <string name="resetPasswordEmailSend">Send</string>
-    <string name="today_scedule">Today\'s Scedule</string>
+    <string name="today_scedule">Today\'s Schedule</string>
     <string name="notification">Notification</string>
     <string name="welcome">Welcome !</string>
     <string name="from">From</string>
@@ -55,5 +40,39 @@ Create an account so you can access our app
     <string name="start_date">Start Date</string>
     <string name="end_date">End Date</string>
     <string name="choose_type">Choose Type</string>
+    <string name="routine_type">Routine Type</string>
+    <string name="hair_and_skin">Hair and Skin</string>
+    <string name="cardiology">Cardiology</string>
+    <string name="liver">Liver</string>
+    <string name="lung">Lung</string>
+    <string name="male_reproductive">Male Reproductive</string>
+    <string name="female_reproductive">Female Reproductive</string>
+    <string name="pancreas">Pancreas</string>
+    <string name="depression">Depression</string>
+    <string name="brain_and_nerve">Brain and Nerve</string>
+    <string name="dental">Dental</string>
+    <string name="bones">Bones</string>
+    <string name="urology">Urology</string>
+    <string name="kidney">Kidney</string>
+    <string name="spine">Spine</string>
+    <string name="other">Other</string>
 
+
+    <string-array name="routine_types" tools:ignore="InconsistentArrays">
+        <item>@string/bones</item>
+        <item>@string/brain_and_nerve</item>
+        <item>@string/cardiology</item>
+        <item>@string/dental</item>
+        <item>@string/depression</item>
+        <item>@string/female_reproductive</item>
+        <item>@string/hair_and_skin</item>
+        <item>@string/kidney</item>
+        <item>@string/liver</item>
+        <item>@string/lung</item>
+        <item>@string/male_reproductive</item>
+        <item>@string/pancreas</item>
+        <item>@string/spine</item>
+        <item>@string/urology</item>
+        <item>@string/other</item>
+    </string-array>
 </resources>

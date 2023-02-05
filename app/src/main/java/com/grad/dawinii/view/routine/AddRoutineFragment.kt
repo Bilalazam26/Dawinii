@@ -1,5 +1,7 @@
 package com.grad.dawinii.view.routine
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.DialogInterface
@@ -11,19 +13,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.DatePicker
+import com.grad.dawinii.R
 import com.grad.dawinii.databinding.FragmentAddRoutineBinding
+import com.grad.dawinii.util.makeToast
+import java.time.Year
+import java.util.Calendar
 
 class AddRoutineFragment : Fragment() {
     lateinit var binding: FragmentAddRoutineBinding
-    private lateinit var pickedDate :String
-    private lateinit var datePickerDialog:DatePickerDialog
+    private var selectedStartDate = ""
+    private var selectedEndDate = ""
+    private var selectedRoutineType =""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
 
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,31 +40,53 @@ class AddRoutineFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         initView()
     }
 
     private fun initView() {
+        binding.saveBtn.setOnClickListener {
+            //انا جبت المواعيد من دالة chooseDate وخزنتهم في المتغيرات المتعرفة فوق و النوع جبته من الbtnChooseType.setOnClick و خزنته في متغير اسمه selectedRoutineType
+            //اتعامل بقا مع التلت منغيرات دول مباشرة
+        }
         binding.btnStartDate.setOnClickListener {
-
+            chooseDate("start")
         }
         binding.btnEndDate.setOnClickListener {
-
+            chooseDate("end")
+        }
+        binding.btnChooseType.setOnClickListener {
+            val types = resources.getStringArray(R.array.routine_types)
+            AlertDialog.Builder(context).
+            setTitle(R.string.routine_type).
+            setItems(types){dialog,position ->
+                selectedRoutineType = types[position]
+                binding.btnChooseType.text = selectedRoutineType
+            }.show()
         }
         binding.saveBtn.setOnClickListener {
             addRoutine()
         }
     }
 
-    private fun chooseDate():String{
 
-        val dialog = DatePickerDialog(context as Context,{ datePicker: DatePicker, year:Int,month:Int, day:Int ->
-            pickedDate = "${setupMonth(month)} $day, $year"
-        },1,1,2024)
+    private fun chooseDate(startOrEnd:String){
+        val calendar :Calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val dialog = DatePickerDialog(context as Context,DatePickerDialog.OnDateSetListener { datePicker:DatePicker, year:Int, month:Int, day:Int ->
+            if (startOrEnd=="start") {
+                selectedStartDate = "${setupMonth(month)} $day, $year"
+                binding.btnStartDate.text = selectedStartDate
+            }
+            else{
+                selectedEndDate = "${setupMonth(month)} $day, $year"
+                binding.btnEndDate.text = selectedEndDate
+            }
+        },year,month,day)
         dialog.show()
-        return pickedDate
-    }
 
+    }
     private fun setupMonth(month: Int): String =
         when(month){
             1->"Jan"
