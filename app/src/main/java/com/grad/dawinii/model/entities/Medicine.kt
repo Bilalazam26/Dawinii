@@ -9,7 +9,8 @@ data class Medicine(
     var medicineName:String="",
     var medicineIcon: Int=0,
     var medicineTime :String="",
-    var dose :Float=0f,
-    var drugQuantity: Float=0f,
+    var dose :Float=0f, // حج الجرعه الواحده
+    var drugQuantity: Float=0f, //كمية الدواء المتوفره لدى المريض
+    var doseCount: Int = 1, //عدد الجرعات في اليوم الواحد
     var routineName: String=""
 )

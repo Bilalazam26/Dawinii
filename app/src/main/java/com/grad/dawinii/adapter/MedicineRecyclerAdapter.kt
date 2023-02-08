@@ -14,6 +14,7 @@ class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<Medici
         val medicineName = itemView.medicineName
         val medicineIcon = itemView.medicineIcon
         val medicineTime = itemView.medicineTime
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MedicineViewHolder {

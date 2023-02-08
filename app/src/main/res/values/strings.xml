@@ -56,6 +56,11 @@
     <string name="kidney">Kidney</string>
     <string name="spine">Spine</string>
     <string name="other">Other</string>
+    <string name="medicine_name">Add Medicine</string>
+    <string name="add_medicine_dose">Dose</string>
+    <string name="add_medicine_dose_count">count per day</string>
+    <string name="medicine_quantity">Medicine quantity</string>
+    <string name="medicine_time">Medicine Time</string>
 
 
     <string-array name="routine_types" tools:ignore="InconsistentArrays">
