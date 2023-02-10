@@ -1,6 +1,7 @@
 package com.grad.dawinii.view.main
 
 import android.app.AlertDialog
+import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,13 +10,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grad.dawinii.R
 import com.grad.dawinii.adapter.RoutineRecyclerAdapter
 import com.grad.dawinii.databinding.FragmentRoutineBinding
 import com.grad.dawinii.model.entities.Routine
+import com.grad.dawinii.util.setupMonth
+import java.util.Calendar
 
 class RoutineFragment : Fragment() {
     lateinit var binding: FragmentRoutineBinding
@@ -25,6 +30,13 @@ class RoutineFragment : Fragment() {
     private val fromBottom:Animation by lazy { AnimationUtils.loadAnimation(context,R.anim.from_bottom) }
     private val toBottom:Animation by lazy { AnimationUtils.loadAnimation(context,R.anim.to_bottom) }
     private var clicked = false
+
+    //for appointment dialog
+    var appointmentDate = ""
+    var appointmentTime = ""
+    var doctorName = ""
+    val builder = AlertDialog.Builder(context)
+    val alertDialog = builder.show()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -54,11 +66,11 @@ class RoutineFragment : Fragment() {
             Navigation.findNavController(binding.fabAddRoutine).navigate(R.id.action_to_add_routine)
         }
         binding.fabAddAppointment.setOnClickListener {
-            val builder = AlertDialog.Builder(context)
             builder.setView(R.layout.add_appointment_dialog)
-            val alertDialog = builder.show()
-            val doctorName = alertDialog.findViewById<EditText>(R.id.doctor_name).text
-
+            doctorName = alertDialog.findViewById<EditText>(R.id.doctor_name).text.toString()
+            alertDialog.findViewById<Button>(R.id.appointment_date).setOnClickListener(){
+                pickAppointmentDate()
+            }
         }
         binding.fabAdd.setOnClickListener {
             setVisibility(clicked)
@@ -66,6 +78,19 @@ class RoutineFragment : Fragment() {
             clicked = !clicked
         }
     }
+
+    private fun pickAppointmentDate() {
+        val calender :Calendar = Calendar.getInstance()
+        val year = calender.get(Calendar.YEAR)
+        val month = calender.get(Calendar.MONTH)
+        val dayOfWeek = calender.get(Calendar.DAY_OF_MONTH)
+        val dialog = DatePickerDialog(context as Context,DatePickerDialog.OnDateSetListener{datePicker, year, month, day ->
+            appointmentDate =  "${setupMonth(month)} ${day.toString().padStart(2, '0')}, $year"
+            alertDialog.findViewById<Button>(R.id.appointment_date).text = appointmentDate
+        },year,month,dayOfWeek)
+
+    }
+
     private fun setVisibility(checked: Boolean) {
         if (!checked){
             binding.fabAddRoutine.visibility = View.VISIBLE
