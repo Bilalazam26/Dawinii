@@ -51,7 +51,7 @@
         style="@style/Widget.MaterialComponents.FloatingActionButton.myfab.secondary"
         app:layout_constraintBottom_toTopOf="@id/fab_add_appointment"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_routine1"
+        android:src="@drawable/ic_routine__1_"
         android:contentDescription="@string/add_appointment"
         app:tint="#CCFFFFFF"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.grad.dawinii.view.main
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,13 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.EditText
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grad.dawinii.R
 import com.grad.dawinii.adapter.RoutineRecyclerAdapter
 import com.grad.dawinii.databinding.FragmentRoutineBinding
 import com.grad.dawinii.model.entities.Routine
-import com.grad.dawinii.util.makeToast
 
 class RoutineFragment : Fragment() {
     lateinit var binding: FragmentRoutineBinding
@@ -53,7 +54,11 @@ class RoutineFragment : Fragment() {
             Navigation.findNavController(binding.fabAddRoutine).navigate(R.id.action_to_add_routine)
         }
         binding.fabAddAppointment.setOnClickListener {
-            makeToast(context,"add appointment")
+            val builder = AlertDialog.Builder(context)
+            builder.setView(R.layout.add_appointment_dialog)
+            val alertDialog = builder.show()
+            val doctorName = alertDialog.findViewById<EditText>(R.id.doctor_name).text
+
         }
         binding.fabAdd.setOnClickListener {
             setVisibility(clicked)
