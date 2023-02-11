@@ -13,6 +13,7 @@ import com.grad.dawinii.databinding.FragmentSignUpBinding
 import com.grad.dawinii.view.main.MainScreenActivity
 import com.grad.dawinii.model.entities.User
 import com.grad.dawinii.util.Constants
+import com.grad.dawinii.util.Prevalent
 import com.grad.dawinii.util.makeToast
 import com.grad.dawinii.viewModel.AuthViewModel
 import io.paperdb.Paper
@@ -21,7 +22,6 @@ class SignUpFragment : Fragment() {
 
     private lateinit var binding: FragmentSignUpBinding
     private lateinit var authViewModel: AuthViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -44,6 +44,7 @@ class SignUpFragment : Fragment() {
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
         authViewModel.userMutableLiveData.observe(viewLifecycleOwner, Observer {
             if (it != null) {
+                Prevalent.currentUser = it
                 startActivity(Intent(context, MainScreenActivity::class.java))
                 activity?.onBackPressed()
                 activity?.finish()

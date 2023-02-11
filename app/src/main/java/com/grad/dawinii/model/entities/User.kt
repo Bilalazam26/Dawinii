@@ -7,7 +7,7 @@ import java.io.Serializable
 @Entity
 data class User(
     @PrimaryKey(autoGenerate = false)
-    var id: Int = 0,
+    var id: String = "",
     var name: String = "",
     var email :String = "",
     var password :String = "",

@@ -11,7 +11,7 @@ import com.grad.dawinii.util.makeToast
 
 class MedicineRoutineRecyclerAdapter(private val context: Context?) :
     RecyclerView.Adapter<MedicineRoutineRecyclerAdapter.MedicineRoutineViewHolder>() {
-    private var medicineList: MutableList<Medicine?> = mutableListOf<Medicine?>()
+    private var medicineList: MutableList<Medicine> = mutableListOf<Medicine>()
 
     inner class MedicineRoutineViewHolder(itemView: MedicineRoutineLayoutBinding) :
         RecyclerView.ViewHolder(itemView.root) {
@@ -29,8 +29,8 @@ class MedicineRoutineRecyclerAdapter(private val context: Context?) :
 
     override fun onBindViewHolder(holder: MedicineRoutineViewHolder, position: Int) {
         var medicine = medicineList[position]
-        holder.medicineName.text = medicine?.medicineName
-        holder.medicineTime.text = medicine?.medicineTime
+        holder.medicineName.text = medicine.medicineName
+        holder.medicineTime.text = medicine.medicineTime
         holder.medicineIcon.setImageResource(R.drawable.ic_pill_green)
     }
 
@@ -38,7 +38,7 @@ class MedicineRoutineRecyclerAdapter(private val context: Context?) :
         return medicineList.size
     }
 
-    fun setData(medicineList: MutableList<Medicine?>) {
+    fun setData(medicineList: MutableList<Medicine>) {
         this.medicineList.clear()
         this.medicineList.addAll(medicineList)
         notifyDataSetChanged() //to notify adapter that new data change has been happened to adapt it

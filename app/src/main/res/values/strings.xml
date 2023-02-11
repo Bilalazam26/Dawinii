@@ -12,7 +12,12 @@
     <string name="loginUserName">Enter your email adress</string>
     <string name="loginPassword">Enter your password</string>
     <string name="userName">@username</string>
+    <string name="update">Update</string>
     <string name="eMailHint">E-mail : xxxxxx@example.com</string>
+    <string name="name_hint">User Name</string>
+    <string name="phone_hint">Phone Number</string>
+    <string name="address_hint">Address</string>
+    <string name="trust_person_hint">Trusted User</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="age">Age</string>

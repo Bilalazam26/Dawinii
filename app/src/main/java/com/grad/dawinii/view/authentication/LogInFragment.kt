@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.grad.dawinii.databinding.FragmentLogInBinding
+import com.grad.dawinii.util.Prevalent
 import com.grad.dawinii.util.makeToast
 import com.grad.dawinii.view.main.MainScreenActivity
 import com.grad.dawinii.viewModel.AuthViewModel
@@ -38,6 +39,7 @@ class LogInFragment : Fragment() {
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
         authViewModel.userMutableLiveData.observe(viewLifecycleOwner, Observer {
             if (it != null) {
+                Prevalent.currentUser = it
                 startActivity(Intent(context, MainScreenActivity::class.java))
                 makeToast(context, "Logged In Successfully")
                 activity?.onBackPressed()

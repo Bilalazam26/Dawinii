@@ -21,6 +21,12 @@ interface DawiniiDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMedicine(medicine: Medicine)
 
+    @Update
+    suspend fun updateUser(user: User)
+
+    @Query("SELECT * FROM user WHERE id = :userId")
+    suspend fun getUser(userId: String): List<User>
+
     @Transaction //To prevent multithreading issues
     @Query("SELECT * FROM user WHERE id = :userId")
     suspend fun getUserWithRoutines(userId: String): List<UserAndRoutine>
@@ -36,6 +42,8 @@ interface DawiniiDao {
     //To get the User and its Routines with its Medicines
     @Transaction
     @Query("SELECT * FROM User WHERE id = :userId")
-    fun getUserWithRoutinesAndMedicines(userId: String): List<UserAndRoutineAndMedicine>
+    suspend fun getUserWithRoutinesAndMedicines(userId: String): List<UserAndRoutineAndMedicine>
+
+
 
 }
