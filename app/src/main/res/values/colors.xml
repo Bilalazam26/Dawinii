@@ -11,4 +11,5 @@
     <color name="secondaryColor">#3EB16F</color>
     <color name="gray">#646464</color>
     <color name="fragment_backgrund_color">#CEEDDB</color>
+    <color name="color_remove">#a00</color>
 </resources>

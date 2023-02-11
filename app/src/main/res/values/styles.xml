@@ -55,6 +55,7 @@
     <style name="toolbar_title">
         <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">@font/mada_bold</item>
+        <item name="android:titleTextColor">@color/white</item>
     </style>
     <style name="Widget.MaterialComponents.FloatingActionButton.myfab">
         <item name="android:layout_width">wrap_content</item>
@@ -83,5 +84,12 @@
         <item name="android:fontFamily">@font/manjari_bold</item>
         <item name="android:background">@drawable/routine_et_bg</item>
         <item name="android:drawableEnd">@drawable/baseline_arrow_drop_down_24</item>
+    </style>
+    <style name="tv_in_drawer_header">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/mada_regular</item>
+        <item name="android:textSize">24sp</item>
     </style>
 </resources>

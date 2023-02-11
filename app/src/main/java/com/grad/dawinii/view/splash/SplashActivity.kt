@@ -4,8 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.grad.dawinii.R
 import com.grad.dawinii.databinding.ActivitySplashBinding
 import com.grad.dawinii.util.Constants
 import com.grad.dawinii.view.authentication.AuthActivity
@@ -16,7 +19,7 @@ import io.paperdb.Paper
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashBinding
-
+    lateinit var logoAnim :Animation
     private lateinit var authViewModel: AuthViewModel
 
     var email:String? = null
@@ -26,7 +29,8 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        logoAnim = AnimationUtils.loadAnimation(this, R.anim.splash_logo_anim)
+//      binding.splashLogo.animation = logoAnim
         Paper.init(this)
 
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
