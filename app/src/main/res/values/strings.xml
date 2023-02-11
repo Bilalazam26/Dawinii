@@ -59,7 +59,7 @@
     <string name="medicine_name">Add Medicine</string>
     <string name="add_medicine_dose">Dose</string>
     <string name="add_medicine_dose_count">count per day</string>
-    <string name="medicine_quantity">Medicine quantity</string>
+    <string name="drug_quantity">Drug Quantity</string>
     <string name="medicine_time">Medicine Time</string>
     <string name="profile">Profile</string>
     <string name="settings">Settings</string>
@@ -72,6 +72,9 @@
     <string name="appointment_date">Appointment Date</string>
     <string name="appointment_time">Appointment Time</string>
     <string name="submit">Submit</string>
+    <string name="user_name">User Name</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 
 
     <string-array name="routine_types" tools:ignore="InconsistentArrays">
