@@ -1,6 +1,7 @@
 package com.grad.dawinii.repository
 
 import android.app.Application
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
@@ -44,13 +45,15 @@ class AuthRepository(application: Application,val dao: DawiniiDao) {
                     user.id = authReference.currentUser?.uid as String
                     if (authReference.currentUser?.isEmailVerified as Boolean) {
                         userMutableLiveData.postValue(user)
-                        CoroutineScope(Dispatchers.IO).launch { dao.insertUser(user) }
                     } else {
                         makeToast(application, "Please Check Your Email for Verification")
                         authReference.currentUser?.sendEmailVerification()
                     }
-                    CoroutineScope(Dispatchers.IO).launch { updateUser(user) }
-                    rememberUser(email, password)
+                    CoroutineScope(Dispatchers.IO).launch { dao.insertUser(user) }
+                    CoroutineScope(Dispatchers.IO).launch {
+                        updateUser(user)
+                    }
+                    rememberUser(user.id)
                 } else {
                     makeToast(application, "Failed! : ${it.exception?.message.toString()}")
                 }
@@ -73,14 +76,10 @@ class AuthRepository(application: Application,val dao: DawiniiDao) {
                     it?.let {
                         val currentUser = authReference.currentUser as FirebaseUser
                         if(currentUser.isEmailVerified) {
-
                             CoroutineScope(Dispatchers.IO).launch {
-                                val user = getCurrentUser()
-                                userMutableLiveData.postValue(user)
-                                dao.insertUser(user)
+                                getCurrentUser()
                             }
-                            
-                            rememberUser(email, password)
+                            rememberUser(currentUser.uid)
 
                         } else {
                             currentUser.sendEmailVerification()
@@ -95,19 +94,22 @@ class AuthRepository(application: Application,val dao: DawiniiDao) {
 
     }
 
-    suspend fun getCurrentUser(): User {
+    suspend fun getCurrentUser() {
         val uid = authReference.currentUser?.uid as String
-        var user:User? = null
-        databaseReference.child("User").child(uid).addValueEventListener(object : ValueEventListener {
+        databaseReference.child("User").child(uid)
+            .addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                user = snapshot.getValue(User::class.java)
+                CoroutineScope(Dispatchers.IO).launch {
+                    val user = snapshot.getValue(User::class.java)
+                    userMutableLiveData.postValue(user as User)
+                    dao.insertUser(user)
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(application, "${error.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(application, "access data base${error.message}", Toast.LENGTH_SHORT).show()
             }
         })
-        return user as User
     }
 
     fun logOut() {
@@ -115,9 +117,8 @@ class AuthRepository(application: Application,val dao: DawiniiDao) {
         isLoggedOutMutableLiveData.postValue(true)
     }
 
-    private fun rememberUser(email: String, password: String) {
-        Paper.book().write<String>(Constants.EMAIL_PAPER_KEY, email)
-        Paper.book().write<String>(Constants.PASSWORD_PAPER_KEY, password)
+    private fun rememberUser(uid: String) {
+        Paper.book().write<String>(Constants.UID_PAPER_KEY, uid)
     }
 
     fun resetPassword(email: String) {

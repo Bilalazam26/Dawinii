@@ -16,12 +16,14 @@ import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.Prevalent
 import com.grad.dawinii.util.makeToast
 import com.grad.dawinii.viewModel.AuthViewModel
+import com.grad.dawinii.viewModel.LocalViewModel
 import io.paperdb.Paper
 
 class SignUpFragment : Fragment() {
 
     private lateinit var binding: FragmentSignUpBinding
     private lateinit var authViewModel: AuthViewModel
+    private lateinit var localViewModel: LocalViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -42,15 +44,25 @@ class SignUpFragment : Fragment() {
 
         Paper.init(context as Context)
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
+        localViewModel = ViewModelProvider(this)[LocalViewModel::class.java]
         authViewModel.userMutableLiveData.observe(viewLifecycleOwner, Observer {
             if (it != null) {
-                Prevalent.currentUser = it
-                startActivity(Intent(context, MainScreenActivity::class.java))
-                activity?.onBackPressed()
-                activity?.finish()
+                getUser(it)
+            }
+        })
+        localViewModel.userMutableLiveData.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
+                getUser(it)
             }
         })
         initView()
+    }
+
+    private fun getUser(it: User) {
+        Prevalent.currentUser = it
+        startActivity(Intent(context, MainScreenActivity::class.java))
+        activity?.onBackPressed()
+        activity?.finish()
     }
 
     override fun onStart() {
@@ -60,10 +72,9 @@ class SignUpFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val email = Paper.book().read<String>(Constants.EMAIL_PAPER_KEY)
-        val password = Paper.book().read<String>(Constants.PASSWORD_PAPER_KEY)
-        if (email != null && password != null) {
-            authViewModel.logIn(email, password)
+        val uid = Paper.book().read<String>(Constants.UID_PAPER_KEY)
+        if (uid != null) {
+            localViewModel.getLocalUser(uid)
         }
     }
 

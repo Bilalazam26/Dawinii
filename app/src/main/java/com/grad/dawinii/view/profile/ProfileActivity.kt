@@ -1,13 +1,11 @@
 package com.grad.dawinii.view.profile
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import com.grad.dawinii.R
-import com.grad.dawinii.databinding.FragmentProfileBinding
+import com.grad.dawinii.databinding.ActivityProfileBinding
 import com.grad.dawinii.model.entities.User
 import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.Prevalent
@@ -15,38 +13,39 @@ import com.grad.dawinii.util.makeToast
 import com.grad.dawinii.viewModel.AuthViewModel
 import com.grad.dawinii.viewModel.LocalViewModel
 
-class ProfileFragment : Fragment() {
-    private lateinit var binding:FragmentProfileBinding
+class ProfileActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityProfileBinding
     private lateinit var localViewModel: LocalViewModel
+    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setCustomActionBar()
+
         localViewModel = ViewModelProvider(this)[LocalViewModel::class.java]
+
+        initView()
+    }
+
+    private fun setCustomActionBar() {
+        toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+        toolbar.setNavigationOnClickListener { finish() }
+
+    }
+
+    override fun onStart() {
+        super.onStart()
         localViewModel.getLocalUser(Prevalent.currentUser?.id as String)
-        arguments?.let {
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentProfileBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        localViewModel.userMutableLiveData.observe(viewLifecycleOwner) {
+        localViewModel.userMutableLiveData.observe(this) {
             if (it != null) {
                 updateView(it)
                 Prevalent.currentUser = it
             }
         }
-
-        initView()
     }
 
     private fun initView() {
@@ -62,9 +61,9 @@ class ProfileFragment : Fragment() {
         val trustedPerson = binding.etProfileTrustedPerson.text.toString()
         val age = binding.etProfileAge.text.toString().toInt()
         val gender = getGender()
-        if (!(address.isNullOrEmpty() || name.isNullOrEmpty() || phone.isNullOrEmpty() || trustedPerson.isNullOrEmpty())) {
+        if (!name.isNullOrEmpty()) {
             if (age < 12) {
-                makeToast(context, "Only +12")
+                makeToast(this, "Only +12")
             } else {
                 var user = Prevalent.currentUser as User
                 user.name = name
@@ -73,18 +72,19 @@ class ProfileFragment : Fragment() {
                 user.trustPerson = trustedPerson
                 user.age = age
                 user.gender = gender
-
                 localViewModel.updateLocalUser(user)
                 val authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
                 authViewModel.updateUser(user)
+                makeToast(this, "Updated")
             }
         } else {
-            makeToast(context, "Empty Field!")
+            makeToast(this, "Name cannot be empty!")
         }
 
     }
 
     private fun updateView(user: User) {
+        toolbar.title = user.name
         binding.etProfileAddress.setText(user.address)
         binding.etProfileName.setText(user.name)
         binding.etProfilePhone.setText(user.phone)
@@ -106,14 +106,5 @@ class ProfileFragment : Fragment() {
             binding.rbFemale.id -> gender = Constants.GENDER_FEMALE
         }
         return gender
-    }
-
-    companion object {
-        @JvmStatic
-        fun newInstance() =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
     }
 }

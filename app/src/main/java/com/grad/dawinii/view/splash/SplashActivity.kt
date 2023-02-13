@@ -11,55 +11,50 @@ import androidx.lifecycle.ViewModelProvider
 import com.grad.dawinii.R
 import com.grad.dawinii.databinding.ActivitySplashBinding
 import com.grad.dawinii.util.Constants
+import com.grad.dawinii.util.Prevalent
 import com.grad.dawinii.view.authentication.AuthActivity
 import com.grad.dawinii.view.main.MainScreenActivity
 import com.grad.dawinii.viewModel.AuthViewModel
+import com.grad.dawinii.viewModel.LocalViewModel
 import io.paperdb.Paper
 
 class SplashActivity : AppCompatActivity() {
 
+    private lateinit var localViewModel: LocalViewModel
     private lateinit var binding: ActivitySplashBinding
     lateinit var logoAnim :Animation
-    private lateinit var authViewModel: AuthViewModel
-
-    var email:String? = null
-    var password:String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         logoAnim = AnimationUtils.loadAnimation(this, R.anim.splash_logo_anim)
-//      binding.splashLogo.animation = logoAnim
+        binding.splashLogo.animation = logoAnim
         Paper.init(this)
 
-        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
-        authViewModel.userMutableLiveData.observe(this, Observer {
+        localViewModel = ViewModelProvider(this)[LocalViewModel::class.java]
+        localViewModel.userMutableLiveData.observe(this) {
             if (it != null) {
+                Prevalent.currentUser = it
                 startActivity(Intent(this, MainScreenActivity::class.java))
                 finish()
             } else {
                 Handler().postDelayed({startActivity(Intent(this, AuthActivity::class.java))
-                    finish()}, 2000)
+                    finish()}, 3000)
             }
-        })
+        }
 
-        readUserCredentials()
-        login()
+        readUser()
 
     }
 
-    private fun readUserCredentials() {
-        email = Paper.book().read<String>(Constants.EMAIL_PAPER_KEY)
-        password = Paper.book().read<String>(Constants.PASSWORD_PAPER_KEY)
-    }
-
-    private fun login() {
-        if (email != null && password != null) {
-            authViewModel.logIn(email as String, password as String)
+    private fun readUser() {
+        val uid = Paper.book().read<String>(Constants.UID_PAPER_KEY)
+        if (!uid.isNullOrEmpty()) {
+            localViewModel.getLocalUser(uid)
         } else {
             Handler().postDelayed({startActivity(Intent(this, AuthActivity::class.java))
-                finish()}, 2000)
+                finish()}, 3000)
         }
     }
 }

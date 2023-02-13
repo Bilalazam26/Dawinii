@@ -53,7 +53,7 @@
         <item name="fontFamily">@font/mada_regular</item>
     </style>
     <style name="toolbar_title">
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">28sp</item>
         <item name="android:fontFamily">@font/mada_bold</item>
         <item name="android:titleTextColor">@color/white</item>
     </style>
