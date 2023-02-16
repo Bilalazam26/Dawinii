@@ -3,17 +3,23 @@ package com.grad.dawinii.view.routine
 import android.app.*
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.format.DateFormat.is24HourFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.vision.Frame
+import com.google.android.gms.vision.text.TextRecognizer
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
@@ -26,14 +32,16 @@ import com.grad.dawinii.model.entities.Medicine
 import com.grad.dawinii.model.entities.Routine
 import com.grad.dawinii.util.*
 import com.grad.dawinii.viewModel.LocalViewModel
+import pub.devrel.easypermissions.AppSettingsDialog
+import pub.devrel.easypermissions.EasyPermissions
 import java.util.*
 
-
-class AddRoutineFragment : Fragment() {
+class AddRoutineFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     private lateinit var localViewModel: LocalViewModel
 
     private lateinit var time: List<Int>
-    lateinit var binding: FragmentAddRoutineBinding
+    private lateinit var binding: FragmentAddRoutineBinding
+    private lateinit var dialogBinding: AddMedicineDialogLayoutBinding
     private var selectedStartDate = ""
     private var selectedEndDate = ""
     private var selectedRoutineType =""
@@ -41,9 +49,17 @@ class AddRoutineFragment : Fragment() {
     private var medicineList = mutableListOf<Medicine>()
     private lateinit var medicineAdapter: MedicineRoutineRecyclerAdapter
 
+    private lateinit var captureAction: ActivityResultLauncher<Intent>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         localViewModel = ViewModelProvider(this)[LocalViewModel::class.java]
+        captureAction = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.data?.extras?.get("data") != null){
+                val imageBitmap = it.data?.extras?.get("data") as Bitmap
+                dialogBinding.etAddMedicineName.setText(startRecognition(imageBitmap))
+            }
+        }
         createNotificationChannel()
         arguments?.let {
 
@@ -95,24 +111,7 @@ class AddRoutineFragment : Fragment() {
     }
 
 
-    private fun chooseDate(startOrEnd:String){
-        val calendar :Calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-        val dialog = DatePickerDialog(context as Context,DatePickerDialog.OnDateSetListener { datePicker:DatePicker, year:Int, month:Int, day:Int ->
-            if (startOrEnd=="start") {
-                selectedStartDate = "${setupMonth(month)} ${day.toString().padStart(2, '0')}, $year"
-                binding.btnStartDate.text = selectedStartDate
-            }
-            else{
-                selectedEndDate = "${setupMonth(month)} ${day.toString().padStart(2, '0')}, $year"
-                binding.btnEndDate.text = selectedEndDate
-            }
-        },year,month,day)
-        dialog.show()
 
-    }
 
 
     private fun addRoutine() {
@@ -166,8 +165,9 @@ class AddRoutineFragment : Fragment() {
     }
 
     private fun showAddMedicineDialog() {
+        checkCameraPermission()
         val dialog = BottomSheetDialog(requireContext())
-        val dialogBinding= AddMedicineDialogLayoutBinding.inflate(layoutInflater, null, false)
+        dialogBinding= AddMedicineDialogLayoutBinding.inflate(layoutInflater, null, false)
         dialog.setContentView(dialogBinding.root)
         dialogBinding.btnMedicineTime.setOnClickListener {
             chooseTime(dialogBinding)
@@ -175,8 +175,61 @@ class AddRoutineFragment : Fragment() {
         dialogBinding.saveMedicineBtn.setOnClickListener {
             addMedicine(dialog, dialogBinding, time)
         }
+        dialogBinding.captureMedicine.setOnClickListener { captureMedicine(dialogBinding) }
         dialog.show()
+    }
 
+    private fun captureMedicine(dialogBinding: AddMedicineDialogLayoutBinding) {
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        captureAction.launch(intent)
+    }
+
+    private fun checkCameraPermission() {
+        if(hasCameraPermission()){
+            return
+        }
+        EasyPermissions.requestPermissions(this,
+            "Please Allow Camera Permission",
+            100,
+            android.Manifest.permission.CAMERA)
+    }
+
+    private fun hasCameraPermission() = EasyPermissions.hasPermissions(requireContext(), android.Manifest.permission.CAMERA)
+
+    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
+
+    }
+
+    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)){
+            AppSettingsDialog.Builder(this).build().show()
+        }else{
+            checkCameraPermission()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
+    }
+
+
+    private fun startRecognition(imageBitmap: Bitmap): String {
+        val textRecognizer = TextRecognizer.Builder(requireContext()).build()
+        val frameImage = Frame.Builder().setBitmap(imageBitmap).build()
+        val textBlockSparseArray = textRecognizer.detect(frameImage)
+
+        var detectedText = ""
+        for (i in 0 until textBlockSparseArray.size()) {
+            val textBlock = textBlockSparseArray.get(textBlockSparseArray.keyAt(i))
+            detectedText += " ${textBlock.value}"
+        }
+
+        return detectedText
     }
 
     private fun addMedicine(
@@ -190,10 +243,10 @@ class AddRoutineFragment : Fragment() {
         val strDoseCount = dialogBinding.etDoseCount.text.toString()
         val strDrugQuantity = dialogBinding.etDose.text.toString()
         val medicineTime  = "${time[0].toString().padStart(2, '0')}:${time[1].toString().padStart(2, '0')}"
-        if (!(medicineName.isNullOrEmpty() ||
-                    strDose.isNullOrEmpty() ||
-                    strDoseCount.isNullOrEmpty() ||
-                    strDrugQuantity.isNullOrEmpty())) {
+        if (!(medicineName.isEmpty() ||
+                    strDose.isEmpty() ||
+                    strDoseCount.isEmpty() ||
+                    strDrugQuantity.isEmpty())) {
 
             val dose = strDose.toFloat()
             val doseCount = strDoseCount.toInt()
@@ -226,6 +279,25 @@ class AddRoutineFragment : Fragment() {
             time = listOf(hour, minute)
             dialogBinding.btnMedicineTime.text = "${time[0].toString().padStart(2, '0')}:${time[1].toString().padStart(2, '0')}"
         }
+    }
+
+    private fun chooseDate(startOrEnd:String){
+        val calendar :Calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val dialog = DatePickerDialog(context as Context,DatePickerDialog.OnDateSetListener { datePicker:DatePicker, year:Int, month:Int, day:Int ->
+            if (startOrEnd=="start") {
+                selectedStartDate = "${setupMonth(month)} ${day.toString().padStart(2, '0')}, $year"
+                binding.btnStartDate.text = selectedStartDate
+            }
+            else{
+                selectedEndDate = "${setupMonth(month)} ${day.toString().padStart(2, '0')}, $year"
+                binding.btnEndDate.text = selectedEndDate
+            }
+        },year,month,day)
+        dialog.show()
+
     }
 
     private fun createNotificationChannel() {
