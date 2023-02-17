@@ -8,12 +8,13 @@ import com.grad.dawinii.databinding.RoutineLayoutBinding
 import com.grad.dawinii.model.entities.Routine
 
 class RoutineRecyclerAdapter(var context: Context) : RecyclerView.Adapter<RoutineRecyclerAdapter.RoutineViewHolder>() {
-    val routines = mutableListOf<Routine>()
+    private val routines = mutableListOf<Routine>()
     inner class RoutineViewHolder(itemView: RoutineLayoutBinding) :RecyclerView.ViewHolder(itemView.root){
         val routineName = itemView.routineName
         val startDate = itemView.tvStartDate
         val endDate = itemView.tvEndDate
         val routineIcon = itemView.ivRoutineIcon
+        val removeBtn = itemView.btnRemove
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoutineViewHolder {
@@ -27,6 +28,11 @@ class RoutineRecyclerAdapter(var context: Context) : RecyclerView.Adapter<Routin
         holder.startDate.text = item.routineStartDate
         holder.endDate.text= item.routineEndDate
         holder.routineIcon.setImageResource(item.routineIcon)
+        holder.removeBtn.setOnClickListener { removeRoutine() }
+    }
+
+    private fun removeRoutine() {
+        //1 - remove from local
     }
 
     override fun getItemCount(): Int {
@@ -34,7 +40,8 @@ class RoutineRecyclerAdapter(var context: Context) : RecyclerView.Adapter<Routin
     }
 
     fun setData(routines: MutableList<Routine>) {
-        this.routines.addAll(routines)
+        this.routines.clear()
+        this.routines.addAll(0,routines)
         notifyDataSetChanged()
     }
 

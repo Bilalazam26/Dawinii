@@ -91,7 +91,6 @@ class MainScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         if (toggle.onOptionsItemSelected(item)){
             return true
         }
-
         return super.onOptionsItemSelected(item)
     }
 

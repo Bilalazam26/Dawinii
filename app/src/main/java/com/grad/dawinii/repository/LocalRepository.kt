@@ -9,6 +9,7 @@ import com.grad.dawinii.model.entities.User
 class LocalRepository(private val dao: DawiniiDao) {
 
     var userMutableLiveData: MutableLiveData<User> = MutableLiveData()
+    var routinesMutableLiveData = MutableLiveData<List<Routine>>()
 
     suspend fun insertRoutine(routine: Routine, medicineList: MutableList<Medicine>) {
         dao.insertRoutine(routine)
@@ -21,5 +22,15 @@ class LocalRepository(private val dao: DawiniiDao) {
 
     suspend fun updateLocalUser(user: User) {
         dao.updateUser(user)
+    }
+    suspend fun getUserWithRoutines(userId: String) {
+        val userWithRoutines = dao.getUserWithRoutines(userId)
+        val routines = mutableListOf<Routine>()
+        for (i in userWithRoutines) {
+            for (j in i.routines) {
+                routines.add(j)
+            }
+        }
+        routinesMutableLiveData.postValue(routines)
     }
 }

@@ -28,5 +28,9 @@
         android:id="@+id/addRoutineFragment"
         android:name="com.grad.dawinii.view.routine.AddRoutineFragment"
         android:label="AddRoutineFragment"
-        tools:layout="@layout/fragment_add_routine"/>
+        tools:layout="@layout/fragment_add_routine">
+        <action
+            android:id="@+id/action_addRoutineFragment_to_navigation_routine"
+            app:destination="@id/navigation_routine" />
+    </fragment>
 </navigation>
