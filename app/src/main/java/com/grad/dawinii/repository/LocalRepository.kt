@@ -33,4 +33,8 @@ class LocalRepository(private val dao: DawiniiDao) {
         }
         routinesMutableLiveData.postValue(routines)
     }
+
+    suspend fun deleteRoutine(routine: Routine) {
+        dao.deleteRoutine(routine)
+    }
 }

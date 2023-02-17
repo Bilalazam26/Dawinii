@@ -35,4 +35,6 @@ class LocalViewModel(application: Application): AndroidViewModel(application) {
     fun updateLocalUser(user: User) = viewModelScope.launch(Dispatchers.IO) { localRepository.updateLocalUser(user) }
 
     fun getUserWithRoutines(userId: String) = viewModelScope.launch(Dispatchers.IO) { localRepository.getUserWithRoutines(userId) }
+
+    fun deleteRoutine(routine: Routine) = viewModelScope.launch(Dispatchers.IO) { localRepository.deleteRoutine(routine) }
 }
