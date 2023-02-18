@@ -61,7 +61,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">16dp</item>
-        <item name="android:backgroundTint">@color/primaryColor</item>
+        <item name="android:backgroundTint">@color/thirdColor</item>
         <item name="android:focusable">true</item>
     </style>
     <style name="Widget.MaterialComponents.FloatingActionButton.myfab.secondary">

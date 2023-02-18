@@ -8,13 +8,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grad.dawinii.R
+import com.grad.dawinii.adapter.AppointmentRecyclerAdapter
 import com.grad.dawinii.adapter.MedicineRecyclerAdapter
 import com.grad.dawinii.databinding.FragmentScheduleBinding
+import com.grad.dawinii.model.entities.Appointment
 import com.grad.dawinii.model.entities.Medicine
+import com.grad.dawinii.util.getTodayDate
 
 class ScheduleFragment : Fragment() {
     lateinit var binding: FragmentScheduleBinding
-    lateinit var adapter: MedicineRecyclerAdapter
+    lateinit var medicineRecyclerAdapter: MedicineRecyclerAdapter
+    lateinit var appointmentRecyclerAdapter: AppointmentRecyclerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -25,7 +29,7 @@ class ScheduleFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentScheduleBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
@@ -38,11 +42,29 @@ class ScheduleFragment : Fragment() {
     }
 
     private fun initView() {
+        binding.tvTodayTime.text = getTodayDate()
         setupRecyclerView()
-        setupDataSourceForRecyclerView()
+        setupDataSourceForMedicineRecyclerView()
+        setupDataSourceForAppointmentRecyclerView()
     }
 
-    private fun setupDataSourceForRecyclerView() {
+    private fun setupDataSourceForAppointmentRecyclerView() {
+        val doctorNames = arrayOf("Abra Wahib","Bilal Azzam")
+        val appointmentDates = arrayOf("3 Jan,2023","7 May,2023")
+        val appointmentTimes = arrayOf("03:45","08:30")
+        val appointments = mutableListOf<Appointment>()
+        for (i in doctorNames.indices){
+            appointments.add(Appointment(appointmentName = doctorNames[i],
+                appointmentDate = appointmentDates[i],
+                appointmentTime = appointmentTimes[i],
+                appointmentId = 0,
+                attended = false,
+                userId = "0"))
+        }
+        appointmentRecyclerAdapter.setupData(appointments)
+    }
+
+    private fun setupDataSourceForMedicineRecyclerView() {
         val routineNames = arrayOf("Heart pain","Back pain","Back pain","Pressure","Blood Glucose")
         val medicineNames = arrayOf("Kitofan","Adamol","Texotaz","Oxyfil","Panadol")
         val medicineIcons = arrayOf(R.drawable.ic_pill__1_,R.drawable.ic_milk,R.drawable.ic_milk,R.drawable.ic_pill__1_,R.drawable.ic_milk)
@@ -51,13 +73,18 @@ class ScheduleFragment : Fragment() {
         for (i in routineNames.indices){
             medicines.add(Medicine(routineName = routineNames[i], medicineName = medicineNames[i], medicineIcon = medicineIcons[i],medicineTime =medicineTimes[i], dose = 0f, drugQuantity = 0f))
         }
-        adapter.setData(medicines)
+        medicineRecyclerAdapter.setData(medicines)
     }
 
     private fun setupRecyclerView() {
+        // appointment recyclerView
+        binding.appointmentRecycler.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        appointmentRecyclerAdapter = AppointmentRecyclerAdapter(context as Context)
+        binding.appointmentRecycler.adapter = appointmentRecyclerAdapter
+        // medicine recyclerView
         binding.medicineRecycler.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
-        adapter = MedicineRecyclerAdapter(context as Context)
-        binding.medicineRecycler.adapter = adapter
+        medicineRecyclerAdapter = MedicineRecyclerAdapter(context as Context)
+        binding.medicineRecycler.adapter = medicineRecyclerAdapter
     }
 
     companion object {

@@ -20,7 +20,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:background="#00000000"
-            app:srcCompat="@drawable/baseline_photo_camera_24" />
+            app:srcCompat="@drawable/baseline_photo_camera_24"
+            android:contentDescription="@string/add_medicine_picture" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_add_medicine_name"

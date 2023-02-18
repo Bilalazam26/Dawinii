@@ -10,27 +10,28 @@
 
     <ImageView
         android:id="@+id/auth_logo"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/ic_pill"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="92dp"/>
+        android:layout_marginTop="50dp"/>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#00000000"
+        android:background="@color/transparent"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/auth_logo"
         app:tabGravity="center"
         app:tabIndicatorColor="#00073018"
-        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/white"
         app:tabTextAppearance="@style/tabs"
-        app:tabTextColor="#09371C"
+        app:tabSelectedTextColor="#09371C"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.viewpager2.widget.ViewPager2
@@ -51,6 +52,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/fragment_reset_password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

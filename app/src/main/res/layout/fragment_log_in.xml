@@ -45,6 +45,7 @@
         android:layout_width="match_parent"
         style="@style/et"
         android:autofillHints="password"
+        app:passwordToggleEnabled = "true"
         android:ems="10"
         android:hint="@string/loginPassword"
         android:inputType="textPassword"
@@ -91,7 +92,8 @@
             android:scrollbarThumbHorizontal="@drawable/google_logo"
             android:scrollbarThumbVertical="@drawable/google_logo"
             android:src="@drawable/google_logo"
-            app:backgroundTint="#00FFFFFF" />
+            app:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/login_with_google_account" />
 
         <ImageButton
             android:id="@+id/facebookBtn"
@@ -103,7 +105,8 @@
             android:scrollbarThumbHorizontal="@drawable/google_logo"
             android:scrollbarThumbVertical="@drawable/google_logo"
             android:src="@drawable/facebk_logo"
-            app:backgroundTint="#00FFFFFF" />
+            app:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/login_with_facebook_account" />
     </RelativeLayout>
 
 </LinearLayout>

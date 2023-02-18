@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sign_up">Sign Up</string>
     <string name="login">Login</string>
-    <string name="welcome_to_">Welcome to Dawinii, let"&apos;"s get started!</string>
+    <string name="welcome_to_">Welcome to Dawinii, let\'s get started!</string>
     <string name="sign_in_usi">Sign in using your social media account</string>
     <string name="create_an_a">Create an account so you can access our app</string>
     <string name="firstName">First Name</string>
@@ -61,7 +61,7 @@
     <string name="kidney">Kidney</string>
     <string name="spine">Spine</string>
     <string name="other">Other</string>
-    <string name="medicine_name">Add Medicine</string>
+    <string name="medicine_name">Medicine Name</string>
     <string name="add_medicine_dose">Dose</string>
     <string name="add_medicine_dose_count">count per day</string>
     <string name="drug_quantity">Drug Quantity</string>
@@ -81,6 +81,10 @@
     <string name="user_name">User Name</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+    <string name="add_medicine_picture">Add Medicine Picture</string>
+    <string name="login_with_google_account">Login with google account</string>
+    <string name="login_with_facebook_account">Login with facebook account</string>
+    <string name="upcoming_appointment">Upcoming Appointment</string>
 
 
     <string-array name="routine_types" tools:ignore="InconsistentArrays">

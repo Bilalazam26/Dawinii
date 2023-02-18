@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Dawinii</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -12,7 +12,12 @@
     <string name="loginUserName">Enter your email adress</string>
     <string name="loginPassword">Enter your password</string>
     <string name="userName">@username</string>
+    <string name="update">Update</string>
     <string name="eMailHint">E-mail : xxxxxx@example.com</string>
+    <string name="name_hint">User Name</string>
+    <string name="phone_hint">Phone Number</string>
+    <string name="address_hint">Address</string>
+    <string name="trust_person_hint">Trusted User</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="age">Age</string>
@@ -56,8 +61,43 @@
     <string name="kidney">Kidney</string>
     <string name="spine">Spine</string>
     <string name="other">Other</string>
-    <string-array name="routine_types">
+    <string name="medicine_name">Medicine Name</string>
+    <string name="add_medicine_dose">Dose</string>
+    <string name="add_medicine_dose_count">count per day</string>
+    <string name="drug_quantity">Drug Quantity</string>
+    <string name="medicine_time">Medicine Time</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <string name="about_app">About App</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="logout">Logout</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="doctor_name">Doctor Name</string>
+    <string name="appointment_date">Appointment Date</string>
+    <string name="appointment_time">Appointment Time</string>
+    <string name="submit">Submit</string>
+    <string name="user_name">User Name</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 
 
+    <string-array name="routine_types" tools:ignore="InconsistentArrays">
+        <item>@string/bones</item>
+        <item>@string/brain_and_nerve</item>
+        <item>@string/cardiology</item>
+        <item>@string/dental</item>
+        <item>@string/depression</item>
+        <item>@string/female_reproductive</item>
+        <item>@string/hair_and_skin</item>
+        <item>@string/kidney</item>
+        <item>@string/liver</item>
+        <item>@string/lung</item>
+        <item>@string/male_reproductive</item>
+        <item>@string/pancreas</item>
+        <item>@string/spine</item>
+        <item>@string/urology</item>
+        <item>@string/other</item>
     </string-array>
 </resources>

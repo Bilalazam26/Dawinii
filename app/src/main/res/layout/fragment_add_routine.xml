@@ -102,10 +102,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@drawable/btn_background"
-        android:text="Save"
+        android:text="@string/save"
         android:layout_marginBottom="8dp"
         android:textColor="@color/white"
-        android:textSize="22sp"/>
+        android:textSize="22sp"
+        android:fontFamily="@font/mada_bold"/>
 
 
 

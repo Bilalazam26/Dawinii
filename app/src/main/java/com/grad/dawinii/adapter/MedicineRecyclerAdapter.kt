@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grad.dawinii.databinding.MedicineLayoutBinding
 import com.grad.dawinii.model.entities.Medicine
 
-class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<MedicineRecyclerAdapter.MedicineViewHolder>() {
+class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<MedicineRecyclerAdapter.MedicineVH>() {
     private val listOfMedicine = mutableListOf<Medicine>()
-    inner class MedicineViewHolder(itemView: MedicineLayoutBinding):RecyclerView.ViewHolder(itemView.root){
+    inner class MedicineVH(itemView: MedicineLayoutBinding):RecyclerView.ViewHolder(itemView.root){
         val routineName = itemView.routineName
         val medicineName = itemView.medicineName
         val medicineIcon = itemView.medicineIcon
@@ -17,12 +17,12 @@ class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<Medici
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MedicineViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MedicineVH {
         val binding = MedicineLayoutBinding.inflate(LayoutInflater.from(context),parent,false)
-        return MedicineViewHolder(binding)
+        return MedicineVH(binding)
     }
 
-    override fun onBindViewHolder(holder: MedicineViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MedicineVH, position: Int) {
         val item = listOfMedicine[position]
         holder.routineName.text= item.routineName
         holder.medicineName.text= item.medicineName

@@ -22,14 +22,11 @@ class SplashActivity : AppCompatActivity() {
 
     private lateinit var localViewModel: LocalViewModel
     private lateinit var binding: ActivitySplashBinding
-    lateinit var logoAnim :Animation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        logoAnim = AnimationUtils.loadAnimation(this, R.anim.splash_logo_anim)
-        binding.splashLogo.animation = logoAnim
         Paper.init(this)
 
         localViewModel = ViewModelProvider(this)[LocalViewModel::class.java]

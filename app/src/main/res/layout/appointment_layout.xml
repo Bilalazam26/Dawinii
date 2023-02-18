@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/routine_item_background"
+    android:padding="10dp">
+    <TextView
+        android:id="@+id/tv_upcoming_appointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/upcoming_appointment"
+        android:textColor="#CCCCCC"
+        android:fontFamily="@font/mada_regular"
+        android:textSize="@dimen/size_small"
+        />
+    <ImageView
+        android:id="@+id/appointment_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_upcoming_appointment"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/calendar_2"
+        app:tint="@color/white"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/tv_doctor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/mada_bold"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/appointment_icon"
+        app:layout_constraintStart_toEndOf="@id/appointment_icon"
+        app:layout_constraintTop_toTopOf="@id/appointment_icon"
+        tools:text="Dr Abra Wahib ElBahnasawy" />
+    <TextView
+        android:id="@+id/appointment_date_in_appointment_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text ="date"
+        android:textColor="@color/white"
+        android:fontFamily="@font/manjari_bold"
+        app:layout_constraintTop_toBottomOf="@id/tv_doctor_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        android:textSize="12sp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

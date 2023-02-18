@@ -10,6 +10,8 @@
     <color name="primaryColor">#257044</color>
     <color name="secondaryColor">#3EB16F</color>
     <color name="gray">#646464</color>
-    <color name="fragment_backgrund_color">#CEEDDB</color>
-    <color name="color_remove">#a00</color>
+    <color name="fragment_background_color">#CEEDDB</color>
+    <color name="color_remove">#f88</color>
+    <color name="transparent">#00000000</color>
+    <color name="thirdColor">#3d8361</color>
 </resources>

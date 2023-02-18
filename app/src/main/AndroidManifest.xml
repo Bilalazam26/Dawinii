@@ -24,9 +24,6 @@
             android:name="com.grad.dawinii.view.notification.NotificationActivity"
             android:launchMode="singleTop" />
         <activity
-            android:name="com.grad.dawinii.view.AddRoutineActivity"
-            android:exported="false" />
-        <activity
             android:name="com.grad.dawinii.view.splash.SplashActivity"
             android:exported="true">
             <intent-filter>

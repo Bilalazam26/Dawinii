@@ -51,3 +51,10 @@ fun monthToInt(month: String) = when(month.lowercase()) {
         0
     }
 }
+fun getTodayDate(): String{
+    val calendar: Calendar = Calendar.getInstance()
+    val year = calendar.get(Calendar.YEAR)
+    val month = calendar.get(Calendar.MONTH)
+    val day = calendar.get(Calendar.DAY_OF_MONTH)
+    return "$day ${setupMonth(month)},$year"
+}
