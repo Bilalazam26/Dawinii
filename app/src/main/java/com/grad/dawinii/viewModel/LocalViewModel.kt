@@ -17,11 +17,13 @@ class LocalViewModel(application: Application): AndroidViewModel(application) {
 
     private val localRepository:LocalRepository
     var userMutableLiveData: MutableLiveData<User>
+    var  routinesMutableLiveData: MutableLiveData<List<Routine>>
 
     init {
         val dao = LocalDatabase.localDbInstance(application)?.dawinniDao() as DawiniiDao
         localRepository = LocalRepository(dao)
         userMutableLiveData = localRepository.userMutableLiveData
+        routinesMutableLiveData = localRepository.routinesMutableLiveData
     }
 
     fun insertRoutine(routine: Routine, medicineList: MutableList<Medicine>) = viewModelScope.launch(Dispatchers.IO) {
@@ -31,4 +33,8 @@ class LocalViewModel(application: Application): AndroidViewModel(application) {
     fun getLocalUser(userId: String)  = viewModelScope.launch(Dispatchers.IO) { localRepository.getLocalUser(userId) }
 
     fun updateLocalUser(user: User) = viewModelScope.launch(Dispatchers.IO) { localRepository.updateLocalUser(user) }
+
+    fun getUserWithRoutines(userId: String) = viewModelScope.launch(Dispatchers.IO) { localRepository.getUserWithRoutines(userId) }
+
+    fun deleteRoutine(routine: Routine) = viewModelScope.launch(Dispatchers.IO) { localRepository.deleteRoutine(routine) }
 }

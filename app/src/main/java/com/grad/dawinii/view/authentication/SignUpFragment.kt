@@ -73,7 +73,7 @@ class SignUpFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         val uid = Paper.book().read<String>(Constants.UID_PAPER_KEY)
-        if (uid != null) {
+        if (!uid.isNullOrEmpty()) {
             localViewModel.getLocalUser(uid)
         }
     }

@@ -17,6 +17,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.vision.Frame
 import com.google.android.gms.vision.text.TextRecognizer
@@ -36,7 +37,7 @@ import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 import java.util.*
 
-class AddRoutineFragment : Fragment(), EasyPermissions.PermissionCallbacks {
+class AddRoutineFragment : Fragment() {
     private lateinit var localViewModel: LocalViewModel
 
     private lateinit var time: List<Int>
@@ -60,7 +61,6 @@ class AddRoutineFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                 dialogBinding.etAddMedicineName.setText(startRecognition(imageBitmap))
             }
         }
-        createNotificationChannel()
         arguments?.let {
 
         }
@@ -123,10 +123,15 @@ class AddRoutineFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         val routineType = selectedRoutineType
         //2 - 1 - set routineName for each medicine
         //2 - 2 - set alarm with each medicine
-        setMedicines(routineName)
-        //3 - insert routine to room
-        val routine = Routine(0, routineName, routineStartDate, routineEndDate, routineType, 0, Prevalent.currentUser?.id.toString())
-        localViewModel.insertRoutine(routine, medicineList)
+        if (!(routineStartDate.isEmpty() || routineEndDate.isEmpty())) {
+            setMedicines(routineName)
+            //3 - insert routine to room
+            val routine = Routine(0, routineName, routineStartDate, routineEndDate, routineType, 0, Prevalent.currentUser?.id.toString())
+            localViewModel.insertRoutine(routine, medicineList)
+            Navigation.findNavController(binding.saveBtn).navigate(R.id.action_addRoutineFragment_to_navigation_routine)
+        } else {
+            makeToast(context, "You to choose start and end date")
+        }
     }
 
     private fun setMedicines(routineName: String) {
@@ -165,7 +170,8 @@ class AddRoutineFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     }
 
     private fun showAddMedicineDialog() {
-        checkCameraPermission()
+        val permissionHandler = PermissionHandler(this)
+        permissionHandler.checkCameraPermission(this)
         val dialog = BottomSheetDialog(requireContext())
         dialogBinding= AddMedicineDialogLayoutBinding.inflate(layoutInflater, null, false)
         dialog.setContentView(dialogBinding.root)
@@ -184,38 +190,6 @@ class AddRoutineFragment : Fragment(), EasyPermissions.PermissionCallbacks {
         captureAction.launch(intent)
     }
 
-    private fun checkCameraPermission() {
-        if(hasCameraPermission()){
-            return
-        }
-        EasyPermissions.requestPermissions(this,
-            "Please Allow Camera Permission",
-            100,
-            android.Manifest.permission.CAMERA)
-    }
-
-    private fun hasCameraPermission() = EasyPermissions.hasPermissions(requireContext(), android.Manifest.permission.CAMERA)
-
-    override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
-
-    }
-
-    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
-        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)){
-            AppSettingsDialog.Builder(this).build().show()
-        }else{
-            checkCameraPermission()
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
-    }
 
 
     private fun startRecognition(imageBitmap: Bitmap): String {
@@ -252,7 +226,7 @@ class AddRoutineFragment : Fragment(), EasyPermissions.PermissionCallbacks {
             val doseCount = strDoseCount.toInt()
             val drugQuantity = strDrugQuantity.toFloat()
 
-            if (dose <= 0 || doseCount <= 0 || drugQuantity <= 0) {
+            if (!(dose <= 0 || doseCount <= 0 || drugQuantity <= 0)) {
 
                 val medicine = Medicine(medicineName, 0, medicineTime, dose, drugQuantity, doseCount)
                 medicineList.add(medicine)
@@ -300,18 +274,7 @@ class AddRoutineFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     }
 
-    private fun createNotificationChannel() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "DawiniiReminderChannel"
-            val description = "Medicine Reminder"
-            val importance = NotificationManager.IMPORTANCE_HIGH
-            val channel = NotificationChannel("Dawinii", name, importance)
-            channel.description = description
-            val notificationManager =
-                ContextCompat.getSystemService(requireContext(), NotificationManager::class.java)
-            notificationManager?.createNotificationChannel(channel)
-        }
-    }
+
 
     companion object {
         @JvmStatic

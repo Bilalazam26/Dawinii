@@ -14,6 +14,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.setFragmentResultListener
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -24,9 +25,12 @@ import com.grad.dawinii.adapter.RoutineRecyclerAdapter
 import com.grad.dawinii.databinding.AddAppointmentDialogBinding
 import com.grad.dawinii.databinding.AddMedicineDialogLayoutBinding
 import com.grad.dawinii.databinding.FragmentRoutineBinding
+import com.grad.dawinii.interfaces.RoutineHelper
 import com.grad.dawinii.model.entities.Routine
+import com.grad.dawinii.util.Prevalent
 import com.grad.dawinii.util.makeToast
 import com.grad.dawinii.util.setupMonth
+import com.grad.dawinii.viewModel.LocalViewModel
 import java.util.Calendar
 
 class RoutineFragment : Fragment() {
@@ -43,8 +47,12 @@ class RoutineFragment : Fragment() {
     var appointmentTime = ""
     var doctorName = ""
 
+    private lateinit var localViewModel:LocalViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        localViewModel = ViewModelProvider(this)[LocalViewModel::class.java]
+
         arguments?.let {
 
         }
@@ -57,6 +65,15 @@ class RoutineFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        localViewModel.routinesMutableLiveData.observe(viewLifecycleOwner) {
+            if (it != null) {
+                val routineList = mutableListOf<Routine>()
+                routineList.addAll(0, it)
+                adapter.setData(routineList)
+            }
+        }
+
         initView()
     }
 
@@ -158,20 +175,17 @@ class RoutineFragment : Fragment() {
     }
 
     private fun setupDataSourceForRecycler() {
-        val routineNames = arrayOf("Back pain routine","Toothache","Heart pain","Pressure")
-        val routineIcons = arrayOf(R.drawable.ic_spine,R.drawable.ic_dent,R.drawable.ic_heart2,R.drawable.ic_blood)
-        val startDates = arrayOf("12-5-2022","13-7-2022","7-6-2022","15-4-2022")
-        val endDates = arrayOf("12-6-2022","13-8-2022","7-7-2022","15-5-2022")
-        val routines = mutableListOf<Routine>()
-        for (i in routineNames.indices){
-            routines.add(Routine(0, routineName = routineNames[i], routineStartDate = startDates[i], routineEndDate = endDates[i], "", routineIcon = routineIcons[i], ""))
-        }
-        adapter.setData(routines)
+        localViewModel.getUserWithRoutines(Prevalent.currentUser?.id.toString())
     }
 
     private fun setupRecyclerView() {
         binding.routineRecycler.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
-        adapter = RoutineRecyclerAdapter(context as Context)
+        adapter = RoutineRecyclerAdapter(requireContext(), object: RoutineHelper {
+            override fun deleteRoutine(routine: Routine) {
+                localViewModel.deleteRoutine(routine)
+            }
+
+        })
         binding.routineRecycler.adapter = adapter
 
     }

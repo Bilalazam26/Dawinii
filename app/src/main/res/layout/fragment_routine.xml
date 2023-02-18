@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/main_fragment_background"
-    android:paddingHorizontal="20dp"
-    android:paddingTop="20dp"
+    android:paddingTop="24dp"
     tools:context=".view.main.RoutineFragment">
     <TextView
         android:id="@+id/tv_routine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:text="@string/Routines"
         android:fontFamily="@font/mada_bold"
         android:textSize="40sp"
@@ -24,10 +24,11 @@
         android:id="@+id/routine_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_routine"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_routine" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
