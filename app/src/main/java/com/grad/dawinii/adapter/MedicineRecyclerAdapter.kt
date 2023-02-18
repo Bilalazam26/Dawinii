@@ -35,6 +35,7 @@ class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<Medici
     }
 
     fun setData(medicines: MutableList<Medicine>) {
+        listOfMedicine.clear()
         listOfMedicine.addAll(medicines)
         notifyDataSetChanged()
     }

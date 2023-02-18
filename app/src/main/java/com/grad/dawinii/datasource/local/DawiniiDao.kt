@@ -4,10 +4,7 @@ import androidx.room.*
 import com.grad.dawinii.model.entities.Medicine
 import com.grad.dawinii.model.entities.Routine
 import com.grad.dawinii.model.entities.User
-import com.grad.dawinii.model.relations.RoutineAndMedicine
-import com.grad.dawinii.model.relations.UserAndAppointment
-import com.grad.dawinii.model.relations.UserAndRoutine
-import com.grad.dawinii.model.relations.UserAndRoutineAndMedicine
+import com.grad.dawinii.model.relations.*
 
 @Dao
 interface DawiniiDao {
@@ -39,10 +36,9 @@ interface DawiniiDao {
     @Query("SELECT * FROM routine WHERE routineId = :routineId")
     suspend fun getRoutineWithMedicines(routineId: Int): List<RoutineAndMedicine>
 
-    //To get the User and its Routines with its Medicines
-    @Transaction
-    @Query("SELECT * FROM User WHERE id = :userId")
-    suspend fun getUserWithRoutinesAndMedicines(userId: String): List<UserAndRoutineAndMedicine>
+    @Transaction //To prevent multithreading issues
+    @Query("SELECT * FROM user WHERE id = :userId")
+    suspend fun getUserWithMedicines(userId: String): List<UserAndMedicine>
 
     @Delete
     suspend fun deleteRoutine(routine: Routine)

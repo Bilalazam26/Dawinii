@@ -11,8 +11,18 @@ data class RoutineAndMedicine (
     @Embedded val routine: Routine,
     @Relation(
             parentColumn = "routineId",
-            entityColumn = "medicineName",
+            entityColumn = "medicineId",
             associateBy = Junction(RoutineMedicineCrossRef::class)
     )
     val medicines: List<Medicine>
+)
+
+data class MedicineAndRoutine(
+    @Embedded val medicine: Medicine,
+    @Relation(
+        parentColumn = "medicineId",
+        entityColumn = "routineId",
+        associateBy = Junction(RoutineMedicineCrossRef::class)
+    )
+    val routines: List<Routine>
 )

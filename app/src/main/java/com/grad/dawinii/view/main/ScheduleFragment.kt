@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grad.dawinii.R
 import com.grad.dawinii.adapter.AppointmentRecyclerAdapter
@@ -13,16 +14,20 @@ import com.grad.dawinii.adapter.MedicineRecyclerAdapter
 import com.grad.dawinii.databinding.FragmentScheduleBinding
 import com.grad.dawinii.model.entities.Appointment
 import com.grad.dawinii.model.entities.Medicine
+import com.grad.dawinii.model.entities.Routine
+import com.grad.dawinii.util.Prevalent
 import com.grad.dawinii.util.getTodayDate
+import com.grad.dawinii.viewModel.LocalViewModel
 
 class ScheduleFragment : Fragment() {
+    private lateinit var localViewModel: LocalViewModel
     lateinit var binding: FragmentScheduleBinding
     lateinit var medicineRecyclerAdapter: MedicineRecyclerAdapter
     lateinit var appointmentRecyclerAdapter: AppointmentRecyclerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        localViewModel = ViewModelProvider(this)[LocalViewModel::class.java]
         arguments?.let {
-
         }
     }
 
@@ -37,6 +42,13 @@ class ScheduleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        localViewModel.medicinesMutableLiveData.observe(viewLifecycleOwner) {
+            if (it != null) {
+                val medicineList = mutableListOf<Medicine>()
+                medicineList.addAll(0, it)
+                medicineRecyclerAdapter.setData(medicineList)
+            }
+        }
         initView()
 
     }
@@ -65,7 +77,7 @@ class ScheduleFragment : Fragment() {
     }
 
     private fun setupDataSourceForMedicineRecyclerView() {
-        val routineNames = arrayOf("Heart pain","Back pain","Back pain","Pressure","Blood Glucose")
+        /*val routineNames = arrayOf("Heart pain","Back pain","Back pain","Pressure","Blood Glucose")
         val medicineNames = arrayOf("Kitofan","Adamol","Texotaz","Oxyfil","Panadol")
         val medicineIcons = arrayOf(R.drawable.ic_pill__1_,R.drawable.ic_milk,R.drawable.ic_milk,R.drawable.ic_pill__1_,R.drawable.ic_milk)
         val medicineTimes = arrayOf("2:00","3:00","3:30","4:00","6:00")
@@ -73,7 +85,9 @@ class ScheduleFragment : Fragment() {
         for (i in routineNames.indices){
             medicines.add(Medicine(routineName = routineNames[i], medicineName = medicineNames[i], medicineIcon = medicineIcons[i],medicineTime =medicineTimes[i], dose = 0f, drugQuantity = 0f))
         }
-        medicineRecyclerAdapter.setData(medicines)
+        medicineRecyclerAdapter.setData(medicines)*/
+
+        localViewModel.getUserWithMedicines(Prevalent.currentUser?.id.toString())
     }
 
     private fun setupRecyclerView() {

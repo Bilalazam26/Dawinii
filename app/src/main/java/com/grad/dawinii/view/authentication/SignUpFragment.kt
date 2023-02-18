@@ -65,11 +65,6 @@ class SignUpFragment : Fragment() {
         activity?.finish()
     }
 
-    override fun onStart() {
-        super.onStart()
-
-    }
-
     override fun onResume() {
         super.onResume()
         val uid = Paper.book().read<String>(Constants.UID_PAPER_KEY)

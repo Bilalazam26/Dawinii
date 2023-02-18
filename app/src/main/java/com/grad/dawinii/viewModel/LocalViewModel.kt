@@ -18,23 +18,37 @@ class LocalViewModel(application: Application): AndroidViewModel(application) {
     private val localRepository:LocalRepository
     var userMutableLiveData: MutableLiveData<User>
     var  routinesMutableLiveData: MutableLiveData<List<Routine>>
+    var medicinesMutableLiveData: MutableLiveData<List<Medicine>>
 
     init {
         val dao = LocalDatabase.localDbInstance(application)?.dawinniDao() as DawiniiDao
         localRepository = LocalRepository(dao)
         userMutableLiveData = localRepository.userMutableLiveData
         routinesMutableLiveData = localRepository.routinesMutableLiveData
+        medicinesMutableLiveData = localRepository.medicinesMutableLiveData
     }
 
     fun insertRoutine(routine: Routine, medicineList: MutableList<Medicine>) = viewModelScope.launch(Dispatchers.IO) {
         localRepository.insertRoutine(routine, medicineList)
     }
 
-    fun getLocalUser(userId: String)  = viewModelScope.launch(Dispatchers.IO) { localRepository.getLocalUser(userId) }
+    fun getLocalUser(userId: String)  = viewModelScope.launch(Dispatchers.IO) {
+        localRepository.getLocalUser(userId)
+    }
 
-    fun updateLocalUser(user: User) = viewModelScope.launch(Dispatchers.IO) { localRepository.updateLocalUser(user) }
+    fun updateLocalUser(user: User) = viewModelScope.launch(Dispatchers.IO) {
+        localRepository.updateLocalUser(user)
+    }
 
-    fun getUserWithRoutines(userId: String) = viewModelScope.launch(Dispatchers.IO) { localRepository.getUserWithRoutines(userId) }
+    fun getUserWithRoutines(userId: String) = viewModelScope.launch(Dispatchers.IO) {
+        localRepository.getUserWithRoutines(userId)
+    }
 
-    fun deleteRoutine(routine: Routine) = viewModelScope.launch(Dispatchers.IO) { localRepository.deleteRoutine(routine) }
+    fun deleteRoutine(routine: Routine) = viewModelScope.launch(Dispatchers.IO) {
+        localRepository.deleteRoutine(routine)
+    }
+    fun getUserWithMedicines(userId: String) = viewModelScope.launch(Dispatchers.IO) {
+        localRepository.getUserWithMedicines(userId)
+    }
+
 }

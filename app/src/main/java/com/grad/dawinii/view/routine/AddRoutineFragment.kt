@@ -215,7 +215,7 @@ class AddRoutineFragment : Fragment() {
         val medicineName = dialogBinding.etAddMedicineName.text.toString()
         val strDose = dialogBinding.etDose.text.toString()
         val strDoseCount = dialogBinding.etDoseCount.text.toString()
-        val strDrugQuantity = dialogBinding.etDose.text.toString()
+        val strDrugQuantity = dialogBinding.etDrugQuantity.text.toString()
         val medicineTime  = "${time[0].toString().padStart(2, '0')}:${time[1].toString().padStart(2, '0')}"
         if (!(medicineName.isEmpty() ||
                     strDose.isEmpty() ||
@@ -228,7 +228,7 @@ class AddRoutineFragment : Fragment() {
 
             if (!(dose <= 0 || doseCount <= 0 || drugQuantity <= 0)) {
 
-                val medicine = Medicine(medicineName, 0, medicineTime, dose, drugQuantity, doseCount)
+                val medicine = Medicine(0, medicineName, 0, medicineTime, dose, drugQuantity, doseCount, userId = Prevalent.currentUser?.id.toString())
                 medicineList.add(medicine)
                 medicineAdapter.setData(medicineList)
                 makeToast(context, "Medicines : ${medicineList.size}")

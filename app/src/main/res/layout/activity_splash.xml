@@ -8,6 +8,7 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".view.splash.SplashActivity">
+
     <ImageView
         android:id="@+id/splash_logo"
         android:layout_width="220dp"

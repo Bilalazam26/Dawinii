@@ -6,7 +6,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.grad.dawinii.model.entities.*
 
-@Database(entities = [User::class,
+@Database(entities = [
+    User::class,
     Routine::class,
     Medicine::class,
     Appointment::class,

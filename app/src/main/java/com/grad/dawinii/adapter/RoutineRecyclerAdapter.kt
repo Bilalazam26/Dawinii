@@ -2,7 +2,6 @@ package com.grad.dawinii.adapter
 
 import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -44,8 +43,8 @@ class RoutineRecyclerAdapter(private val context: Context, private val routineHe
     }
 
     private fun showRemoveDialog(routine: Routine, position: Int) {
-        var bulider = AlertDialog.Builder(context)
-        bulider.apply {
+        val builder = AlertDialog.Builder(context)
+        builder.apply {
             setTitle("Confirmation ")
             setMessage("Are you sure to delete routine :${routine.routineName}")
             setIcon(R.mipmap.logo)
@@ -55,10 +54,9 @@ class RoutineRecyclerAdapter(private val context: Context, private val routineHe
             setNegativeButton("No") { _, _ ->
 
             }
-
         }
-        bulider.create()
-        bulider.show()
+        builder.create()
+        builder.show()
     }
 
     override fun getItemCount(): Int {
