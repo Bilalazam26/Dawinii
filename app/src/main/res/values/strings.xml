@@ -86,6 +86,7 @@
     <string name="login_with_facebook_account">Login with facebook account</string>
     <string name="upcoming_appointment">Upcoming Appointment</string>
     <string name="no_icon">No Icon</string>
+    <string name="medicines">Medicines</string>
 
 
     <string-array name="routine_types" tools:ignore="InconsistentArrays">

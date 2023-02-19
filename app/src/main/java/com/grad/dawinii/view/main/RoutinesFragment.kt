@@ -1,6 +1,5 @@
 package com.grad.dawinii.view.main
 
-import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
@@ -11,9 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Button
-import android.widget.EditText
-import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,11 +17,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.grad.dawinii.R
+import com.grad.dawinii.adapter.MedicineRecyclerAdapter
 import com.grad.dawinii.adapter.RoutineRecyclerAdapter
 import com.grad.dawinii.databinding.AddAppointmentDialogBinding
-import com.grad.dawinii.databinding.AddMedicineDialogLayoutBinding
-import com.grad.dawinii.databinding.FragmentRoutineBinding
+import com.grad.dawinii.databinding.FragmentRoutinesBinding
 import com.grad.dawinii.interfaces.RoutineHelper
+import com.grad.dawinii.model.entities.Medicine
 import com.grad.dawinii.model.entities.Routine
 import com.grad.dawinii.util.Prevalent
 import com.grad.dawinii.util.makeToast
@@ -33,8 +30,8 @@ import com.grad.dawinii.util.setupMonth
 import com.grad.dawinii.viewModel.LocalViewModel
 import java.util.Calendar
 
-class RoutineFragment : Fragment() {
-    lateinit var binding: FragmentRoutineBinding
+class RoutinesFragment : Fragment() {
+    lateinit var binding: FragmentRoutinesBinding
     lateinit var adapter: RoutineRecyclerAdapter
     private val rotateOpen:Animation by lazy { AnimationUtils.loadAnimation(context,R.anim.rotate_open_anim) }
     private val rotateClose:Animation by lazy { AnimationUtils.loadAnimation(context,R.anim.rotate_close_anim) }
@@ -52,14 +49,13 @@ class RoutineFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         localViewModel = ViewModelProvider(this)[LocalViewModel::class.java]
-
         arguments?.let {
 
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentRoutineBinding.inflate(layoutInflater,container,false)
+        binding = FragmentRoutinesBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 
@@ -190,10 +186,11 @@ class RoutineFragment : Fragment() {
 
     }
 
+
     companion object {
         @JvmStatic
         fun newInstance() =
-            RoutineFragment().apply {
+            RoutinesFragment().apply {
                 arguments = Bundle().apply {
                 }
             }

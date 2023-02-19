@@ -3,13 +3,16 @@ package com.grad.dawinii.adapter
 import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.grad.dawinii.R
 import com.grad.dawinii.databinding.RoutineLayoutBinding
 import com.grad.dawinii.interfaces.RoutineHelper
 import com.grad.dawinii.model.entities.Routine
+import com.grad.dawinii.view.routine.RoutineFragment
 
 class RoutineRecyclerAdapter(private val context: Context, private val routineHelper: RoutineHelper) : RecyclerView.Adapter<RoutineRecyclerAdapter.RoutineViewHolder>() {
     private val routines = mutableListOf<Routine>()
@@ -19,6 +22,7 @@ class RoutineRecyclerAdapter(private val context: Context, private val routineHe
         val endDate = itemView.tvEndDate
         val routineIcon = itemView.ivRoutineIcon
         val removeBtn = itemView.btnRemove
+        val item = itemView.root
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoutineViewHolder {
@@ -33,7 +37,14 @@ class RoutineRecyclerAdapter(private val context: Context, private val routineHe
         holder.endDate.text= routine.routineEndDate
         holder.routineIcon.setImageResource(routine.routineIcon)
         holder.removeBtn.setOnClickListener { showRemoveDialog(routine, position) }
+        holder.item.setOnClickListener { navigateToRoutineFragment(it, routine) }
     }
+
+    private fun navigateToRoutineFragment(it: View, routine: Routine) {
+        Navigation.findNavController(it).navigate(R.id.action_navigation_routine_to_routineFragment)
+        RoutineFragment.getRoutine(routine)
+    }
+
 
     private fun removeRoutine(routine: Routine, position: Int) {
         routineHelper.deleteRoutine(routine)

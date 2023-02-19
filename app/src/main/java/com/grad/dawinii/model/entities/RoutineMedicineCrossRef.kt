@@ -6,5 +6,5 @@ import androidx.room.PrimaryKey
 @Entity(primaryKeys = ["routineId", "medicineId"])
 data class RoutineMedicineCrossRef (
                 val routineId: Int,
-                val medicineId: String
+                val medicineId: Int
         )

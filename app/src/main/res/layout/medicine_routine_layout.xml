@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/medicine_item_background"
         android:padding="5dp">
         <ImageView
             android:id="@+id/medicine_icon"
