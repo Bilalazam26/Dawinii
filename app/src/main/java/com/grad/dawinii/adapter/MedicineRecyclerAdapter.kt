@@ -24,10 +24,12 @@ class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<Medici
 
     override fun onBindViewHolder(holder: MedicineVH, position: Int) {
         val item = listOfMedicine[position]
-        holder.routineName.text= item.routineName
-        holder.medicineName.text= item.medicineName
-        holder.medicineIcon.setImageResource(item.medicineIcon)
-        holder.medicineTime.text= item.medicineTime
+        holder.apply {
+            routineName.text= item.routineName
+            medicineName.text= item.medicineName
+            medicineIcon.setImageResource(item.medicineIcon)
+            medicineTime.text= item.medicineTime
+        }
     }
 
     override fun getItemCount(): Int {

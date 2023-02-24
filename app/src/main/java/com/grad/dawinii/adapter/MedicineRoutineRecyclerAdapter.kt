@@ -28,10 +28,12 @@ class MedicineRoutineRecyclerAdapter(private val context: Context?) :
     }
 
     override fun onBindViewHolder(holder: MedicineRoutineViewHolder, position: Int) {
-        var medicine = medicineList[position]
-        holder.medicineName.text = medicine.medicineName
-        holder.medicineTime.text = medicine.medicineTime
-        holder.medicineIcon.setImageResource(R.drawable.ic_pill_green)
+        val medicine = medicineList[position]
+        holder.apply {
+            medicineName.text = medicine.medicineName
+            medicineTime.text = medicine.medicineTime
+            medicineIcon.setImageResource(R.drawable.ic_pill_green)
+        }
     }
 
     override fun getItemCount(): Int {

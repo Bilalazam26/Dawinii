@@ -32,12 +32,14 @@ class RoutineRecyclerAdapter(private val context: Context, private val routineHe
 
     override fun onBindViewHolder(holder: RoutineViewHolder, position: Int) {
         val routine = routines[position]
-        holder.routineName.text = routine.routineName
-        holder.startDate.text = routine.routineStartDate
-        holder.endDate.text= routine.routineEndDate
-        holder.routineIcon.setImageResource(routine.routineIcon)
-        holder.removeBtn.setOnClickListener { showRemoveDialog(routine, position) }
-        holder.item.setOnClickListener { navigateToRoutineFragment(it, routine) }
+        holder.apply {
+            routineName.text = routine.routineName
+            startDate.text = routine.routineStartDate
+            endDate.text= routine.routineEndDate
+            routineIcon.setImageResource(routine.routineIcon)
+            removeBtn.setOnClickListener { showRemoveDialog(routine, position) }
+            item.setOnClickListener { navigateToRoutineFragment(it, routine) }
+        }
     }
 
     private fun navigateToRoutineFragment(it: View, routine: Routine) {

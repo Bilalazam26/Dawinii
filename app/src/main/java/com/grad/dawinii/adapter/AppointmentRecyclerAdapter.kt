@@ -21,8 +21,10 @@ class AppointmentRecyclerAdapter(var context: Context) : RecyclerView.Adapter<Ap
 
     override fun onBindViewHolder(holder: AppointmentVH, position: Int) {
         val item = listOfAppointment[position]
-        holder.doctorName.text = item.appointmentName
-        holder.appointmentDate.text = item.appointmentDate + " at " + item.appointmentTime
+        holder.apply {
+            doctorName.text = item.appointmentName
+            appointmentDate.text = item.appointmentDate + " at " + item.appointmentTime
+        }
     }
 
     override fun getItemCount(): Int {
