@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Dawinii</string>
+    <string name="app_name" translatable="false">Dawinii</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="sign_up">Sign Up</string>
     <string name="login">Login</string>
     <string name="welcome_to_">Welcome to Dawinii, let\'s get started!</string>
@@ -13,7 +13,7 @@
     <string name="loginPassword">Enter your password</string>
     <string name="userName">@username</string>
     <string name="update">Update</string>
-    <string name="eMailHint">E-mail : xxxxxx@example.com</string>
+    <string name="eMailHint" translatable="false">E-mail : xxxxxx@example.com</string>
     <string name="name_hint">User Name</string>
     <string name="phone_hint">Phone Number</string>
     <string name="address_hint">Address</string>
@@ -85,7 +85,7 @@
     <string name="login_with_google_account">Login with google account</string>
     <string name="login_with_facebook_account">Login with facebook account</string>
     <string name="upcoming_appointment">Upcoming Appointment</string>
-    <string name="no_icon">No Icon</string>
+    <string name="routine_icon">Routine Icon</string>
     <string name="medicines">Medicines</string>
 
 

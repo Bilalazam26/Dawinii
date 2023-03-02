@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/appointment_icon"
         app:layout_constraintStart_toEndOf="@id/appointment_icon"
         app:layout_constraintTop_toTopOf="@id/appointment_icon"
-        tools:text="Dr Abra Wahib ElBahnasawy" />
+        tools:text="Dr Abra Wahib" />
     <TextView
         android:id="@+id/appointment_date_in_appointment_layout"
         android:layout_width="wrap_content"
