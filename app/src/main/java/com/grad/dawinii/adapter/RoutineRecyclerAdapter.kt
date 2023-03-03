@@ -16,30 +16,27 @@ import com.grad.dawinii.view.routine.RoutineFragment
 
 class RoutineRecyclerAdapter(private val context: Context, private val routineHelper: RoutineHelper) : RecyclerView.Adapter<RoutineRecyclerAdapter.RoutineViewHolder>() {
     private val routines = mutableListOf<Routine>()
-    inner class RoutineViewHolder(itemView: RoutineLayoutBinding) :RecyclerView.ViewHolder(itemView.root){
-        val routineName = itemView.routineName
-        val startDate = itemView.tvStartDate
-        val endDate = itemView.tvEndDate
-        val routineIcon = itemView.ivRoutineIcon
-        val removeBtn = itemView.btnRemove
-        val item = itemView.root
+    inner class RoutineViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
+        val binding = RoutineLayoutBinding.bind(itemView)
+        val item = itemView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoutineViewHolder {
-        val binding = RoutineLayoutBinding.inflate(LayoutInflater.from(context),parent,false)
-        return RoutineViewHolder(binding)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.routine_layout,parent,false)
+        return RoutineViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: RoutineViewHolder, position: Int) {
         val routine = routines[position]
-        holder.apply {
+        holder.binding.apply {
             routineName.text = routine.routineName
-            startDate.text = routine.routineStartDate
-            endDate.text= routine.routineEndDate
-            routineIcon.setImageResource(routine.routineIcon)
-            removeBtn.setOnClickListener { showRemoveDialog(routine, position) }
-            item.setOnClickListener { navigateToRoutineFragment(it, routine) }
+            tvStartDate.text = routine.routineStartDate
+            tvEndDate.text = routine.routineEndDate
+            ivRoutineIcon.setImageResource(routine.routineIcon)
+            btnRemove.setOnClickListener { showRemoveDialog(routine, position) }
         }
+            holder.item.setOnClickListener { navigateToRoutineFragment(it, routine) }
+
     }
 
     private fun navigateToRoutineFragment(it: View, routine: Routine) {
@@ -72,9 +69,7 @@ class RoutineRecyclerAdapter(private val context: Context, private val routineHe
         builder.show()
     }
 
-    override fun getItemCount(): Int {
-        return routines.size
-    }
+    override fun getItemCount(): Int = routines.size
 
     fun setData(routines: MutableList<Routine>) {
         this.routines.clear()

@@ -2,6 +2,7 @@ package com.grad.dawinii.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.grad.dawinii.R
@@ -13,32 +14,26 @@ class MedicineRoutineRecyclerAdapter(private val context: Context?) :
     RecyclerView.Adapter<MedicineRoutineRecyclerAdapter.MedicineRoutineViewHolder>() {
     private var medicineList: MutableList<Medicine> = mutableListOf<Medicine>()
 
-    inner class MedicineRoutineViewHolder(itemView: MedicineRoutineLayoutBinding) :
-        RecyclerView.ViewHolder(itemView.root) {
-        val medicineName = itemView.medicineName
-        val medicineTime = itemView.medicineTime
-        val medicineIcon = itemView.medicineIcon
+    inner class MedicineRoutineViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView) {
+        val binding = MedicineRoutineLayoutBinding.bind(itemView)
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MedicineRoutineViewHolder {
-        val binding =
-            MedicineRoutineLayoutBinding.inflate(LayoutInflater.from(context), parent, false)
-        return MedicineRoutineViewHolder(binding)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.medicine_routine_layout,parent,false)
+        return MedicineRoutineViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: MedicineRoutineViewHolder, position: Int) {
         val medicine = medicineList[position]
-        holder.apply {
+        holder.binding.apply {
             medicineName.text = medicine.medicineName
             medicineTime.text = medicine.medicineTime
             medicineIcon.setImageResource(R.drawable.ic_pill_green)
         }
     }
 
-    override fun getItemCount(): Int {
-        return medicineList.size
-    }
+    override fun getItemCount(): Int = medicineList.size
 
     fun setData(medicineList: MutableList<Medicine>) {
         this.medicineList.clear()
