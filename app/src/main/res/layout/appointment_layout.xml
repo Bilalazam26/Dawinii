@@ -5,9 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin="@dimen/margin8"
     android:background="@drawable/routine_item_background"
-    android:padding="10dp">
+    android:padding="@dimen/margin8">
+
     <TextView
         android:id="@+id/tv_upcoming_appointment"
         android:layout_width="wrap_content"
@@ -21,22 +22,22 @@
         />
     <ImageView
         android:id="@+id/appointment_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/ic50"
+        android:layout_height="@dimen/ic50"
         app:layout_constraintTop_toBottomOf="@id/tv_upcoming_appointment"
         app:layout_constraintStart_toStartOf="parent"
         android:src="@drawable/calendar_2"
         app:tint="@color/white"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="@dimen/margin8"/>
 
     <TextView
         android:id="@+id/tv_doctor_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="@dimen/margin8"
         android:fontFamily="@font/mada_bold"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="@dimen/size_large"
         app:layout_constraintBottom_toBottomOf="@+id/appointment_icon"
         app:layout_constraintStart_toEndOf="@id/appointment_icon"
         app:layout_constraintTop_toTopOf="@id/appointment_icon"
@@ -50,6 +51,6 @@
         android:fontFamily="@font/manjari_bold"
         app:layout_constraintTop_toBottomOf="@id/tv_doctor_name"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="5dp"
-        android:textSize="12sp"/>
+        android:layout_marginTop="@dimen/margin3"
+        android:textSize="@dimen/size_small"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

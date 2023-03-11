@@ -87,6 +87,8 @@
     <string name="upcoming_appointment">Upcoming Appointment</string>
     <string name="routine_icon">Routine Icon</string>
     <string name="medicines">Medicines</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
 
 
     <string-array name="routine_types" tools:ignore="InconsistentArrays">
