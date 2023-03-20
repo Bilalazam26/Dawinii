@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:text="@string/upcoming_appointment"
-        android:textColor="#CCCCCC"
+        android:textColor="@color/white"
         android:fontFamily="@font/mada_regular"
         android:textSize="@dimen/size_small"
         />

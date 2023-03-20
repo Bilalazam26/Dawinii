@@ -82,7 +82,7 @@
         android:layout_marginTop="@dimen/margin16"
         android:paddingHorizontal="64dp"
         android:text="@string/remove"
-        android:textColor="#a00"
+        android:textColor="@color/white"
         android:textSize="@dimen/size_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

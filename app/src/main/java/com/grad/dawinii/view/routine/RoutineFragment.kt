@@ -9,13 +9,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.grad.dawinii.R
 import com.grad.dawinii.adapter.MedicineRecyclerAdapter
+import com.grad.dawinii.adapter.MedicineRoutineRecyclerAdapter
 import com.grad.dawinii.databinding.FragmentRoutineBinding
 import com.grad.dawinii.model.entities.Medicine
 import com.grad.dawinii.model.entities.Routine
 import com.grad.dawinii.viewModel.LocalViewModel
 
 class RoutineFragment : Fragment() {
-    private lateinit var adapter: MedicineRecyclerAdapter
+    private lateinit var adapter: MedicineRoutineRecyclerAdapter
     private lateinit var binding: FragmentRoutineBinding
     private lateinit var localViewModel: LocalViewModel
 
@@ -58,7 +59,7 @@ class RoutineFragment : Fragment() {
     private fun setMedicinesRecycler() {
         val medicinesRv = binding.medicinesRv
         medicinesRv.layoutManager = LinearLayoutManager(requireContext())
-        adapter = MedicineRecyclerAdapter(requireContext())
+        adapter = MedicineRoutineRecyclerAdapter(requireContext())
         medicinesRv.adapter = adapter
         setDataSource()
     }

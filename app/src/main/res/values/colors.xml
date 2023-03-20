@@ -7,12 +7,13 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="nav_bg">#77ffffff</color>
-    <color name="primaryColor">#257044</color>
-    <color name="secondaryColor">#3EB16F</color>
+    <color name="nav_bg">#55ffffff</color>
+    <color name="primaryColor">#3EB16F</color>
+    <color name="secondaryColor">#257044</color>
+    <color name="thirdColor">#3d8f61</color>
     <color name="gray">#646464</color>
     <color name="fragment_background_color">#CEEDDB</color>
-    <color name="color_remove">#f88</color>
+    <color name="color_remove">#ffff0808</color>
+    <color name="color_remove1">#c0ff0000</color>
     <color name="transparent">#00000000</color>
-    <color name="thirdColor">#3d8361</color>
 </resources>

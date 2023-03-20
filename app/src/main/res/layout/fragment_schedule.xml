@@ -5,14 +5,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/main_fragment_background"
-    tools:context=".main.ScheduleFragment"
-    android:padding="@dimen/margin16">
+    tools:context=".main.ScheduleFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/appointment_recycler"
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_marginTop="@dimen/margin8"
+        android:layout_marginHorizontal="@dimen/margin8"
+        android:layout_marginTop="@dimen/margin16"
         tools:listitem="@layout/appointment_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,6 +27,7 @@
         android:text="@string/today_scedule"
         android:textColor="@color/primaryColor"
         android:layout_marginTop="@dimen/margin3"
+        android:layout_marginStart="@dimen/margin16"
         app:layout_constraintTop_toBottomOf="@id/appointment_recycler"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -37,6 +38,7 @@
         android:fontFamily="@font/manjari_bold"
         android:textColor="@color/primaryColor"
         android:textSize="@dimen/size_small"
+        android:layout_marginEnd="@dimen/margin16"
         app:layout_constraintBottom_toBottomOf="@+id/tv_today_schedule"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBaseline_toBaselineOf="@id/tv_today_schedule"
