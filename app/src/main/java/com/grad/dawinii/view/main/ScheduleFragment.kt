@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.recyclerview.widget.SnapHelper
 import com.grad.dawinii.R
 import com.grad.dawinii.adapter.AppointmentRecyclerAdapter
 import com.grad.dawinii.adapter.MedicineRecyclerAdapter
@@ -92,7 +94,10 @@ class ScheduleFragment : Fragment() {
 
     private fun setupRecyclerView() {
         // appointment recyclerView
-        binding.appointmentRecycler.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        val layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        binding.appointmentRecycler.layoutManager = layoutManager
+        val snapHelper = PagerSnapHelper()
+        snapHelper.attachToRecyclerView(binding.appointmentRecycler)
         appointmentRecyclerAdapter = AppointmentRecyclerAdapter(context as Context)
         binding.appointmentRecycler.adapter = appointmentRecyclerAdapter
         // medicine recyclerView

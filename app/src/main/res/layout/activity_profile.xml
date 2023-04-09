@@ -1,134 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/fragment_background_color"
+    android:gravity="center"
+    android:background="@color/primaryColor"
     tools:context=".view.profile.ProfileActivity">
-
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/app_background_small"
-        android:backgroundTintMode="multiply"
-        android:hapticFeedbackEnabled="false">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:title="@string/profile"
-                app:navigationIcon="@drawable/baseline_arrow_back_ios_new_24"
-                app:titleTextColor="@color/white"
-                app:titleTextAppearance="@style/toolbar_title"/>
-        </com.google.android.material.appbar.MaterialToolbar>
-    </FrameLayout>
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imageProfile"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="-100dp"
-        android:scaleType="center"
-        android:background="@color/primaryColor"
-        android:src="@drawable/baseline_person_24"
-        app:shapeAppearanceOverlay="@style/Circular" />
-
-    <EditText
-        android:id="@+id/etProfileName"
-        style="@style/et"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_width="match_parent"
-        android:ems="10"
-        android:hint="@string/name_hint"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/etProfilePhone"
-        style="@style/et"
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="16dp"
-        android:ems="10"
-        android:hint="@string/phone_hint"
-        android:inputType="phone" />
-
-    <EditText
-        android:id="@+id/etProfileAddress"
-        style="@style/et"
-        android:layout_width="match_parent"
-        android:ems="10"
-        android:layout_marginHorizontal="16dp"
-        android:hint="@string/address_hint"
-        android:inputType="textPostalAddress" />
-
-    <EditText
-        android:id="@+id/etProfileTrustedPerson"
-        android:layout_width="match_parent"
-        style="@style/et"
-        android:layout_marginHorizontal="16dp"
-        android:hint="@string/trust_person_hint"
-        android:ems="10"
-        android:inputType="textEmailAddress" />
-
-    <EditText
-        android:id="@+id/etProfileAge"
-        android:layout_width="match_parent"
-        style="@style/et"
-        android:hint="@string/age"
-        android:ems="10"
-        android:layout_marginHorizontal="16dp"
-        android:inputType="number" />
-
-
-    <RadioGroup
-        android:id="@+id/rbgGender"
+    <androidx.cardview.widget.CardView
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:orientation="horizontal">
+        app:cardCornerRadius="25dp">
 
-        <RadioButton
-            android:id="@+id/rbMale"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:buttonTint="@color/primaryColor"
-            android:fontFamily="@font/manjari_bold"
-            android:text="Male"
-            android:textColor="@color/gray"
-            android:textSize="15sp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/fragment_background_color"
+            android:padding="32dp">
 
-        <RadioButton
-            android:id="@+id/rbFemale"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_weight="1"
-            android:buttonTint="@color/primaryColor"
-            android:fontFamily="@font/manjari_bold"
-            android:text="Female"
-            android:textColor="@color/gray"
-            android:textSize="15sp" />
-    </RadioGroup>
+            <ImageView
+                android:id="@+id/user_profile_picture"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:contentDescription="@string/profile_picture"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/profile_circle" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnProfileUpdate"
-        android:layout_marginHorizontal="16dp"
-        style="@style/button"
-        android:layout_marginVertical="16dp"
-        android:text="@string/update" />
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_profile_picture"
+                android:layout_marginTop="8dp"
+                android:text="Abra Wahib"
+                android:fontFamily="@font/mada_bold"
+                android:textColor="@color/primaryColor"
+                android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/user_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="22 years"
+                app:layout_constraintTop_toBottomOf="@id/user_name"
+                android:textSize="18sp"
+                android:fontFamily="@font/mada_bold"
+                android:textColor="#6A907A"/>
 
-</LinearLayout>
+            <ImageView
+                android:id="@+id/user_birth_date_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_age"
+                android:src="@drawable/gender"
+                android:layout_marginTop="16dp"
+                app:tint="@color/primaryColor" />
+            <TextView
+                android:id="@+id/user_birth_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/manjari_bold"
+                android:textSize="20sp"
+                android:text="Male"
+                android:textColor="@color/primaryColor"
+                app:layout_constraintTop_toTopOf="@id/user_birth_date_icon"
+                app:layout_constraintBottom_toBottomOf="@id/user_birth_date_icon"
+                app:layout_constraintStart_toEndOf="@id/user_birth_date_icon"
+                android:layout_marginStart="16dp"/>
+            <ImageView
+                android:id="@+id/user_mail_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_birth_date_icon"
+                android:src="@drawable/mail"
+                android:layout_marginTop="8dp"
+                app:tint="@color/primaryColor" />
+            <TextView
+                android:id="@+id/user_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/manjari_bold"
+                android:textSize="20sp"
+                android:text="abrawaheb1234@gmail.com"
+                android:textColor="@color/primaryColor"
+                app:layout_constraintTop_toTopOf="@id/user_mail_icon"
+                app:layout_constraintBottom_toBottomOf="@id/user_mail_icon"
+                app:layout_constraintStart_toEndOf="@id/user_mail_icon"
+                android:layout_marginStart="16dp"/>
+            <ImageView
+                android:id="@+id/user_phone_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_mail_icon"
+                android:src="@drawable/call"
+                android:layout_marginTop="8dp"
+                app:tint="@color/primaryColor" />
+
+            <TextView
+                android:id="@+id/user_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/manjari_bold"
+                android:text="01004746087"
+                android:textColor="@color/primaryColor"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/user_phone_icon"
+                app:layout_constraintStart_toEndOf="@+id/user_phone_icon"
+                app:layout_constraintTop_toTopOf="@+id/user_phone_icon"
+                android:layout_marginStart="16dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_edit_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_phone_icon"
+                android:text="@string/edit_profile"
+                android:background="@drawable/btn_background"
+                android:fontFamily="@font/manjari_bold"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/user_edit"
+                android:drawableTint="@color/white"
+                android:drawablePadding="-8dp"
+                android:paddingStart="8dp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -87,6 +87,12 @@
     <string name="upcoming_appointment">Upcoming Appointment</string>
     <string name="routine_icon">Routine Icon</string>
     <string name="medicines">Medicines</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="color_blind_mode">Color blind Mode</string>
+    <string name="deuteranopia">Deuteranopia</string>
+    <string name="proteranopia">Proteranopia</string>
+    <string name="tretanopia">Tretanopia</string>
+    <string name="edit_profile">Edit Profile</string>
 
 
     <string-array name="routine_types" tools:ignore="InconsistentArrays">
