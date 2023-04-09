@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="sign_up">
-        <item name="android:textSize">46.52sp</item>
+        <item name="android:textSize">@dimen/size_xxlarge</item>
         <item name="android:textColor">#257044</item>
     </style>
     <style name="login">
@@ -10,19 +10,20 @@
     </style>
 
     <style name="et">
-        <item name="android:layout_marginTop" >5dp</item>
+        <item name="android:layout_height">@dimen/et_height</item>
+        <item name="android:layout_marginTop">@dimen/margin16</item>
         <item name="android:textAlignment">center</item>
         <item name="android:fontFamily">@font/manjari_regular</item>
         <item name="android:background">@drawable/edit_text_background</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textColorHint">#4702013E</item>
-        <item name="android:layout_height">50dp</item>
     </style>
     <style name="radio_btn">
         <item name="android:textColor">@color/primaryColor</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:fontFamily">@font/manjari_regular</item>
-        <item name="android:paddingStart">8dp</item>
+        <item name="android:textSize">@dimen/size_medium</item>
+        <item name="android:fontFamily">@font/manjari_bold</item>
+        <item name="android:layout_margin">@dimen/margin16</item>
+        <item name="android:buttonTint">@color/primaryColor</item>
     </style>
     <style name="routine_et">
         <item name="android:gravity">center</item>
@@ -31,21 +32,21 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@drawable/routine_et_bg</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">16dp</item>
+        <item name="android:padding">@dimen/margin16</item>
         <item name="android:layout_width">0dp</item>
 
     </style>
     <style name="button">
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_height">@dimen/et_height</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginVertical">@dimen/margin32</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/manjari_bold</item>
-        <item name="android:layout_marginTop">5dp</item>
         <item name="android:background">@drawable/btn_background</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/size_medium</item>
     </style>
     <style name="tabs">
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">@dimen/tabSize</item>
         <item name="android:fontFamily">@font/mada_bold</item>
     </style>
     <style name="Widget.BottomNavigationView"
@@ -53,14 +54,14 @@
         <item name="fontFamily">@font/mada_regular</item>
     </style>
     <style name="toolbar_title">
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">@dimen/title</item>
         <item name="android:fontFamily">@font/mada_bold</item>
         <item name="android:titleTextColor">@color/white</item>
     </style>
     <style name="Widget.MaterialComponents.FloatingActionButton.myfab">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">16dp</item>
+        <item name="android:layout_margin">@dimen/margin16</item>
         <item name="android:backgroundTint">@color/thirdColor</item>
         <item name="android:focusable">true</item>
     </style>
@@ -72,7 +73,7 @@
     <style name="fab_description">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginHorizontal">6dp</item>
+        <item name="android:layout_marginHorizontal">@dimen/margin16</item>
         <item name="android:fontFamily">@font/mada_bold</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">16sp</item>
@@ -81,6 +82,7 @@
     <style name="buttons_in_add_routine_fragment">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/size_medium</item>
         <item name="android:fontFamily">@font/manjari_bold</item>
         <item name="android:background">@drawable/routine_et_bg</item>
         <item name="android:drawableEnd">@drawable/baseline_arrow_drop_down_24</item>
@@ -90,7 +92,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/mada_regular</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">@dimen/size_large</item>
     </style>
     <style name="items_in_drawer">
         <item name="android:fontFamily">@font/manjari_bold</item>

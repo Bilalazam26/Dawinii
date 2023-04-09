@@ -64,6 +64,11 @@ dependencies {
 
     //google vision
     implementation 'com.google.android.gms:play-services-vision:20.1.3'
+
     //easy permissions
     implementation 'pub.devrel:easypermissions:3.0.0'
+
+    //smooth nav bar
+    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.9'
+
 }

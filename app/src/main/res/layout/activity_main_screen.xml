@@ -15,34 +15,44 @@
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar_layout"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            android:paddingVertical="12dp">
+            android:paddingVertical="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:title="@string/welcome"
-                app:titleTextColor="@color/white"
-                app:titleTextAppearance="@style/toolbar_title"/>
+                app:titleTextAppearance="@style/toolbar_title"
+                app:titleTextColor="@color/white" />
         </com.google.android.material.appbar.MaterialToolbar>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
+
+        <me.ibrahimsn.lib.SmoothBottomBar
             android:id="@+id/mainScreenNav"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:menu="@menu/main_screen_bnv"
-            app:labelVisibilityMode="selected"
-            app:itemTextColor="@color/white"
+            android:layout_height="70dp"
             android:background="@drawable/background"
-            app:itemIconTint="@color/white"
-            app:itemTextAppearanceActive="@style/Widget.BottomNavigationView"
-            app:itemTextAppearanceInactive="@style/Widget.BottomNavigationView"
-            android:elevation="10dp"
-            />
+            app:backgroundColor="@color/transparent"
+            app:cornerRadius="@dimen/radius"
+            app:iconSize="@dimen/size_large"
+            app:iconTint="@color/white"
+            app:iconTintActive="@color/white"
+            app:indicatorColor="@color/nav_bg"
+            app:indicatorRadius="@dimen/radius"
+            app:itemPadding="@dimen/margin8"
+            app:menu="@menu/main_screen_bnv"
+            app:sideMargins="@dimen/margin8"
+            app:textColor="@color/white"
+            app:textSize="@dimen/size_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
         <fragment
             android:id="@+id/nav_fragment"
@@ -51,6 +61,8 @@
             android:layout_height="0dp"
             app:defaultNavHost="true"
             app:layout_constraintBottom_toTopOf="@+id/mainScreenNav"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar_layout"
             app:navGraph="@navigation/main_screen" />
     </androidx.constraintlayout.widget.ConstraintLayout>

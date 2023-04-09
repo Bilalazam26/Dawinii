@@ -87,6 +87,8 @@
     <string name="upcoming_appointment">Upcoming Appointment</string>
     <string name="routine_icon">Routine Icon</string>
     <string name="medicines">Medicines</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
     <string name="profile_picture">Profile Picture</string>
     <string name="color_blind_mode">Color blind Mode</string>
     <string name="deuteranopia">Deuteranopia</string>

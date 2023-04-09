@@ -8,11 +8,14 @@ import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.PopupMenu
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.grad.dawinii.R
@@ -30,6 +33,7 @@ import io.paperdb.Paper
 class MainScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
 
     lateinit var binding: ActivityMainScreenBinding
+    private lateinit var navController: NavController
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var authViewModel: AuthViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,8 +66,16 @@ class MainScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
     }
 
     private fun setupBottomNav() {
-        val navController = findNavController(R.id.nav_fragment)
-        binding.mainScreenNav.setupWithNavController(navController)
+        navController = findNavController(R.id.nav_fragment)
+        val popUpMenu = PopupMenu(this, null)
+        popUpMenu.inflate(R.menu.main_screen_bnv)
+        val menu = popUpMenu.menu
+        binding.mainScreenNav.setupWithNavController(menu, navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
+
     }
 
     private fun setupDrawerAndToolBar() {

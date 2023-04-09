@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="25dp"
+    android:padding="@dimen/margin16"
     android:orientation="vertical"
     android:background="@drawable/fragment_background"
     tools:context=".view.authentication.logInFragment">
@@ -15,9 +15,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/mada_bold"
+        android:layout_gravity="center"
         android:textColor="#257044"
         android:text="@string/login"
-        android:textSize="50sp"
+        android:textSize="@dimen/size_xxlarge"
         />
 
     <TextView
@@ -28,11 +29,12 @@
         android:gravity="center"
         android:text="@string/welcome_to_"
         android:textColor="#ABABBF"
-        android:textSize="16sp"/>
+        android:textSize="@dimen/size_medium"/>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etLogInEmail"
         android:layout_width="match_parent"
+        android:layout_height="@dimen/et_height"
         android:ems="10"
         android:hint="@string/loginUserName"
         android:inputType="textEmailAddress"
@@ -43,6 +45,7 @@
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etLogInPassword"
         android:layout_width="match_parent"
+        android:layout_height="@dimen/et_height"
         style="@style/et"
         android:autofillHints="password"
         app:passwordToggleEnabled = "true"
@@ -55,7 +58,6 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/logInBtn"
         style="@style/button"
-        android:layout_marginTop="16dp"
         android:text="@string/login" />
 
     <TextView

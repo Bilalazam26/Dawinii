@@ -84,5 +84,7 @@
     <string name="upcoming_appointment">المقابلات القادمة</string>
     <string name="routine_icon">أيقونة الروتين</string>
     <string name="medicines">الأدوية</string>
+    <string name="female">أنثى</string>
+    <string name="male">ذكر</string>
 
 </resources>
