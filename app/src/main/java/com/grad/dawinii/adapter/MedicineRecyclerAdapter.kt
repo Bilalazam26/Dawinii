@@ -10,7 +10,7 @@ import com.grad.dawinii.databinding.MedicineLayoutBinding
 import com.grad.dawinii.model.entities.Medicine
 
 class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<MedicineRecyclerAdapter.MedicineVH>() {
-    private val listOfMedicine = mutableListOf<Medicine>()
+    public val listOfMedicine = mutableListOf<Medicine>()
     inner class MedicineVH(itemView: View):RecyclerView.ViewHolder(itemView){
         val binding = MedicineLayoutBinding.bind(itemView)
 
@@ -29,6 +29,7 @@ class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<Medici
             medicineIcon.setImageResource(item.medicineIcon)
             medicineTime.text= item.medicineTime
         }
+
     }
 
     override fun getItemCount(): Int = listOfMedicine.size

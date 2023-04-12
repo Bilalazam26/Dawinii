@@ -30,7 +30,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_routine" />
-
+    <LinearLayout
+        android:id="@+id/empty_routine_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_routine"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:alpha="0.5"
+        >
+        <ImageView
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:src="@drawable/nothing_to_show2"
+            android:scaleType="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mada_bold"
+            android:text="@string/nothing_to_show"
+            android:textSize="28sp"
+            android:layout_marginTop="-16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mada_bold"
+            android:text="@string/please_add_your_routines"
+            android:textSize="24sp"
+            android:layout_marginTop="-4dp"/>
+    </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
         style="@style/Widget.MaterialComponents.FloatingActionButton.myfab"

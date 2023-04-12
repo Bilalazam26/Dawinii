@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/primaryColor"
-    tools:context=".view.profile.ProfileActivity">
+    tools:context=".view.drawer.ProfileActivity">
     <androidx.cardview.widget.CardView
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

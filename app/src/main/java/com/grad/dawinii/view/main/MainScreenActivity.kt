@@ -15,7 +15,6 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.grad.dawinii.R
@@ -25,9 +24,8 @@ import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.Prevalent
 import com.grad.dawinii.util.makeToast
 import com.grad.dawinii.view.authentication.AuthActivity
-import com.grad.dawinii.view.profile.ProfileActivity
+import com.grad.dawinii.view.drawer.ProfileActivity
 import com.grad.dawinii.viewModel.AuthViewModel
-import com.grad.dawinii.viewModel.LocalViewModel
 import io.paperdb.Paper
 
 class MainScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{

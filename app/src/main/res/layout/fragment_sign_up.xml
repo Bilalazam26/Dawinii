@@ -1,129 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="@dimen/margin16"
-    android:background="@drawable/fragment_background"
+    android:layout_height="match_parent"
     tools:context=".view.authentication.signUpFragment">
-
-    <TextView
-        android:id="@+id/tvSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="#257044"
-        android:textSize="@dimen/size_xxlarge"
-        android:fontFamily="@font/mada_bold"
-        android:text="@string/sign_up" />
-
-    <TextView
-        android:id="@+id/tvWelcome_to_"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/manjari_regular"
-        android:layout_marginVertical="@dimen/margin16"
-        android:gravity="center"
-        android:text="@string/create_an_a"
-        android:textColor="#ABABBF"
-        android:textSize="@dimen/size_medium" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="@drawable/fragment_background"
+        android:orientation="vertical"
+        android:padding="@dimen/margin16">
+
+        <TextView
+            android:id="@+id/tvSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/mada_bold"
+            android:text="@string/sign_up"
+            android:textColor="#257044"
+            android:textSize="@dimen/size_xxlarge" />
+
+        <TextView
+            android:id="@+id/tvWelcome_to_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/margin16"
+            android:fontFamily="@font/manjari_regular"
+            android:gravity="center"
+            android:text="@string/create_an_a"
+            android:textColor="#ABABBF"
+            android:textSize="@dimen/size_medium" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etFirstName"
+                style="@style/et"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/et_height"
+                android:layout_margin="@dimen/margin3"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/firstName"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/etLastName"
+                style="@style/et"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/et_height"
+                android:layout_margin="@dimen/margin3"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/lastName"
+                android:inputType="textPersonName" />
+        </LinearLayout>
 
         <EditText
-            android:layout_margin="@dimen/margin3"
-            android:id="@+id/etFirstName"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/et_height"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="@string/firstName"
+            android:id="@+id/etSignUpEmail"
             style="@style/et"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_height"
+            android:ems="10"
+            android:hint="@string/eMailHint"
+            android:inputType="textPersonName" />
 
         <EditText
-            android:layout_margin="@dimen/margin3"
-            android:id="@+id/etLastName"
-            android:layout_width="wrap_content"
+            android:id="@+id/etSignUpPassword"
+            style="@style/et"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/et_height"
-            android:layout_weight="1"
+            android:contextClickable="false"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="@string/lastName"
-            style="@style/et" />
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            app:endIconMode="password_toggle" />
+
+        <EditText
+            android:id="@+id/etSignUpRePassword"
+            style="@style/et"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_height"
+            android:ems="10"
+            android:hint="@string/confirm_password"
+            android:inputType="textPassword"
+            app:endIconMode="password_toggle" />
+
+        <EditText
+            android:id="@+id/etSignUpAge"
+            style="@style/et"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/et_height"
+            android:ems="10"
+            android:hint="@string/age"
+            android:inputType="number" />
+
+
+        <RadioGroup
+            android:id="@+id/rbgGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                style="@style/radio_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/male" />
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                style="@style/radio_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/female" />
+        </RadioGroup>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignUp"
+            style="@style/button"
+            android:text="@string/sign_up" />
+
     </LinearLayout>
-
-    <EditText
-        android:id="@+id/etSignUpEmail"
-        style="@style/et"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/et_height"
-        android:ems="10"
-        android:hint="@string/eMailHint"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/etSignUpPassword"
-        style="@style/et"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/et_height"
-        android:contextClickable="false"
-        app:endIconMode="password_toggle"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword" />
-
-    <EditText
-        android:id="@+id/etSignUpRePassword"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/et_height"
-        style="@style/et"
-        app:endIconMode="password_toggle"
-        android:hint="@string/confirm_password"
-        android:ems="10"
-        android:inputType="textPassword" />
-    <EditText
-        android:id="@+id/etSignUpAge"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/et_height"
-        style="@style/et"
-        android:hint="@string/age"
-        android:ems="10"
-        android:inputType="number" />
-
-
-    <RadioGroup
-        android:id="@+id/rbgGender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rbMale"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/radio_btn"
-            android:text="@string/male" />
-
-        <RadioButton
-            android:id="@+id/rbFemale"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/radio_btn"
-            android:text="@string/female" />
-    </RadioGroup>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnSignUp"
-        style="@style/button"
-        android:text="@string/sign_up" />
-
-</LinearLayout>
+</ScrollView>

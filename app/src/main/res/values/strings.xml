@@ -95,6 +95,8 @@
     <string name="proteranopia">Proteranopia</string>
     <string name="tretanopia">Tretanopia</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="nothing_to_show">Nothing to show</string>
+    <string name="add_your_medicines_please">Add your medicines please</string>
 
 
     <string-array name="routine_types" tools:ignore="InconsistentArrays">
@@ -114,4 +116,23 @@
         <item>@string/urology</item>
         <item>@string/other</item>
     </string-array>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="please_add_your_routines">Please add your routines</string>
+    <string name="doctor_s_note">Doctor\'s Note</string>
+    <string name="your_previous_medicines_analysis_and_doctor_notes">Your previous medicines, analysis \n and doctor notes</string>
 </resources>

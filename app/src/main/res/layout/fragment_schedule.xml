@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/main_fragment_background"
-    tools:context=".main.ScheduleFragment"
-    android:padding="@dimen/margin16">
+    android:paddingHorizontal="20dp"
+    android:paddingTop="20dp"
+    tools:context=".main.ScheduleFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/appointment_recycler"
         android:layout_width="320dp"
         android:layout_height="120dp"
-        android:layout_marginTop="@dimen/margin8"
-        tools:listitem="@layout/appointment_layout"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/appointment_layout" />
 
     <TextView
         android:id="@+id/tv_today_schedule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/mada_bold"
-        android:textSize="@dimen/size_large"
         android:text="@string/today_scedule"
         android:textColor="@color/primaryColor"
-        android:layout_marginTop="@dimen/margin3"
-        app:layout_constraintTop_toBottomOf="@id/appointment_recycler"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appointment_recycler" />
 
     <TextView
         android:id="@+id/tv_today_time"
@@ -36,23 +39,35 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/manjari_bold"
         android:textColor="@color/primaryColor"
-        android:textSize="@dimen/size_small"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_today_schedule"
         app:layout_constraintBottom_toBottomOf="@+id/tv_today_schedule"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@id/tv_today_schedule"
         tools:text="22-12-2022" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/medicine_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/margin16"
+        android:layout_marginTop="30dp"
         android:background="@drawable/transparent_rounded_bg"
         android:backgroundTint="#00000000"
-        tools:listitem="@layout/medicine_layout"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_today_time"
+        tools:listitem="@layout/medicine_layout" />
+    <ImageView
+        android:id="@+id/empty_medicine_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:alpha="0.7"
+        android:src="@drawable/nothing_to_ahow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_today_time" />
-   
+
 </androidx.constraintlayout.widget.ConstraintLayout>

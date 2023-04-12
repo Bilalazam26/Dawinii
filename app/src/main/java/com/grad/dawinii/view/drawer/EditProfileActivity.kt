@@ -1,4 +1,4 @@
-package com.grad.dawinii.view.profile
+package com.grad.dawinii.view.drawer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,18 +1,13 @@
-package com.grad.dawinii.view.profile
+package com.grad.dawinii.view.drawer
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
-import com.grad.dawinii.R
 import com.grad.dawinii.databinding.ActivityProfileBinding
 import com.grad.dawinii.model.entities.User
-import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.Prevalent
-import com.grad.dawinii.util.makeToast
-import com.grad.dawinii.viewModel.AuthViewModel
 import com.grad.dawinii.viewModel.LocalViewModel
 
 class ProfileActivity : AppCompatActivity() {
@@ -41,7 +36,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun initView() {
         binding.btnEditProfile.setOnClickListener {
-            startActivity(Intent(this,EditProfileActivity::class.java))
+            startActivity(Intent(this, EditProfileActivity::class.java))
         }
         customizeToolBar()
     }
