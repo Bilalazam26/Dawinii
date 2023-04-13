@@ -134,5 +134,7 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="please_add_your_routines">Please add your routines</string>
     <string name="doctor_s_note">Doctor\'s Note</string>
-    <string name="your_previous_medicines_analysis_and_doctor_notes">Your previous medicines, analysis \n and doctor notes</string>
+    <string name="your_previous_medicines_analysis_and_doctor_notes">Your previous medicines, analysis \nand doctor notes</string>
+    <string name="analysis">Analysis</string>
+    <string name="statistics">Statistics</string>
 </resources>

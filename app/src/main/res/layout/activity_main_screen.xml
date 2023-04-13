@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/app_background"
+    android:background="@color/primaryColor"
     tools:context=".view.main.MainScreenActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,24 +35,20 @@
         <me.ibrahimsn.lib.SmoothBottomBar
             android:id="@+id/mainScreenNav"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@drawable/background"
+            android:layout_height="65dp"
+            android:background="@color/primaryColor"
             app:backgroundColor="@color/transparent"
-            app:cornerRadius="@dimen/radius"
             app:iconSize="@dimen/size_large"
             app:iconTint="@color/white"
             app:iconTintActive="@color/white"
             app:indicatorColor="@color/nav_bg"
-            app:indicatorRadius="@dimen/radius"
+            app:indicatorRadius="18dp"
             app:itemPadding="@dimen/margin8"
             app:menu="@menu/main_screen_bnv"
             app:sideMargins="@dimen/margin8"
             app:textColor="@color/white"
             app:textSize="@dimen/size_medium"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <fragment
             android:id="@+id/nav_fragment"
