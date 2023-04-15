@@ -26,7 +26,6 @@ class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<Medici
         holder.binding.apply {
             routineName.text= item.routineName
             medicineName.text= item.medicineName
-            medicineIcon.setImageResource(item.medicineIcon)
             medicineTime.text= item.medicineTime
         }
 
