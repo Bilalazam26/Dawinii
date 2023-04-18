@@ -33,6 +33,7 @@ import java.util.Calendar
 class RoutinesFragment : Fragment() {
     lateinit var binding: FragmentRoutinesBinding
     lateinit var adapter: RoutineRecyclerAdapter
+    //animations for fab
     private val rotateOpen:Animation by lazy { AnimationUtils.loadAnimation(context,R.anim.rotate_open_anim) }
     private val rotateClose:Animation by lazy { AnimationUtils.loadAnimation(context,R.anim.rotate_close_anim) }
     private val fromBottom:Animation by lazy { AnimationUtils.loadAnimation(context,R.anim.from_bottom) }
@@ -67,6 +68,7 @@ class RoutinesFragment : Fragment() {
                 val routineList = mutableListOf<Routine>()
                 routineList.addAll(0, it)
                 adapter.setData(routineList)
+                if (it.isNotEmpty()) binding.emptyRoutineRecycler.visibility = View.INVISIBLE
             }
         }
 

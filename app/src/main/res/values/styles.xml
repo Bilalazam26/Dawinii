@@ -103,4 +103,13 @@
         <item name="android:fontFamily">@font/mada_bold</item>
         <item name="android:textSize">30sp</item>
     </style>
+    <style name="card_in_history" parent="CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">#49A81E</item>
+        <item name="cardCornerRadius">25dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
 </resources>

@@ -32,7 +32,7 @@ class RoutineRecyclerAdapter(private val context: Context, private val routineHe
             routineName.text = routine.routineName
             tvStartDate.text = routine.routineStartDate
             tvEndDate.text = routine.routineEndDate
-            ivRoutineIcon.setImageResource(routine.routineIcon)
+            routineType.text = routine.routineType
             btnRemove.setOnClickListener { showRemoveDialog(routine, position) }
         }
             holder.item.setOnClickListener { navigateToRoutineFragment(it, routine) }

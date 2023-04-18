@@ -18,12 +18,24 @@
         android:theme="@style/Theme.Dawinii"
         tools:targetApi="31">
         <activity
-            android:name=".view.profile.EditProfileActivity"
+            android:name=".view.history.StatisticsActivity"
             android:exported="false" />
         <activity
-            android:name=".view.profile.ProfileActivity"
-            android:theme="@style/profile_theme"
+            android:name=".view.history.MedicinesActivity"
             android:exported="false" />
+        <activity
+            android:name=".view.history.AnalysisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.history.NoteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.drawer.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.drawer.ProfileActivity"
+            android:exported="false"
+            android:theme="@style/profile_theme" />
         <activity
             android:name="com.grad.dawinii.view.notification.NotificationActivity"
             android:launchMode="singleTop" />
