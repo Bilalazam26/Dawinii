@@ -86,5 +86,7 @@
     <string name="medicines">الأدوية</string>
     <string name="female">أنثى</string>
     <string name="male">ذكر</string>
+    <string name="extract_pdf">Extract PDF</string>
+    <string name="pdf">PDF</string>
 
 </resources>

@@ -60,6 +60,7 @@
     <string name="urology">Urology</string>
     <string name="kidney">Kidney</string>
     <string name="spine">Spine</string>
+    <string name="diabetes">Diabetes</string>
     <string name="other">Other</string>
     <string name="medicine_name">Medicine Name</string>
     <string name="add_medicine_dose">Dose</string>
@@ -115,6 +116,8 @@
         <item>@string/spine</item>
         <item>@string/urology</item>
         <item>@string/other</item>
+        <item>@string/blood_pressure</item>
+        <item>@string/diabetes</item>
     </string-array>
     <string name="title_activity_settings">SettingsActivity</string>
 
@@ -137,4 +140,7 @@
     <string name="your_previous_medicines_analysis_and_doctor_notes">Your previous medicines, analysis \nand doctor notes</string>
     <string name="analysis">Analysis</string>
     <string name="statistics">Statistics</string>
+    <string name="extract_pdf">Extract PDF</string>
+    <string name="pdf">PDF</string>
+    <string name="blood_pressure">Blood Pressure</string>
 </resources>

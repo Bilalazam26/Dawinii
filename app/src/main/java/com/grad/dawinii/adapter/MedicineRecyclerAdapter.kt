@@ -11,7 +11,7 @@ import com.grad.dawinii.databinding.MedicineLayoutBinding
 import com.grad.dawinii.model.entities.Medicine
 
 class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<MedicineRecyclerAdapter.MedicineVH>() {
-    public val listOfMedicine = mutableListOf<Medicine>()
+    private val listOfMedicine = mutableListOf<Medicine>()
     inner class MedicineVH(itemView: View):RecyclerView.ViewHolder(itemView){
         val view = itemView
         val binding = MedicineLayoutBinding.bind(view)

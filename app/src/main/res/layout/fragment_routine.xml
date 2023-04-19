@@ -106,4 +106,18 @@
         app:layout_constraintTop_toBottomOf="@id/medicines_tv"
         tools:listitem="@layout/medicine_routine_layout" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/extract_pdf_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin32"
+        android:layout_marginEnd="@dimen/margin32"
+        android:clickable="true"
+        android:elevation="12dp"
+        android:tag="@string/extract_pdf"
+        android:src="@drawable/baseline_insert_drive_file_64"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

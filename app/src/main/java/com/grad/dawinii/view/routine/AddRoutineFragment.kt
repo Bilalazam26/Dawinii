@@ -155,10 +155,20 @@ class AddRoutineFragment : Fragment() {
     private fun setAlarmService(timeInMillis: Long) {
         val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager?
         val intent = Intent(requireContext(), AlarmReceiver::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(requireContext(), 0, intent, 0)
+        val flag = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            PendingIntent.FLAG_IMMUTABLE
+        } else {
+            0
+        }
+        val pendingIntent = PendingIntent.getBroadcast(
+            requireContext(),
+            0,
+            intent,
+            flag
+        )
         alarmManager?.setInexactRepeating(
             AlarmManager.RTC_WAKEUP, timeInMillis,
-            AlarmManager.INTERVAL_DAY, pendingIntent
+            AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent
         )
     }
 
