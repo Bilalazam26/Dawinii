@@ -14,7 +14,6 @@ import android.view.ViewGroup
 import android.widget.DatePicker
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -31,10 +30,9 @@ import com.grad.dawinii.databinding.AddMedicineDialogLayoutBinding
 import com.grad.dawinii.databinding.FragmentAddRoutineBinding
 import com.grad.dawinii.model.entities.Medicine
 import com.grad.dawinii.model.entities.Routine
+import com.grad.dawinii.repository.AlarmRepository
 import com.grad.dawinii.util.*
 import com.grad.dawinii.viewModel.LocalViewModel
-import pub.devrel.easypermissions.AppSettingsDialog
-import pub.devrel.easypermissions.EasyPermissions
 import java.util.*
 
 class AddRoutineFragment : Fragment() {
@@ -149,28 +147,9 @@ class AddRoutineFragment : Fragment() {
             medicine.medicineTime.substring(0, 2).toInt(),
             medicine.medicineTime.substring(3, 5).toInt()
         )
-        setAlarmService(calendar.timeInMillis)
+        AlarmRepository(requireContext()).scheduleAlarm(calendar.timeInMillis, medicine)
     }
 
-    private fun setAlarmService(timeInMillis: Long) {
-        val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager?
-        val intent = Intent(requireContext(), AlarmReceiver::class.java)
-        val flag = if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            PendingIntent.FLAG_IMMUTABLE
-        } else {
-            0
-        }
-        val pendingIntent = PendingIntent.getBroadcast(
-            requireContext(),
-            0,
-            intent,
-            flag
-        )
-        alarmManager?.setInexactRepeating(
-            AlarmManager.RTC_WAKEUP, timeInMillis,
-            AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent
-        )
-    }
 
     private fun setMedicineRecycler() {
         val medicineRecycler = binding.rvInitialMedicines

@@ -48,7 +48,6 @@ class MainScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
                 makeToast(this, "Logged Out")
             }
         }
-        createNotificationChannel()
         initView()
     }
 
@@ -104,18 +103,7 @@ class MainScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         return super.onOptionsItemSelected(item)
     }
 
-    private fun createNotificationChannel() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "DawiniiReminderChannel"
-            val description = "Medicine Reminder"
-            val importance = NotificationManager.IMPORTANCE_HIGH
-            val channel = NotificationChannel("Dawinii", name, importance)
-            channel.description = description
-            val notificationManager =
-                ContextCompat.getSystemService(this, NotificationManager::class.java)
-            notificationManager?.createNotificationChannel(channel)
-        }
-    }
+
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         makeToast(this@MainScreenActivity, "${item.title}")
