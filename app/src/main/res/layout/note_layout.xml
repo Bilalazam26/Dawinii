@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="25dp"
+    android:elevation="8dp"
+    android:layout_margin="8dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/secondaryColor">
+        <TextView
+            android:id="@+id/note_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Note Title"
+            android:textSize="32sp"
+            android:fontFamily="@font/mada_bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/note_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/note_title"
+            tools:text="Note Body"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/mada_regular"
+            android:textSize="24sp"
+            android:maxLines="5"
+            android:ellipsize="end"
+            android:textColor="@color/white"/>
+        <TextView
+            android:id="@+id/note_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/note_body"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/mada_regular"
+            tools:text="Note Date"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
