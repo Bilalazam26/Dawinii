@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 
     <application
@@ -30,14 +30,15 @@
             android:exported="false" />
         <activity
             android:name=".view.history.NoteActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/actionbar_theme" />
         <activity
             android:name=".view.drawer.EditProfileActivity"
             android:exported="false" />
         <activity
             android:name=".view.drawer.ProfileActivity"
             android:exported="false"
-            android:theme="@style/profile_theme" />
+            android:theme="@style/actionbar_theme" />
         <activity
             android:name="com.grad.dawinii.view.notification.NotificationActivity"
             android:launchMode="singleTop" />

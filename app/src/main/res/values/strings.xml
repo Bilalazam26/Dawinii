@@ -137,4 +137,6 @@
     <string name="your_previous_medicines_analysis_and_doctor_notes">Your previous medicines, analysis \nand doctor notes</string>
     <string name="analysis">Analysis</string>
     <string name="statistics">Statistics</string>
+    <string name="extract_pdf">Extract PDF</string>
+    <string name="pdf">PDF</string>
 </resources>
