@@ -5,12 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.grad.dawinii.R
 import com.grad.dawinii.databinding.MedicineRoutineLayoutBinding
 import com.grad.dawinii.model.entities.Medicine
 import com.grad.dawinii.util.makeToast
 
-class MedicineRoutineRecyclerAdapter(private val context: Context?) :
+class MedicineRoutineRecyclerAdapter(private val context: Context) :
     RecyclerView.Adapter<MedicineRoutineRecyclerAdapter.MedicineRoutineViewHolder>() {
     private var medicineList: MutableList<Medicine> = mutableListOf<Medicine>()
 
@@ -29,7 +30,13 @@ class MedicineRoutineRecyclerAdapter(private val context: Context?) :
         holder.binding.apply {
             medicineName.text = medicine.medicineName
             medicineTime.text = medicine.medicineTime
-            medicineIcon.setImageResource(R.drawable.ic_pill_green)
+            Glide
+                .with(context)
+                .load(medicine.medicineIcon)
+                .centerCrop()
+                .placeholder(R.drawable.ic_pill_green)
+                .into(medicineIcon)
+            root.setCardBackgroundColor(context.resources.getColor(R.color.white, null))
         }
     }
 

@@ -5,14 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.grad.dawinii.R
 import com.grad.dawinii.databinding.MedicineLayoutBinding
 import com.grad.dawinii.model.entities.Medicine
 
 class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<MedicineRecyclerAdapter.MedicineVH>() {
-    public val listOfMedicine = mutableListOf<Medicine>()
+    private val listOfMedicine = mutableListOf<Medicine>()
     inner class MedicineVH(itemView: View):RecyclerView.ViewHolder(itemView){
-        val binding = MedicineLayoutBinding.bind(itemView)
+        val view = itemView
+        val binding = MedicineLayoutBinding.bind(view)
 
     }
 
@@ -27,6 +29,12 @@ class MedicineRecyclerAdapter(var context: Context) :RecyclerView.Adapter<Medici
             routineName.text= item.routineName
             medicineName.text= item.medicineName
             medicineTime.text= item.medicineTime
+            Glide
+                .with(context)
+                .load(item.medicineIcon)
+                .centerCrop()
+                .placeholder(R.drawable.ic_pill_green)
+                .into(medicineIcon)
         }
 
     }

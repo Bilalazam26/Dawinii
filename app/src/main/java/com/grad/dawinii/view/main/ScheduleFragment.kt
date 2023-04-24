@@ -54,7 +54,9 @@ class ScheduleFragment : Fragment() {
             }
         }
         initView()
+
     }
+
     private fun initView() {
         binding.tvTodayTime.text = getTodayDate()
         setupRecyclerView()

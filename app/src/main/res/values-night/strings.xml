@@ -81,6 +81,7 @@
     <string name="user_name">User Name</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+    <string name="pdf">PDF</string>
 
 
     <string-array name="routine_types" tools:ignore="InconsistentArrays">
