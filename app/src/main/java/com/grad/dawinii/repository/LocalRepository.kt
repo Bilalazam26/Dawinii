@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.grad.dawinii.datasource.local.DawiniiDao
 import com.grad.dawinii.model.entities.Medicine
+import com.grad.dawinii.model.entities.Note
 import com.grad.dawinii.model.entities.Routine
 import com.grad.dawinii.model.entities.User
 import com.grad.dawinii.model.relations.RoutineAndMedicine
@@ -13,6 +14,7 @@ class LocalRepository(private val dao: DawiniiDao) {
     var userMutableLiveData: MutableLiveData<User> = MutableLiveData()
     var routinesMutableLiveData = MutableLiveData<List<Routine>>()
     var medicinesMutableLiveData = MutableLiveData<List<Medicine>>()
+    var notesMutableLiveData = MutableLiveData<List<Note>>()
     val medicinesForRoutineMutableLiveData = MutableLiveData<List<Medicine>>()
 
     suspend fun insertRoutine(routine: Routine, medicineList: MutableList<Medicine>) {
@@ -75,5 +77,15 @@ class LocalRepository(private val dao: DawiniiDao) {
         medicinesForRoutineMutableLiveData.postValue(medicines)
         Log.d("TestMedicines", "getMedicinesForRoutine: $medicines")
 
+    }
+    suspend fun insertNote(note: Note) = dao.insertNote(note)
+    suspend fun deleteNote(note: Note) = dao.deleteNote(note)
+    suspend fun getUserWithNotes(userId: String){
+        val userWithNotes = dao.getUserWithNotes(userId)
+        val notes = mutableListOf<Note>()
+        for (i in userWithNotes){
+            notes.addAll(i.notes)
+        }
+        notesMutableLiveData.postValue(notes)
     }
 }

@@ -60,7 +60,7 @@
     <string name="other">أخرى</string>
     <string name="medicine_name">اسم الدواء</string>
     <string name="add_medicine_dose">الجرعة</string>
-    <string name="add_medicine_dose_count">عدد الجرعات في اليوم</string>
+    <string name="add_medicine_dose_count">عدد الجرعات يوميا</string>
     <string name="drug_quantity">كمية الدواء الموجودة</string>
     <string name="medicine_time">ميعاد الدواء</string>
     <string name="home">الرئيسي</string>
@@ -86,7 +86,22 @@
     <string name="medicines">الأدوية</string>
     <string name="female">أنثى</string>
     <string name="male">ذكر</string>
+    <string name="profile_picture">الصورة الشخصية</string>
+    <string name="color_blind_mode">وضع عمى الألوان</string>
+    <string name="edit_profile">تعدبل الملف الشخصي</string>
+    <string name="nothing_to_show">لا يوجد شيء لعرضه</string>
+    <string name="add_your_medicines_please">أضف أدويتك من فضلك</string>
+    <string name="messages_header">الرسائل</string>
+    <string name="sync_header">مزامنة</string>
+    <string name="doctor_s_note">ملحوظات الطبيب</string>
     <string name="extract_pdf">Extract PDF</string>
     <string name="pdf">PDF</string>
+    <string name="title">العنوان</string>
+    <string name="your_previous_medicines_analysis_and_doctor_notes">الأدوية السابقة و التحاليل و نصائح الطبيب الخاصة بك</string>
+    <string name="analysis">التحاليل</string>
+    <string name="statistics">الإحصائات</string>
+    <string name="add_note">إضاغة ملاحظة</string>
+    <string name="note">الملاحظة</string>
+    <string name="note_added_successfully">تم إضافة الملاحظة</string>
 
 </resources>

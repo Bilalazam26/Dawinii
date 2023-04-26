@@ -7,18 +7,20 @@ import androidx.lifecycle.viewModelScope
 import com.grad.dawinii.datasource.local.DawiniiDao
 import com.grad.dawinii.datasource.local.LocalDatabase
 import com.grad.dawinii.model.entities.Medicine
+import com.grad.dawinii.model.entities.Note
 import com.grad.dawinii.model.entities.Routine
 import com.grad.dawinii.model.entities.User
 import com.grad.dawinii.repository.LocalRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class LocalViewModel(application: Application): AndroidViewModel(application) {
+class LocalViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val localRepository:LocalRepository
+    private val localRepository: LocalRepository
     var userMutableLiveData: MutableLiveData<User>
-    var  routinesMutableLiveData: MutableLiveData<List<Routine>>
+    var routinesMutableLiveData: MutableLiveData<List<Routine>>
     var medicinesMutableLiveData: MutableLiveData<List<Medicine>>
+    var notesMutableLiveData: MutableLiveData<List<Note>>
     var medicinesForRoutineMutableLiveData: MutableLiveData<List<Medicine>>
 
     init {
@@ -27,14 +29,16 @@ class LocalViewModel(application: Application): AndroidViewModel(application) {
         userMutableLiveData = localRepository.userMutableLiveData
         routinesMutableLiveData = localRepository.routinesMutableLiveData
         medicinesMutableLiveData = localRepository.medicinesMutableLiveData
+        notesMutableLiveData = localRepository.notesMutableLiveData
         medicinesForRoutineMutableLiveData = localRepository.medicinesForRoutineMutableLiveData
     }
 
-    fun insertRoutine(routine: Routine, medicineList: MutableList<Medicine>) = viewModelScope.launch(Dispatchers.IO) {
-        localRepository.insertRoutine(routine, medicineList)
-    }
+    fun insertRoutine(routine: Routine, medicineList: MutableList<Medicine>) =
+        viewModelScope.launch(Dispatchers.IO) {
+            localRepository.insertRoutine(routine, medicineList)
+        }
 
-    fun getLocalUser(userId: String)  = viewModelScope.launch(Dispatchers.IO) {
+    fun getLocalUser(userId: String) = viewModelScope.launch(Dispatchers.IO) {
         localRepository.getLocalUser(userId)
     }
 
@@ -49,6 +53,7 @@ class LocalViewModel(application: Application): AndroidViewModel(application) {
     fun deleteRoutine(routine: Routine) = viewModelScope.launch(Dispatchers.IO) {
         localRepository.deleteRoutine(routine)
     }
+
     fun getUserWithMedicines(userId: String) = viewModelScope.launch(Dispatchers.IO) {
         localRepository.getUserWithMedicines(userId)
     }
@@ -59,6 +64,15 @@ class LocalViewModel(application: Application): AndroidViewModel(application) {
 
     fun getMedicinesWithRoutineName(routineName: String) = viewModelScope.launch(Dispatchers.IO) {
         localRepository.getMedicinesWithRoutineName(routineName)
+    }
+    fun getUserWithNotes(userId: String) = viewModelScope.launch(Dispatchers.IO) {
+        localRepository.getUserWithNotes(userId)
+    }
+    fun deleteNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
+        localRepository.deleteNote(note)
+    }
+    fun insertNote(note: Note) = viewModelScope.launch(Dispatchers.IO) {
+        localRepository.insertNote(note)
     }
 
 }

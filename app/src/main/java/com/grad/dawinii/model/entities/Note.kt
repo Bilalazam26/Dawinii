@@ -9,5 +9,7 @@ data class Note(
     var id:Int?= null,
     var title:String,
     var body:String,
-    var date:String
+    var date:String,
+    //foreign key
+    var userId:String
 )

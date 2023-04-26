@@ -12,6 +12,13 @@ fun makeToast(application: Application, message: String) {
 fun makeToast(context: Context?, message: String) {
     Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
 }
+fun makeToast(application: Application, message: Int) {
+    Toast.makeText(application, message, Toast.LENGTH_SHORT).show()
+}
+
+fun makeToast(context: Context?, message: Int) {
+    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+}
 
 fun setupMonth(month: Int): String =
     when (month) {
