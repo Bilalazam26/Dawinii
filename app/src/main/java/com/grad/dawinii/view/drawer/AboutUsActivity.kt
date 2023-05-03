@@ -3,15 +3,17 @@ package com.grad.dawinii.view.drawer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import com.grad.dawinii.R
+import com.grad.dawinii.databinding.ActivityAboutUsBinding
 
-class EditProfileActivity : AppCompatActivity() {
+class AboutUsActivity : AppCompatActivity() {
+    lateinit var binding: ActivityAboutUsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_profile)
+        binding = ActivityAboutUsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         supportActionBar?.apply {
-            title = null
             setDisplayHomeAsUpEnabled(true)
+            title = null
         }
     }
 

@@ -24,6 +24,7 @@ import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.Prevalent
 import com.grad.dawinii.util.makeToast
 import com.grad.dawinii.view.authentication.AuthActivity
+import com.grad.dawinii.view.drawer.AboutUsActivity
 import com.grad.dawinii.view.drawer.ProfileActivity
 import com.grad.dawinii.viewModel.AuthViewModel
 import io.paperdb.Paper
@@ -110,6 +111,7 @@ class MainScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         when (item.itemId) {
             R.id.profile -> startActivity(Intent(this, ProfileActivity::class.java))
             R.id.logout -> logOut()
+            R.id.about -> startActivity(Intent(this,AboutUsActivity::class.java))
         }
         return true
     }

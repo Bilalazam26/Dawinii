@@ -105,7 +105,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/mada_regular"
-                                android:text="22 years"
+                                android:text="@string/_22_years"
                                 android:textSize="18sp"
                                 app:layout_constraintStart_toStartOf="@+id/history_username"
                                 app:layout_constraintTop_toBottomOf="@+id/history_username" />
@@ -128,8 +128,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="48dp"
-                android:paddingVertical="32dp">
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="20dp">
 
                 <LinearLayout
                     android:id="@+id/doctor_note_btn"
@@ -139,6 +139,7 @@
                     android:elevation="8dp"
                     android:gravity="center"
                     android:orientation="vertical"
+                    android:layout_margin="18dp"
                     android:padding="2dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -158,6 +159,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_margin="18dp"
                     android:id="@+id/analysis_btn"
                     android:layout_width="128dp"
                     android:layout_height="128dp"
@@ -184,15 +186,16 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_margin="18dp"
                     android:id="@+id/medicines_btn"
                     android:layout_width="128dp"
                     android:layout_height="128dp"
-                    android:layout_marginTop="32dp"
                     android:background="@drawable/buttons_in_history"
                     android:elevation="8dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/doctor_note_btn">
 
@@ -211,15 +214,16 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_margin="18dp"
                     android:id="@+id/stats_btn"
                     android:layout_width="128dp"
                     android:layout_height="128dp"
-                    android:layout_marginTop="32dp"
                     android:background="@drawable/buttons_in_history"
                     android:elevation="8dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/analysis_btn">
 

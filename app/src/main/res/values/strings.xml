@@ -143,4 +143,12 @@
     <string name="title">Title</string>
     <string name="note">Note</string>
     <string name="note_added_successfully">Note added successfully</string>
+    <string name="about_dawinii">About Dawinii</string>
+    <string name="about_dawinii_cvfjnvkfd">The main goal of our application is to help people who has drug routine
+to remember the time to take their medicine by sending alarm to them
+at that time.
+Also the application has many features which make the app more reliable
+</string>
+    <string name="_22_years">22 years</string>
+
 </resources>

@@ -103,5 +103,8 @@
     <string name="add_note">إضاغة ملاحظة</string>
     <string name="note">الملاحظة</string>
     <string name="note_added_successfully">تم إضافة الملاحظة</string>
+    <string name="about_dawinii">عن التطبيق</string>
+    <string name="about_dawinii_cvfjnvkfd">الهدف الرئيسي لتطبيقنا هو مساعدة الأشخاص الذين لديهم روتينات أدوية لتذكر وقت تناول الدواء عن طريق إرسال إنذار إليهم فى ذلك التوقيت. كما يحتوي التطبيق على العديد من الميزات التي تجعل التطبيق أكثر موثوقية</string>
+    <string name="_22_years">22 عام</string>
 
 </resources>
