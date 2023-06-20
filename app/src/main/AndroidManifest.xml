@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.grad.dawinii">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -48,10 +51,10 @@
             android:exported="false"
             android:theme="@style/actionbar_theme" />
         <activity
-            android:name="com.grad.dawinii.view.notification.NotificationActivity"
+            android:name=".view.notification.NotificationActivity"
             android:launchMode="singleTop" />
         <activity
-            android:name="com.grad.dawinii.view.splash.SplashActivity"
+            android:name=".view.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -60,11 +63,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.grad.dawinii.view.main.MainScreenActivity"
+            android:name=".view.main.MainScreenActivity"
             android:exported="true"
             android:launchMode="singleTop" />
         <activity
-            android:name="com.grad.dawinii.view.authentication.AuthActivity"
+            android:name=".view.authentication.AuthActivity"
             android:exported="true" />
 
         <receiver
