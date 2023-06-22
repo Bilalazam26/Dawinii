@@ -4,33 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/app_background"
+    android:background="#f0fcf3"
     android:gravity="center"
-    android:orientation="vertical"
     tools:context=".view.splash.SplashActivity">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="-49dp"
+        android:layout_marginEnd="-118dp"
+        android:src="@drawable/blob"
+        android:tint="@color/secondaryColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/splash_logo"
-        android:layout_width="220dp"
-        android:layout_height="220dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="300dp"
+        android:layout_height="280dp"
+        android:layout_marginStart="-128dp"
+        android:layout_marginTop="128dp"
+        android:rotation="180"
+        android:src="@drawable/blob"
+        android:tint="@color/primaryColor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@mipmap/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
-        android:id="@+id/splash_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/manjari_bold"
-        android:text="@string/app_name"
-        android:textColor="#FDFFFC"
-        android:textSize="48sp"
-        app:layout_constraintTop_toBottomOf="@id/splash_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/welcome_to_dawinii"
+        app:layout_constraintTop_toBottomOf="@id/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.1"/>
+        android:textSize="24sp"
+        android:textColor="@color/primaryColor"
+        android:fontFamily="@font/mada_bold"
+        android:layout_marginTop="16dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:alpha="0.3"
+        android:scaleType="fitXY"
+        android:src="@drawable/wave1"
+        android:tint="@color/secondaryColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:src="@drawable/wave2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:tint="@color/primaryColor"
+        android:scaleType="fitXY"
+        android:alpha="0.3"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,18 +25,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/mada_medium"
+        android:fontFamily="@font/manjari_thin"
         android:text="@string/from"
         android:textColor="@color/white"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/routine_name" />
+        app:layout_constraintTop_toBottomOf="@+id/routine_type" />
 
     <TextView
         android:id="@+id/tv_to"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/mada_medium"
+        android:fontFamily="@font/manjari_thin"
         android:text="@string/to"
         android:textColor="@color/white"
         android:textSize="12sp"
@@ -67,26 +67,26 @@
         android:id="@+id/routine_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/mada_bold"
+        android:layout_marginTop="-4dp"
+        android:fontFamily="@font/manjari_thin"
         android:text="@string/routine_type"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_start_date" />
+        app:layout_constraintTop_toBottomOf="@+id/routine_name" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_remove"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginTop="8dp"
         android:background="@drawable/btn_remove"
         android:fontFamily="@font/mada_bold"
         android:paddingHorizontal="32dp"
         android:text="@string/remove"
         android:textColor="#a00"
         android:textSize="12sp"
+        android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/routine_type" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_start_date" />
 </androidx.constraintlayout.widget.ConstraintLayout>
