@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:padding="8dp">
         <TextView
             android:id="@+id/routine_name"
             android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
             android:layout_marginTop="5dp"
             android:fontFamily="@font/manjari_bold"
             android:textColor="#D1D1D1"
-            android:textSize="14sp"
+            android:textSize="10sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:alpha="0.5"
@@ -33,7 +33,7 @@
             android:layout_height="45dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/routine_name"
             app:layout_constraintBottom_toBottomOf="parent"

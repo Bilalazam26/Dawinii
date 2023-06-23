@@ -5,7 +5,7 @@
     android:id="@+id/auth_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/gradient_background"
     tools:context=".view.authentication.AuthActivity">
 
     <ImageView
@@ -29,10 +29,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/auth_logo"
         app:tabGravity="center"
-        app:tabIndicatorColor="#00073018"
-        app:tabTextColor="@color/white"
+        app:tabIndicatorColor="@color/white"
+        app:tabTextColor="#09371C"
         app:tabTextAppearance="@style/tabs"
-        app:tabSelectedTextColor="#09371C"
+        app:tabSelectedTextColor="@color/white"
+        app:tabPaddingStart="48dp"
+        app:tabPaddingEnd="48dp"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.viewpager2.widget.ViewPager2

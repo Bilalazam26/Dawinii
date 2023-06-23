@@ -47,6 +47,7 @@ interface DawiniiDao {
     @Transaction //To prevent multithreading issues
     @Query("SELECT * FROM user WHERE id = :userId")
     suspend fun getUserWithMedicines(userId: String): List<UserAndMedicine>
+
     @Query("SELECT * FROM medicine WHERE routineName = :routineName")
     suspend fun getMedicinesWithRoutineName(routineName: String): List<Medicine>
 
@@ -58,6 +59,5 @@ interface DawiniiDao {
 
     @Query("DELETE FROM medicine WHERE routineName = :routineName")
     fun deleteMedicines(routineName: String)
-
 
 }

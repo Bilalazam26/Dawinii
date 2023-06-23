@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/mada_bold"
-        android:layout_gravity="center"
+        android:layout_gravity="start"
         android:textColor="#257044"
         android:text="@string/login"
         android:textSize="@dimen/size_xxlarge"
@@ -29,7 +29,8 @@
         android:gravity="center"
         android:text="@string/welcome_to_"
         android:textColor="#ABABBF"
-        android:textSize="@dimen/size_medium"/>
+        android:textSize="@dimen/size_small"
+        android:layout_marginBottom="16dp"/>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etLogInEmail"
@@ -64,9 +65,8 @@
         android:id="@+id/forgotPasswordBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/manjari_bold"
-        android:text="Forget your password ?"
+        android:text="@string/forget_your_password"
         android:textAlignment="center"
         android:textColor="@color/primaryColor" />
 
