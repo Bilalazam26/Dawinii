@@ -3,6 +3,7 @@ package com.grad.dawinii.repository
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.grad.dawinii.datasource.local.DawiniiDao
+import com.grad.dawinii.model.entities.Appointment
 import com.grad.dawinii.model.entities.Medicine
 import com.grad.dawinii.model.entities.Note
 import com.grad.dawinii.model.entities.Routine
@@ -87,5 +88,9 @@ class LocalRepository(private val dao: DawiniiDao) {
             notes.addAll(i.notes)
         }
         notesMutableLiveData.postValue(notes)
+    }
+
+    suspend fun insertAppointment(appointment: Appointment) {
+        dao.insertAppointment(appointment)
     }
 }

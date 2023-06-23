@@ -1,7 +1,9 @@
 package com.grad.dawinii.view.main
 
+import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
+import android.text.format.DateFormat
 import android.transition.Visibility
 import android.view.LayoutInflater
 import android.view.View
@@ -11,22 +13,35 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.SnapHelper
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 import com.grad.dawinii.R
 import com.grad.dawinii.adapter.AppointmentRecyclerAdapter
 import com.grad.dawinii.adapter.MedicineRecyclerAdapter
+import com.grad.dawinii.databinding.AddAppointmentDialogBinding
 import com.grad.dawinii.databinding.FragmentScheduleBinding
 import com.grad.dawinii.model.entities.Appointment
 import com.grad.dawinii.model.entities.Medicine
 import com.grad.dawinii.model.entities.Routine
 import com.grad.dawinii.util.Prevalent
 import com.grad.dawinii.util.getTodayDate
+import com.grad.dawinii.util.makeToast
+import com.grad.dawinii.util.setupMonth
 import com.grad.dawinii.viewModel.LocalViewModel
+import java.util.Calendar
 
 class ScheduleFragment : Fragment() {
     private lateinit var localViewModel: LocalViewModel
     lateinit var binding: FragmentScheduleBinding
     lateinit var medicineRecyclerAdapter: MedicineRecyclerAdapter
     lateinit var appointmentRecyclerAdapter: AppointmentRecyclerAdapter
+
+    //for appointment dialog
+    var appointmentDate = ""
+    var appointmentTime = ""
+    var doctorName = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         localViewModel = ViewModelProvider(this)[LocalViewModel::class.java]
@@ -59,9 +74,71 @@ class ScheduleFragment : Fragment() {
 
     private fun initView() {
         binding.tvTodayTime.text = getTodayDate()
+
+        binding.fabAddAppointment.setOnClickListener{
+            showAddAppointmentDialog()
+        }
+
         setupRecyclerView()
         setupDataSourceForMedicineRecyclerView()
         setupDataSourceForAppointmentRecyclerView()
+    }
+
+    private fun showAddAppointmentDialog() {
+        val dialog = BottomSheetDialog(requireContext())
+        val dialogBinding= AddAppointmentDialogBinding.inflate(layoutInflater,null,false)
+        dialog.setContentView(dialogBinding.root)
+        doctorName = dialogBinding.etDoctorName.text.toString()
+        dialogBinding.appointmentDate.setOnClickListener {
+            pickAppointmentDate(dialogBinding)
+        }
+        dialogBinding.appointmentTime.setOnClickListener {
+            pickAppointmentTime(dialogBinding)
+        }
+        dialogBinding.btnSubmit.setOnClickListener {
+
+            val appointment = Appointment(0, doctorName, appointmentDate, appointmentTime, false, Prevalent.currentUser?.id.toString())
+
+            addAppointment(appointment)
+            makeToast(context,"Doctor name = $doctorName\nAppointment Date = $appointmentDate\nAppointment Time = $appointmentTime")
+            dialog.dismissWithAnimation = true
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    private fun addAppointment(appointment: Appointment) {
+        localViewModel.insertAppointment(appointment)
+    }
+
+    private fun pickAppointmentDate(dialogBinding: AddAppointmentDialogBinding) {
+        val calender : Calendar = Calendar.getInstance()
+        val year = calender.get(Calendar.YEAR)
+        val month = calender.get(Calendar.MONTH)
+        val dayOfWeek = calender.get(Calendar.DAY_OF_MONTH)
+        val dialog = DatePickerDialog(context as Context,{datePicker, year, month, day ->
+            appointmentDate =  "${setupMonth(month)} ${day.toString().padStart(2, '0')}, $year"
+            dialogBinding.appointmentDate.text = appointmentDate
+        },year,month,dayOfWeek).show()
+
+    }
+
+    private fun pickAppointmentTime(dialogBinding: AddAppointmentDialogBinding) {
+        val isSystem24Hour = DateFormat.is24HourFormat(requireContext())
+        val timeFormat = if (isSystem24Hour) TimeFormat.CLOCK_24H else TimeFormat.CLOCK_12H
+        val timePicker = MaterialTimePicker.Builder()
+            .setTimeFormat(timeFormat)
+            .setHour(12)
+            .setMinute(0)
+            .setTitleText("Medicine Time")
+            .build()
+        timePicker.show(childFragmentManager, "TAG")
+        timePicker.addOnPositiveButtonClickListener {
+            val hour = timePicker.hour
+            val minute = timePicker.minute
+            appointmentTime = "$hour:$minute"
+            dialogBinding.appointmentTime.text = appointmentTime
+        }
     }
 
     private fun setupDataSourceForAppointmentRecyclerView() {

@@ -1,6 +1,7 @@
 package com.grad.dawinii.datasource.local
 
 import androidx.room.*
+import com.grad.dawinii.model.entities.Appointment
 import com.grad.dawinii.model.entities.Medicine
 import com.grad.dawinii.model.entities.Note
 import com.grad.dawinii.model.entities.Routine
@@ -21,6 +22,9 @@ interface DawiniiDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNote(note: Note)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAppointment(appointment: Appointment)
 
     @Update
     suspend fun updateUser(user: User)
@@ -59,5 +63,6 @@ interface DawiniiDao {
 
     @Query("DELETE FROM medicine WHERE routineName = :routineName")
     fun deleteMedicines(routineName: String)
+
 
 }

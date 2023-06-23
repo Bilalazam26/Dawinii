@@ -33,17 +33,8 @@ import java.util.Calendar
 class RoutinesFragment : Fragment() {
     lateinit var binding: FragmentRoutinesBinding
     lateinit var adapter: RoutineRecyclerAdapter
-    //animations for fab
-    private val rotateOpen:Animation by lazy { AnimationUtils.loadAnimation(context,R.anim.rotate_open_anim) }
-    private val rotateClose:Animation by lazy { AnimationUtils.loadAnimation(context,R.anim.rotate_close_anim) }
-    private val fromBottom:Animation by lazy { AnimationUtils.loadAnimation(context,R.anim.from_bottom) }
-    private val toBottom:Animation by lazy { AnimationUtils.loadAnimation(context,R.anim.to_bottom) }
-    private var clicked = false
 
-    //for appointment dialog
-    var appointmentDate = ""
-    var appointmentTime = ""
-    var doctorName = ""
+
 
     private lateinit var localViewModel:LocalViewModel
 
@@ -86,91 +77,11 @@ class RoutinesFragment : Fragment() {
         binding.fabAddRoutine.setOnClickListener {
             Navigation.findNavController(binding.fabAddRoutine).navigate(R.id.action_to_add_routine)
         }
-        binding.fabAddAppointment.setOnClickListener{
-            showAddAppointmentDialog()
-        }
-        binding.fabAdd.setOnClickListener {
-            setVisibility(clicked)
-            setAnimation(clicked)
-            clicked = !clicked
-        }
-    }
-
-    private fun showAddAppointmentDialog() {
-        val dialog = BottomSheetDialog(requireContext())
-        val dialogBinding= AddAppointmentDialogBinding.inflate(layoutInflater,null,false)
-        dialog.setContentView(dialogBinding.root)
-        doctorName = dialogBinding.etDoctorName.text.toString()
-        dialogBinding.appointmentDate.setOnClickListener {
-            pickAppointmentDate(dialogBinding)
-        }
-        dialogBinding.appointmentTime.setOnClickListener {
-            pickAppointmentTime(dialogBinding)
-        }
-        dialogBinding.btnSubmit.setOnClickListener {
-            makeToast(context,"Doctor name = $doctorName\nAppointment Date = $appointmentDate\nAppointment Time = $appointmentTime")
-            dialog.dismissWithAnimation = true
-            dialog.dismiss()
-        }
-        dialog.show()
-    }
-
-    private fun pickAppointmentTime(dialogBinding: AddAppointmentDialogBinding) {
-        val isSystem24Hour = DateFormat.is24HourFormat(requireContext())
-        val timeFormat = if (isSystem24Hour) TimeFormat.CLOCK_24H else TimeFormat.CLOCK_12H
-        val timePicker = MaterialTimePicker.Builder()
-            .setTimeFormat(timeFormat)
-            .setHour(12)
-            .setMinute(0)
-            .setTitleText("Medicine Time")
-            .build()
-        timePicker.show(childFragmentManager, "TAG")
-        timePicker.addOnPositiveButtonClickListener {
-            val hour = timePicker.hour
-            val minute = timePicker.minute
-            appointmentTime = "$hour:$minute"
-            dialogBinding.appointmentTime.text = appointmentTime
-        }
-    }
-
-    private fun pickAppointmentDate(dialogBinding: AddAppointmentDialogBinding) {
-        val calender :Calendar = Calendar.getInstance()
-        val year = calender.get(Calendar.YEAR)
-        val month = calender.get(Calendar.MONTH)
-        val dayOfWeek = calender.get(Calendar.DAY_OF_MONTH)
-        val dialog = DatePickerDialog(context as Context,{datePicker, year, month, day ->
-            appointmentDate =  "${setupMonth(month)} ${day.toString().padStart(2, '0')}, $year"
-            dialogBinding.appointmentDate.text = appointmentDate
-        },year,month,dayOfWeek).show()
 
     }
 
-    private fun setVisibility(checked: Boolean) {
-        if (!checked){
-            binding.fabAddRoutine.visibility = View.VISIBLE
-            binding.fabAddRoutine.isEnabled = true
-            binding.fabAddAppointment.visibility = View.VISIBLE
-            binding.fabAddAppointment.isEnabled = true
-        }else{
-            binding.fabAddRoutine.visibility = View.INVISIBLE
-            binding.fabAddRoutine.isEnabled = false
-            binding.fabAddAppointment.visibility = View.INVISIBLE
-            binding.fabAddAppointment.isEnabled = false
-        }
-    }
 
-    private fun setAnimation(checked: Boolean) {
-        if(!checked){
-            binding.fabAdd.startAnimation(rotateOpen)
-            binding.fabAddRoutine.startAnimation(fromBottom)
-            binding.fabAddAppointment.startAnimation(fromBottom)
-        }
-        else{
-            binding.fabAdd.startAnimation(rotateClose)
-            binding.fabAddRoutine.startAnimation(toBottom)
-            binding.fabAddAppointment.startAnimation(toBottom)
-        }
-    }
+
 
     private fun setupDataSourceForRecycler() {
         localViewModel.getUserWithRoutines(Prevalent.currentUser?.id.toString())

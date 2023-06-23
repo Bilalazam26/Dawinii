@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.grad.dawinii.datasource.local.DawiniiDao
 import com.grad.dawinii.datasource.local.LocalDatabase
+import com.grad.dawinii.model.entities.Appointment
 import com.grad.dawinii.model.entities.Medicine
 import com.grad.dawinii.model.entities.Note
 import com.grad.dawinii.model.entities.Routine
@@ -36,6 +37,11 @@ class LocalViewModel(application: Application) : AndroidViewModel(application) {
     fun insertRoutine(routine: Routine, medicineList: MutableList<Medicine>) =
         viewModelScope.launch(Dispatchers.IO) {
             localRepository.insertRoutine(routine, medicineList)
+        }
+
+    fun insertAppointment(appointment: Appointment) =
+        viewModelScope.launch(Dispatchers.IO) {
+            localRepository.insertAppointment(appointment)
         }
 
     fun getLocalUser(userId: String) = viewModelScope.launch(Dispatchers.IO) {

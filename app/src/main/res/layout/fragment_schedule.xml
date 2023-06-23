@@ -70,4 +70,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_today_time" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_appointment"
+        style="@style/Widget.MaterialComponents.FloatingActionButton.myfab"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add"
+        android:contentDescription="@string/add"
+        app:tint="#CCFFFFFF"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
