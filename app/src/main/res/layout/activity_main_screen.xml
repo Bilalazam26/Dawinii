@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@color/primaryColor"
     tools:context=".view.main.MainScreenActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,12 +42,13 @@
             app:iconTint="@color/white"
             app:iconTintActive="@color/white"
             app:indicatorColor="@color/nav_bg"
-            app:indicatorRadius="18dp"
+            app:indicatorRadius="12dp"
             app:itemPadding="@dimen/margin8"
+            android:paddingStart="8dp"
             app:menu="@menu/main_screen_bnv"
             app:sideMargins="@dimen/margin8"
             app:textColor="@color/white"
-            app:textSize="@dimen/size_medium"
+            app:textSize="@dimen/size_small"
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <fragment

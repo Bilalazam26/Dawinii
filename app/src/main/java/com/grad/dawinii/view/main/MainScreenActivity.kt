@@ -1,36 +1,33 @@
 //Bilal is here
 package com.grad.dawinii.view.main
 
-
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.ImageView
 import android.widget.PopupMenu
-import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import com.bumptech.glide.Glide
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.grad.dawinii.R
 import com.grad.dawinii.databinding.ActivityMainScreenBinding
 import com.grad.dawinii.databinding.DrawerHeaderBinding
 import com.grad.dawinii.util.Constants
 import com.grad.dawinii.util.Prevalent
-import com.grad.dawinii.util.decodeStringToImageUri
 import com.grad.dawinii.util.makeToast
 import com.grad.dawinii.view.authentication.AuthActivity
 import com.grad.dawinii.view.drawer.AboutUsActivity
 import com.grad.dawinii.view.drawer.ProfileActivity
 import com.grad.dawinii.viewModel.AuthViewModel
 import io.paperdb.Paper
-
 
 class MainScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
 
@@ -59,6 +56,11 @@ class MainScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         binding.toolbar.setTitleTextColor(resources.getColor(R.color.white))
         setupDrawerAndToolBar()
         setupBottomNav()
+        setDrawerView()
+    }
+
+    private fun setDrawerView() {
+        val binding = DrawerHeaderBinding.inflate(layoutInflater)
     }
 
     private fun setupBottomNav() {
@@ -87,13 +89,6 @@ class MainScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         navigationView.setNavigationItemSelectedListener(this)
         toolbar.title = Prevalent.currentUser?.name
 
-        val headerView = navigationView.getHeaderView(0)
-        val headerImg = headerView.findViewById<ImageView>(R.id.user_pic_in_drawer)
-        val headerName = headerView.findViewById<TextView>(R.id.tv_user_name_in_drawer)
-
-        headerName.text = Prevalent.currentUser?.name
-        Glide.with(this).load(decodeStringToImageUri(this, Prevalent.currentUser?.image.toString())).placeholder(R.drawable.profile_circle).into(headerImg)
-        Log.d("MAIN", "${Prevalent.currentUser}")
     }
 
 
@@ -112,6 +107,7 @@ class MainScreenActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
 
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        makeToast(this@MainScreenActivity, "${item.title}")
         when (item.itemId) {
             R.id.profile -> startActivity(Intent(this, ProfileActivity::class.java))
             R.id.logout -> logOut()

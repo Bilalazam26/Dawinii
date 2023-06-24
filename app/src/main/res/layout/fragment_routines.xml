@@ -45,20 +45,13 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
             android:scaleType="fitXY"
-            android:src="@drawable/empty"
+            android:src="@drawable/empty_routine"
              />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/mada_bold"
-            android:text="@string/nothing_to_show"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-             />
+
 
     </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton

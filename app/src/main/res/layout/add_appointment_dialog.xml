@@ -29,6 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_doctor_name"
+        android:paddingStart="18dp"
         android:layout_marginTop="@dimen/margin16"
         android:textAllCaps="false" />
     <androidx.appcompat.widget.AppCompatButton
@@ -39,23 +40,27 @@
         android:paddingVertical="@dimen/margin16"
         style="@style/buttons_in_add_routine_fragment"
         android:text="@string/appointment_time"
+        android:paddingStart="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appointment_date"
         android:layout_marginTop="@dimen/margin16"
         android:textAllCaps="false"/>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/appointment_time"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/btn_background"
+        android:fontFamily="@font/mada_bold"
         android:text="@string/submit"
-        android:background="@drawable/outline_btn"
-        android:layout_marginTop="@dimen/margin32"
-        android:fontFamily="@font/manjari_bold"
-        android:textAllCaps="false"
-        android:textColor="@color/primaryColor"/>
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appointment_time" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

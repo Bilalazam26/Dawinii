@@ -61,10 +61,11 @@
         tools:listitem="@layout/medicine_layout" />
     <ImageView
         android:id="@+id/empty_medicine_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:alpha="0.7"
-        android:src="@drawable/nothing_to_ahow"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:alpha="0.8"
+        android:src="@drawable/empty_medicine"
+        app:layout_constraintVertical_bias="0.45"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

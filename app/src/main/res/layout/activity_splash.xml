@@ -30,24 +30,24 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/logo"
-        android:layout_width="150dp"
+        android:layout_width="480dp"
         android:layout_height="150dp"
-        android:src="@mipmap/logo"
+        android:src="@drawable/dawinii__2_"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/welcome_to_dawinii"
-        app:layout_constraintTop_toBottomOf="@id/logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="24sp"
-        android:textColor="@color/primaryColor"
-        android:fontFamily="@font/mada_bold"
-        android:layout_marginTop="16dp"/>
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/welcome_to_dawinii"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/logo"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:textSize="24sp"-->
+<!--        android:textColor="@color/primaryColor"-->
+<!--        android:fontFamily="@font/mada_bold"-->
+<!--        android:layout_marginTop="16dp"/>-->
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView"
