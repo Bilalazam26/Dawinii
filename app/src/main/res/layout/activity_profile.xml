@@ -21,15 +21,16 @@
             android:background="@color/fragment_background_color"
             android:padding="32dp">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/user_profile_picture"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:contentDescription="@string/profile_picture"
+                android:layout_marginBottom="@dimen/margin32"
+                android:layout_marginStart="@dimen/margin8"
+                android:src="@drawable/default_user_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/profile_circle" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/user_name"
@@ -65,7 +66,7 @@
                 android:layout_marginTop="16dp"
                 app:tint="@color/primaryColor" />
             <TextView
-                android:id="@+id/user_birth_date"
+                android:id="@+id/user_gender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/manjari_bold"

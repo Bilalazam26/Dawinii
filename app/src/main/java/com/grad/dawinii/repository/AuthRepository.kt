@@ -10,6 +10,7 @@ import com.google.firebase.database.*
 import com.grad.dawinii.datasource.local.DawiniiDao
 import com.grad.dawinii.model.entities.User
 import com.grad.dawinii.util.Constants
+import com.grad.dawinii.util.Prevalent
 import com.grad.dawinii.util.makeToast
 import io.paperdb.Paper
 import kotlinx.coroutines.CoroutineScope
@@ -45,6 +46,7 @@ class AuthRepository(application: Application,val dao: DawiniiDao) {
                     user.id = authReference.currentUser?.uid as String
                     if (authReference.currentUser?.isEmailVerified as Boolean) {
                         userMutableLiveData.postValue(user)
+                        Prevalent.currentUser = user
                     } else {
                         makeToast(application, "Please Check Your Email for Verification")
                         authReference.currentUser?.sendEmailVerification()
@@ -65,8 +67,10 @@ class AuthRepository(application: Application,val dao: DawiniiDao) {
         databaseReference.child(Constants.USER_DATABASE_REFERENCE).child(user.id.toString()).setValue(user)
             .addOnFailureListener {
                 makeToast(application, "Failed! : ${it.message.toString()}")
+            }.addOnSuccessListener {
+                makeToast(application, "Profile updated successfully")
             }
-
+        Prevalent.currentUser = user
     }
 
     suspend fun logIn(email: String, password: String){
@@ -103,6 +107,7 @@ class AuthRepository(application: Application,val dao: DawiniiDao) {
                     val user = snapshot.getValue(User::class.java)
                     userMutableLiveData.postValue(user as User)
                     dao.insertUser(user)
+                    Prevalent.currentUser = user
                 }
             }
 

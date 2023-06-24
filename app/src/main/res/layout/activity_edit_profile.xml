@@ -7,16 +7,14 @@
     android:orientation="vertical"
     android:background="@color/fragment_background_color"
     tools:context=".view.drawer.EditProfileActivity">
-    <com.google.android.material.imageview.ShapeableImageView
+
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageProfile"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="12dp"
-        android:scaleType="center"
-        android:background="@color/primaryColor"
-        android:src="@drawable/baseline_person_24"
-        app:shapeAppearanceOverlay="@style/Circular" />
+        android:layout_marginTop="@dimen/margin32"
+        android:src="@drawable/default_user_image"
+        android:layout_gravity="center"/>
 
     <EditText
         android:id="@+id/etProfileName"

@@ -18,14 +18,14 @@
         android:textSize="28sp"
         android:textColor="@color/primaryColor"/>
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/user_pic_in_drawer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/tv_user_name_in_drawer"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="192dp"
+        android:layout_height="192dp"
+        android:layout_marginBottom="@dimen/margin32"
+        android:layout_marginStart="@dimen/margin8"
+        android:src="@drawable/default_user_image"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/profile_circle"
-        android:contentDescription="@string/profile_picture" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

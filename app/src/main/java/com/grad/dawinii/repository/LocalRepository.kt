@@ -9,6 +9,7 @@ import com.grad.dawinii.model.entities.Note
 import com.grad.dawinii.model.entities.Routine
 import com.grad.dawinii.model.entities.User
 import com.grad.dawinii.model.relations.RoutineAndMedicine
+import com.grad.dawinii.util.Prevalent
 
 class LocalRepository(private val dao: DawiniiDao) {
 
@@ -32,6 +33,7 @@ class LocalRepository(private val dao: DawiniiDao) {
 
     suspend fun updateLocalUser(user: User) {
         dao.updateUser(user)
+        Prevalent.currentUser = user
     }
     suspend fun getUserWithRoutines(userId: String) {
         val userWithRoutines = dao.getUserWithRoutines(userId)
