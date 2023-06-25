@@ -6,7 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
+import com.grad.dawinii.R
 import com.grad.dawinii.databinding.FragmentHistoryBinding
+import com.grad.dawinii.model.entities.User
+import com.grad.dawinii.util.Prevalent
+import com.grad.dawinii.util.decodeStringToImageUri
 import com.grad.dawinii.view.history.AnalysisActivity
 import com.grad.dawinii.view.history.MedicinesActivity
 import com.grad.dawinii.view.history.NotesActivity
@@ -31,12 +36,17 @@ class HistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView()
+        updateUserView(Prevalent.currentUser)
         callbacks()
     }
 
-    private fun initView() {
-
+    private fun updateUserView(user: User?) {
+        binding.apply {
+            historyUsername.text = user?.name
+            historyUserAge.text = user?.age.toString()
+            historyUserGender.text = user?.gender
+            Glide.with(requireContext()).load(decodeStringToImageUri(requireContext(), user?.image.toString())).placeholder(R.drawable.profile_circle).into(historyUserImage)
+        }
     }
 
     private fun callbacks() {
@@ -50,9 +60,7 @@ class HistoryFragment : Fragment() {
             medicinesBtn.setOnClickListener {
                 startActivity(Intent(context,MedicinesActivity::class.java))
             }
-            statsBtn.setOnClickListener {
-                startActivity(Intent(context,StatisticsActivity::class.java))
-            }
+
         }
     }
 

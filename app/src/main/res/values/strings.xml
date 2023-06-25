@@ -154,5 +154,6 @@ Also the application has many features which make the app more reliable
     <string name="welcome_to_dawinii">Welcome to Dawinii</string>
     <string name="forget_your_password">Forget your password ?</string>
     <string name="ringtone">Ringtone</string>
+    <string name="add_analysis">Add Analysis</string>
 
 </resources>

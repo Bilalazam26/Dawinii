@@ -4,6 +4,171 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fragment_background_color"
     tools:context=".view.history.MedicinesActivity">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin16"
+        android:layout_marginVertical="@dimen/margin8"
+        android:background="@drawable/medicine_item_background"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/radius"
+        app:cardElevation="3dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/medicine_item_background"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/medicine_icon1"
+                android:layout_width="@dimen/ic50"
+                android:layout_height="@dimen/ic50"
+                android:layout_margin="@dimen/margin3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_pill_green" />
+
+            <TextView
+                android:id="@+id/medicine_name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin8"
+                android:layout_marginTop="@dimen/margin8"
+                android:fontFamily="@font/mada_bold"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/size_large"
+                app:layout_constraintStart_toEndOf="@+id/medicine_icon1"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="Medicine 1" />
+
+            <TextView
+                android:id="@+id/medicine_time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin8"
+                android:fontFamily="@font/manjari_regular"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/size_medium"
+                app:layout_constraintStart_toEndOf="@+id/medicine_icon1"
+                app:layout_constraintTop_toBottomOf="@+id/medicine_name1"
+                android:text="12:00" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin16"
+        android:layout_marginVertical="@dimen/margin8"
+        android:background="@drawable/medicine_item_background"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/radius"
+        app:cardElevation="3dp"
+        app:layout_constraintTop_toBottomOf="@id/card1"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/medicine_item_background"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/medicine_icon2"
+                android:layout_width="@dimen/ic50"
+                android:layout_height="@dimen/ic50"
+                android:layout_margin="@dimen/margin3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_pill_green" />
+
+            <TextView
+                android:id="@+id/medicine_name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin8"
+                android:layout_marginTop="@dimen/margin8"
+                android:fontFamily="@font/mada_bold"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/size_large"
+                app:layout_constraintStart_toEndOf="@+id/medicine_icon2"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="Medicine 2" />
+
+            <TextView
+                android:id="@+id/medicine_time2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin8"
+                android:fontFamily="@font/manjari_regular"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/size_medium"
+                app:layout_constraintStart_toEndOf="@+id/medicine_icon2"
+                app:layout_constraintTop_toBottomOf="@+id/medicine_name2"
+                android:text="02:00" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin16"
+        android:layout_marginVertical="@dimen/margin8"
+        android:background="@drawable/medicine_item_background"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/radius"
+        app:cardElevation="3dp"
+        app:layout_constraintTop_toBottomOf="@id/card2"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/medicine_item_background"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/medicine_icon3"
+                android:layout_width="@dimen/ic50"
+                android:layout_height="@dimen/ic50"
+                android:layout_margin="@dimen/margin3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_pill_green" />
+
+            <TextView
+                android:id="@+id/medicine_name3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin8"
+                android:layout_marginTop="@dimen/margin8"
+                android:fontFamily="@font/mada_bold"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/size_large"
+                app:layout_constraintStart_toEndOf="@+id/medicine_icon3"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="Medicine 3" />
+
+            <TextView
+                android:id="@+id/medicine_time3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin8"
+                android:fontFamily="@font/manjari_regular"
+                android:textColor="@color/primaryColor"
+                android:textSize="@dimen/size_medium"
+                app:layout_constraintStart_toEndOf="@+id/medicine_icon3"
+                app:layout_constraintTop_toBottomOf="@+id/medicine_name3"
+                android:text="02:00" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
