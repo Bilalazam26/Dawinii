@@ -1,34 +1,20 @@
-package com.grad.dawinii.view.main
+package com.grad.dawinii.view.main.routines
 
-import android.app.DatePickerDialog
-import android.content.Context
 import android.os.Bundle
-import android.text.format.DateFormat
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.timepicker.MaterialTimePicker
-import com.google.android.material.timepicker.TimeFormat
 import com.grad.dawinii.R
-import com.grad.dawinii.adapter.MedicineRecyclerAdapter
 import com.grad.dawinii.adapter.RoutineRecyclerAdapter
-import com.grad.dawinii.databinding.AddAppointmentDialogBinding
 import com.grad.dawinii.databinding.FragmentRoutinesBinding
 import com.grad.dawinii.interfaces.RoutineHelper
-import com.grad.dawinii.model.entities.Medicine
 import com.grad.dawinii.model.entities.Routine
 import com.grad.dawinii.util.Prevalent
-import com.grad.dawinii.util.makeToast
-import com.grad.dawinii.util.setupMonth
 import com.grad.dawinii.viewModel.LocalViewModel
-import java.util.Calendar
 
 class RoutinesFragment : Fragment() {
     lateinit var binding: FragmentRoutinesBinding
@@ -36,7 +22,7 @@ class RoutinesFragment : Fragment() {
 
 
 
-    private lateinit var localViewModel:LocalViewModel
+    private lateinit var localViewModel: LocalViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,12 +70,13 @@ class RoutinesFragment : Fragment() {
 
 
     private fun setupDataSourceForRecycler() {
-        localViewModel.getUserWithRoutines(Prevalent.currentUser?.id.toString())
+        localViewModel.getUserWithRoutines(Prevalent.Companion.currentUser?.id.toString())
     }
 
     private fun setupRecyclerView() {
-        binding.routineRecycler.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
-        adapter = RoutineRecyclerAdapter(requireContext(), object: RoutineHelper {
+        binding.routineRecycler.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        adapter = RoutineRecyclerAdapter(requireContext(), object : RoutineHelper {
             override fun deleteRoutine(routine: Routine) {
                 localViewModel.deleteRoutine(routine)
             }

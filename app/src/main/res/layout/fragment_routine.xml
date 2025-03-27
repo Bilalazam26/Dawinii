@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/main_fragment_background"
-    tools:context=".view.main.RoutinesFragment">
+    tools:context=".view.main.routines.RoutinesFragment">
 
     <TextView
         android:id="@+id/tv_routine_name"

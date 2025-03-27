@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/main_fragment_background"
     android:paddingTop="@dimen/margin16"
-    tools:context=".view.main.RoutinesFragment">
+    tools:context=".view.main.routines.RoutinesFragment">
     <TextView
         android:id="@+id/tv_routine"
         android:layout_width="wrap_content"

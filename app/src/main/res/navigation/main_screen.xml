@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/navigation_schedule"
-        android:name="com.grad.dawinii.view.main.ScheduleFragment"
+        android:name="com.grad.dawinii.view.main.schedule.ScheduleFragment"
         android:label="fragment_schedule"
         tools:layout="@layout/fragment_schedule" />
     <fragment
         android:id="@+id/navigation_routine"
-        android:name="com.grad.dawinii.view.main.RoutinesFragment"
+        android:name="com.grad.dawinii.view.main.routines.RoutinesFragment"
         android:label="fragment_routine"
         tools:layout="@layout/fragment_routines" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.grad.dawinii.view.main.HistoryFragment"
+        android:name="com.grad.dawinii.view.main.history.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
     <fragment

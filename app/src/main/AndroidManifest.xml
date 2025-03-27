@@ -52,16 +52,17 @@
         <activity
             android:name=".view.notification.NotificationActivity"
             android:launchMode="singleTop" />
-        <activity
-            android:name=".view.splash.SplashActivity"
-            android:exported="true">
 
-        </activity>
         <activity
             android:name=".view.main.MainScreenActivity"
             android:exported="true"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"/>
 
+
+
+        <activity
+            android:name=".view.authentication.AuthActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -69,9 +70,6 @@
             </intent-filter>
 
         </activity>
-        <activity
-            android:name=".view.authentication.AuthActivity"
-            android:exported="true" />
 
         <receiver
             android:name=".alarm.AlarmReceiver"
