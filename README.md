@@ -1,16 +1,15 @@
 # Dawinii
 Dawinii is Android Application That helps Patients to track their health, remind their medicine, keep track of Doctor appointments and also gives them some health advices with effective using of AI, NLP, Computer vision technologies and Android Development Features.
 
-used Tools & Technoligies:
-- Android Studio SDK
-- Kotlin
-- Firebase Real-Time Database
-- Firebase Authentication
-- MVVM
-- kotlin Coroutines
-- Room DB
-- Shared Preferences
+---
 
+## 📦 Download Tudee APK
+
+You can download and install the latest version of Tudee here:
+
+[⬇️ Download APK (v1.0.0)](https://github.com/Bilalazam26/Dawinii/releases/download/v1.0.0/app-release.apk)
+
+---
 
 ## 📸 Screen Shots
 <table>
@@ -51,5 +50,17 @@ used Tools & Technoligies:
     </td>
   </tr>
 </table>
+
+---
+
+used Tools & Technoligies:
+- Android Studio SDK
+- Kotlin
+- Firebase Real-Time Database
+- Firebase Authentication
+- MVVM
+- kotlin Coroutines
+- Room DB
+- Shared Preferences
 
 ---
