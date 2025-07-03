@@ -7,7 +7,7 @@ Dawinii is Android Application That helps Patients to track their health, remind
 
 You can download and install the latest version of Tudee here:
 
-[⬇️ Download APK (v1.0.0)](https://github.com/Bilalazam26/Dawinii/releases/download/v1.0.0/app-release.apk)
+[⬇️ Download APK (v1.0.0)](https://github.com/Bilalazam26/Dawinii/releases/download/v1.0.0/Dawinii.apk)
 
 ---
 
